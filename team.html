@@ -43,14 +43,19 @@
     }
     .team-card-img-wrap {
       position: relative;
+      width: 100%;
       aspect-ratio: 4 / 4.5;
       overflow: hidden;
     }
     .team-card-img-wrap img {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform var(--transition-smooth);
+      display: block;
     }
     .team-card:hover .team-card-img-wrap img {
       transform: scale(1.06);
@@ -82,7 +87,7 @@
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light p-0">
         <a class="navbar-brand" href="index.html" aria-label="Aura Finishes Home">
-          <div class="brand-icon-wrapper"><i class="bi bi-brush-fill"></i></div><div class="brand-text-group"><span class="brand-main">AURA</span><span class="brand-sub">FINISHES</span></div>
+          <div class="brand-icon-wrapper"><i class="bi bi-brush-fill"></i></div><div class="brand-text-group"><span class="brand-main">Aura</span><span class="brand-sub">Finishes</span></div>
         </a>
 
         <!-- Mobile Toggle Button -->
@@ -188,11 +193,7 @@
               <div class="team-card-body">
                 <h4 class="fw-bold fs-5 mb-1">Julian Vance</h4>
                 <div class="text-primary small fw-bold mb-2">Founder &amp; Master Finisher</div>
-                <p class="text-muted small mb-3">Trained in Florence, Julian specializes in grand estate lime plasters and architectural gilding.</p>
-                <div class="mt-auto d-flex gap-2 text-muted">
-                  <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                  <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                </div>
+                <p class="text-muted small mb-0">Trained in Florence, Julian specializes in grand estate lime plasters and architectural gilding.</p>
               </div>
             </div>
           </div>
@@ -207,11 +208,7 @@
               <div class="team-card-body">
                 <h4 class="fw-bold fs-5 mb-1">Elena Rostova</h4>
                 <div class="text-primary small fw-bold mb-2">Head of Color Architecture</div>
-                <p class="text-muted small mb-3">Former museum conservator, Elena formulates custom mineral pigments and room color palettes.</p>
-                <div class="mt-auto d-flex gap-2 text-muted">
-                  <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                  <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                </div>
+                <p class="text-muted small mb-0">Former museum conservator, Elena formulates custom mineral pigments and room color palettes.</p>
               </div>
             </div>
           </div>
@@ -226,11 +223,7 @@
               <div class="team-card-body">
                 <h4 class="fw-bold fs-5 mb-1">Mateo Rossi</h4>
                 <div class="text-primary small fw-bold mb-2">Venetian Plaster Specialist</div>
-                <p class="text-muted small mb-3">Third-generation Italian plasterer mastering Marmorino, Grassello, and seamless micro-cement.</p>
-                <div class="mt-auto d-flex gap-2 text-muted">
-                  <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                  <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                </div>
+                <p class="text-muted small mb-0">Third-generation Italian plasterer mastering Marmorino, Grassello, and seamless micro-cement.</p>
               </div>
             </div>
           </div>
@@ -245,11 +238,7 @@
               <div class="team-card-body">
                 <h4 class="fw-bold fs-5 mb-1">David Thorne</h4>
                 <div class="text-primary small fw-bold mb-2">Senior Project Director</div>
-                <p class="text-muted small mb-3">Directs on-site quality assurance, client timelines, and zero-dust preparation protocols.</p>
-                <div class="mt-auto d-flex gap-2 text-muted">
-                  <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                  <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                </div>
+                <p class="text-muted small mb-0">Directs on-site quality assurance, client timelines, and zero-dust preparation protocols.</p>
               </div>
             </div>
           </div>
@@ -264,11 +253,7 @@
               <div class="team-card-body">
                 <h4 class="fw-bold fs-5 mb-1">Claire Montgomery</h4>
                 <div class="text-primary small fw-bold mb-2">Heritage Restoration Lead</div>
-                <p class="text-muted small mb-3">Specialist in historic brownstone plaster restoration, molding replication, and patina matching.</p>
-                <div class="mt-auto d-flex gap-2 text-muted">
-                  <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                  <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                </div>
+                <p class="text-muted small mb-0">Specialist in historic brownstone plaster restoration, molding replication, and patina matching.</p>
               </div>
             </div>
           </div>
@@ -283,11 +268,7 @@
               <div class="team-card-body">
                 <h4 class="fw-bold fs-5 mb-1">Liam O'Connor</h4>
                 <div class="text-primary small fw-bold mb-2">Commercial Coating Lead</div>
-                <p class="text-muted small mb-3">Oversees large-scale corporate facilities, high-performance epoxies, and facade waterproofing.</p>
-                <div class="mt-auto d-flex gap-2 text-muted">
-                  <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                  <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                </div>
+                <p class="text-muted small mb-0">Oversees large-scale corporate facilities, high-performance epoxies, and facade waterproofing.</p>
               </div>
             </div>
           </div>
@@ -302,11 +283,7 @@
               <div class="team-card-body">
                 <h4 class="fw-bold fs-5 mb-1">Sofia Al-Mansoor</h4>
                 <div class="text-primary small fw-bold mb-2">Interior Color Stylist</div>
-                <p class="text-muted small mb-3">Helps homeowners and designers match ambient light temperature with curated mineral hues.</p>
-                <div class="mt-auto d-flex gap-2 text-muted">
-                  <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                  <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                </div>
+                <p class="text-muted small mb-0">Helps homeowners and designers match ambient light temperature with curated mineral hues.</p>
               </div>
             </div>
           </div>
@@ -321,11 +298,7 @@
               <div class="team-card-body">
                 <h4 class="fw-bold fs-5 mb-1">Henrik Lindqvist</h4>
                 <div class="text-primary small fw-bold mb-2">Precision Spray &amp; Prep Lead</div>
-                <p class="text-muted small mb-3">Master of German airless spray equipment for mirror-smooth lacquer and level-5 cabinetry finishes.</p>
-                <div class="mt-auto d-flex gap-2 text-muted">
-                  <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                  <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                </div>
+                <p class="text-muted small mb-0">Master of German airless spray equipment for mirror-smooth lacquer and level-5 cabinetry finishes.</p>
               </div>
             </div>
           </div>
@@ -355,9 +328,7 @@
             <div class="brand-icon-wrapper me-2">
               <i class="bi bi-brush-fill"></i>
             </div>
-            <div>
-              <span class="fw-bold text-white">AURA</span><span class="text-secondary fw-light">FINISHES</span>
-            </div>
+            <div class="brand-text-group"><span class="brand-main fw-bold text-white">Aura</span><span class="brand-sub text-secondary fw-bold">Finishes</span></div>
           </a>
           <p class="text-muted mt-3 mb-4">
             Aura Finishes &amp; Co. is a premier painting contractor specializing in luxury residential and commercial painting, Italian Venetian plaster, and architectural wall coatings.
