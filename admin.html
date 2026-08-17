@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard &bull; Aura Finishes &amp; Co.</title>
+  <meta name="description" content="Master executive administration and live content management system for Aura Finishes & Co.">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap 5 CSS & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/dark-mode.css">
+  <link rel="stylesheet" href="css/rtl.css">
+
+  <!-- Immediate Auth, Theme & Direction Initialization to Prevent FOIT / Unauthorized Flash -->
+  <script>
+    (function() {
+      var isVerifiedAdmin = false;
+      try {
+        var rawAdmin = localStorage.getItem('aura_admin_session');
+        var admin = rawAdmin ? JSON.parse(rawAdmin) : null;
+        var rawUser = localStorage.getItem('aura_auth_user');
+        var authUser = rawUser ? JSON.parse(rawUser) : null;
+        if ((admin && admin.role === 'admin') || (authUser && authUser.role === 'admin')) {
+          isVerifiedAdmin = true;
+        }
+      } catch(e) {}
+
+      if (!isVerifiedAdmin) {
+        window.location.replace('admin-login.html');
+        return;
+      }
+
+      var saved = localStorage.getItem('aura_theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', saved);
+      var savedDir = localStorage.getItem('aura_dir');
+      if (savedDir === 'rtl') {
+        document.documentElement.setAttribute('dir', 'rtl');
+      }
+    })();
+  </script>
+</head>
+<body class="admin-body">
+
+  <div class="admin-wrapper">
+    <!-- ====================================================================
+         1. ADMIN SIDEBAR NAVIGATION
+         ==================================================================== -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <!-- Brand Header -->
+      <a href="admin.html" class="admin-sidebar-brand">
+        <div class="admin-brand-icon">
+          <i class="bi bi-shield-check"></i>
+        </div>
+        <div class="admin-brand-text">
+          <span class="admin-brand-name">Aura Finishes</span>
+          <span class="admin-brand-badge">Admin Atelier</span>
+        </div>
+      </a>
+
+      <!-- Navigation List -->
+      <nav class="admin-nav">
+        <div class="admin-nav-section-title">Overview</div>
+        <a class="admin-nav-link active" data-target-pane="dashboard" id="nav-dashboard">
+          <i class="bi bi-grid-1x2-fill"></i>
+          <span>Dashboard</span>
+        </a>
+
+        <div class="admin-nav-section-title">Content &amp; Business</div>
+        <a class="admin-nav-link" data-target-pane="services" id="nav-services">
+          <i class="bi bi-brush-fill"></i>
+          <span>Services</span>
+          <span class="badge bg-secondary-subtle text-secondary admin-nav-badge" id="badgeCountServices">6</span>
+        </a>
+        <a class="admin-nav-link" data-target-pane="projects" id="nav-projects">
+          <i class="bi bi-images"></i>
+          <span>Projects</span>
+          <span class="badge bg-secondary-subtle text-secondary admin-nav-badge" id="badgeCountProjects">8</span>
+        </a>
+        <a class="admin-nav-link" data-target-pane="categories" id="nav-categories">
+          <i class="bi bi-tags-fill"></i>
+          <span>Project Categories</span>
+        </a>
+        <a class="admin-nav-link" data-target-pane="blog" id="nav-blog">
+          <i class="bi bi-journal-text"></i>
+          <span>Blog / Articles</span>
+          <span class="badge bg-secondary-subtle text-secondary admin-nav-badge" id="badgeCountArticles">6</span>
+        </a>
+        <a class="admin-nav-link" data-target-pane="testimonials" id="nav-testimonials">
+          <i class="bi bi-chat-square-quote-fill"></i>
+          <span>Testimonials</span>
+        </a>
+        <a class="admin-nav-link" data-target-pane="team" id="nav-team">
+          <i class="bi bi-person-badge-fill"></i>
+          <span>Team Members</span>
+        </a>
+
+        <div class="admin-nav-section-title">Inquiries &amp; Clients</div>
+        <a class="admin-nav-link" data-target-pane="quotes" id="nav-quotes">
+          <i class="bi bi-calculator-fill"></i>
+          <span>Quote Requests</span>
+          <span class="badge bg-danger admin-nav-badge" id="badgeCountQuotes">0</span>
+        </a>
+        <a class="admin-nav-link" data-target-pane="messages" id="nav-messages">
+          <i class="bi bi-envelope-paper-fill"></i>
+          <span>Contact Messages</span>
+          <span class="badge bg-primary admin-nav-badge" id="badgeCountMessages">0</span>
+        </a>
+        <a class="admin-nav-link" data-target-pane="users" id="nav-users">
+          <i class="bi bi-people-fill"></i>
+          <span>Users</span>
+          <span class="badge bg-secondary-subtle text-secondary admin-nav-badge" id="badgeCountUsers">0</span>
+        </a>
+
+        <div class="admin-nav-section-title">System Settings</div>
+        <a class="admin-nav-link" data-target-pane="social" id="nav-social">
+          <i class="bi bi-share-fill"></i>
+          <span>Social Media Links</span>
+        </a>
+        <a class="admin-nav-link" data-target-pane="settings" id="nav-settings">
+          <i class="bi bi-gear-fill"></i>
+          <span>Website Settings</span>
+        </a>
+        <a class="admin-nav-link text-danger mt-2" id="adminLogoutLink">
+          <i class="bi bi-box-arrow-left text-danger"></i>
+          <span class="text-danger">Logout</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- ====================================================================
+         2. MAIN ADMIN CONTENT CONTAINER
+         ==================================================================== -->
+    <div class="admin-main">
+      
+      <!-- Top Header Navigation -->
+      <header class="admin-header">
+        <div class="admin-header-left">
+          <button class="admin-sidebar-toggle" id="adminSidebarToggle" aria-label="Toggle Sidebar Navigation">
+            <i class="bi bi-list"></i>
+          </button>
+        </div>
+
+        <div class="admin-header-right">
+          <!-- View Public Website Button -->
+          <a href="index.html" class="btn-view-website" title="Open Public Website">
+            <i class="bi bi-arrow-up-right-square"></i>
+            <span>View Website</span>
+          </a>
+
+          <!-- Dark/Light Mode Switcher -->
+          <button class="admin-icon-btn mode-toggle" type="button" title="Toggle Theme" aria-label="Toggle Dark/Light Mode">
+            <i class="bi bi-moon-stars-fill"></i>
+          </button>
+
+          <!-- RTL / Language Switcher -->
+          <button class="admin-icon-btn rtl-toggle" id="adminRtlToggle" type="button" title="Toggle RTL Text Direction" aria-label="Toggle RTL Direction">
+            <i class="bi bi-translate"></i>
+          </button>
+
+          <!-- Notifications Dropdown -->
+          <div class="dropdown">
+            <button class="admin-icon-btn dropdown-toggle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifications">
+              <i class="bi bi-bell-fill"></i>
+              <span class="admin-badge-dot" id="headerNotificationDot" style="display: none;"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-subtle p-2" style="min-width: 280px;" id="headerNotificationsList">
+              <li class="px-3 py-2 border-bottom border-subtle">
+                <div class="small fw-bold text-heading">System Notifications</div>
+              </li>
+              <li class="p-3 text-center text-muted small" id="noNotificationsNotice">
+                <i class="bi bi-check-circle text-success fs-5 d-block mb-1"></i>
+                All inquiries and quotes are up to date!
+              </li>
+            </ul>
+          </div>
+
+          <!-- Admin Profile Dropdown -->
+          <div class="dropdown">
+            <button class="btn btn-link p-0 d-flex align-items-center gap-2 text-decoration-none" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <div class="admin-avatar">SA</div>
+              <span class="d-none d-md-inline-block small fw-bold text-heading" id="headerAdminName">Admin</span>
+              <i class="bi bi-chevron-down small text-muted"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-subtle">
+              <li class="px-3 py-2 border-bottom border-subtle">
+                <div class="small fw-bold text-heading" id="dropdownAdminName">Master Admin</div>
+                <div class="small text-muted" id="dropdownAdminEmail">admin@aurafinishes.com</div>
+              </li>
+              <li><a class="dropdown-item py-2" href="index.html"><i class="bi bi-house me-2 text-primary"></i>Public Website</a></li>
+              <li><a class="dropdown-item py-2" data-target-pane="settings" href="#settings"><i class="bi bi-sliders me-2 text-secondary"></i>Settings</a></li>
+              <li><hr class="dropdown-divider my-1"></li>
+              <li><button class="dropdown-item py-2 text-danger" id="topbarLogoutBtn" type="button"><i class="bi bi-box-arrow-left me-2"></i>Sign Out</button></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content Area with Active Panes -->
+      <main class="admin-content">
+
+        <!-- ================================================================
+             PANE 1: DASHBOARD HOME & ANALYTICS
+             ================================================================ -->
+        <section class="admin-pane" id="pane-dashboard">
+          <div class="admin-page-header">
+            <div>
+              <h1 class="admin-page-title">Executive Dashboard</h1>
+              <p class="admin-page-desc">Real-time overview of projects, client inquiries, quotes, and content metrics.</p>
+            </div>
+            <div class="d-flex gap-2">
+              <button class="btn btn-outline-secondary btn-sm" id="btnRefreshDashboard">
+                <i class="bi bi-arrow-clockwise me-1"></i> Refresh Data
+              </button>
+              <button class="btn btn-primary btn-sm" id="btnQuickAddProject">
+                <i class="bi bi-plus-lg me-1"></i> New Project
+              </button>
+            </div>
+          </div>
+
+          <!-- KPI Summary Cards Row (6 Cards) -->
+          <div class="row g-4 mb-4 align-items-stretch">
+            <!-- Total Users -->
+            <div class="col-xl-2 col-md-4 col-sm-6">
+              <div class="stat-card h-100" data-target-pane="users" onclick="navigateToPane('users')" role="button" tabindex="0" style="cursor: pointer;" title="View Users Management">
+                <div class="stat-info">
+                  <span class="stat-label">Total Users</span>
+                  <span class="stat-value" id="statTotalUsers">0</span>
+                  <span class="stat-change positive"><i class="bi bi-people"></i> Registered</span>
+                </div>
+                <div class="stat-icon-wrapper stat-icon-info">
+                  <i class="bi bi-people-fill"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Total Projects -->
+            <div class="col-xl-2 col-md-4 col-sm-6">
+              <div class="stat-card h-100" data-target-pane="projects" onclick="navigateToPane('projects')" role="button" tabindex="0" style="cursor: pointer;" title="View Projects Management">
+                <div class="stat-info">
+                  <span class="stat-label">Total Projects</span>
+                  <span class="stat-value" id="statTotalProjects">0</span>
+                  <span class="stat-change positive"><i class="bi bi-check-circle"></i> Portfolio</span>
+                </div>
+                <div class="stat-icon-wrapper stat-icon-primary">
+                  <i class="bi bi-images"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Total Services -->
+            <div class="col-xl-2 col-md-4 col-sm-6">
+              <div class="stat-card h-100" data-target-pane="services" onclick="navigateToPane('services')" role="button" tabindex="0" style="cursor: pointer;" title="View Services Management">
+                <div class="stat-info">
+                  <span class="stat-label">Total Services</span>
+                  <span class="stat-value" id="statTotalServices">0</span>
+                  <span class="stat-change neutral"><i class="bi bi-brush"></i> Active</span>
+                </div>
+                <div class="stat-icon-wrapper stat-icon-secondary">
+                  <i class="bi bi-brush-fill"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Blog Articles -->
+            <div class="col-xl-2 col-md-4 col-sm-6">
+              <div class="stat-card h-100" data-target-pane="blog" onclick="navigateToPane('blog')" role="button" tabindex="0" style="cursor: pointer;" title="View Articles Management">
+                <div class="stat-info">
+                  <span class="stat-label">Blog Articles</span>
+                  <span class="stat-value" id="statTotalArticles">0</span>
+                  <span class="stat-change positive"><i class="bi bi-journal-check"></i> Published</span>
+                </div>
+                <div class="stat-icon-wrapper stat-icon-purple">
+                  <i class="bi bi-journal-text"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Total Messages -->
+            <div class="col-xl-2 col-md-4 col-sm-6">
+              <div class="stat-card h-100" data-target-pane="messages" onclick="navigateToPane('messages')" role="button" tabindex="0" style="cursor: pointer;" title="View Contact Messages">
+                <div class="stat-info">
+                  <span class="stat-label">Total Messages</span>
+                  <span class="stat-value" id="statTotalMessages">0</span>
+                  <span class="stat-change neutral"><i class="bi bi-envelope"></i> Inquiries</span>
+                </div>
+                <div class="stat-icon-wrapper stat-icon-amber">
+                  <i class="bi bi-envelope-paper-fill"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quote Requests -->
+            <div class="col-xl-2 col-md-4 col-sm-6">
+              <div class="stat-card h-100" data-target-pane="quotes" onclick="navigateToPane('quotes')" role="button" tabindex="0" style="cursor: pointer;" title="View Quote Requests">
+                <div class="stat-info">
+                  <span class="stat-label">Quote Requests</span>
+                  <span class="stat-value" id="statTotalQuotes">0</span>
+                  <span class="stat-change positive"><i class="bi bi-calculator"></i> Bids</span>
+                </div>
+                <div class="stat-icon-wrapper stat-icon-success">
+                  <i class="bi bi-calculator-fill"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Charts Row -->
+          <div class="row g-4 mb-4">
+            <!-- Project Categories Chart -->
+            <div class="col-lg-6">
+              <div class="admin-card h-100 mb-0">
+                <div class="admin-card-header">
+                  <h3 class="admin-card-title"><i class="bi bi-pie-chart-fill text-primary me-2"></i>Projects by Category</h3>
+                  <span class="badge bg-surface-soft text-muted border border-subtle">Portfolio Distribution</span>
+                </div>
+                <div class="admin-card-body">
+                  <div id="chartProjectsCategory" class="admin-chart-container d-flex align-items-center justify-content-center">
+                    <!-- SVG Chart Dynamically Injected -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Monthly Inquiries & Quotes Trend -->
+            <div class="col-lg-6">
+              <div class="admin-card h-100 mb-0">
+                <div class="admin-card-header">
+                  <h3 class="admin-card-title"><i class="bi bi-graph-up-arrow text-secondary me-2"></i>Monthly Inquiries &amp; Quotes</h3>
+                  <span class="badge bg-surface-soft text-muted border border-subtle">2026 Activity</span>
+                </div>
+                <div class="admin-card-body">
+                  <div id="chartMonthlyTrends" class="admin-chart-container d-flex align-items-center justify-content-center">
+                    <!-- SVG Line Chart Dynamically Injected -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Activity Tables Row -->
+          <div class="row g-4">
+            <!-- Recent Quote Requests Table -->
+            <div class="col-lg-6">
+              <div class="admin-card mb-0">
+                <div class="admin-card-header">
+                  <h3 class="admin-card-title"><i class="bi bi-calculator text-primary me-2"></i>Recent Quote Requests</h3>
+                  <button class="btn btn-link btn-sm p-0 text-decoration-none" data-target-pane="quotes" onclick="navigateToPane('quotes')">View All &rarr;</button>
+                </div>
+                <div class="admin-table-responsive">
+                  <table class="admin-table">
+                    <thead>
+                      <tr>
+                        <th>Customer</th>
+                        <th>Service / Scope</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tableRecentQuotes">
+                      <!-- Rendered by js/admin.js -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recent Contact Messages Table -->
+            <div class="col-lg-6">
+              <div class="admin-card mb-0">
+                <div class="admin-card-header">
+                  <h3 class="admin-card-title"><i class="bi bi-envelope text-secondary me-2"></i>Recent Contact Messages</h3>
+                  <button class="btn btn-link btn-sm p-0 text-decoration-none" data-target-pane="messages" onclick="navigateToPane('messages')">View All &rarr;</button>
+                </div>
+                <div class="admin-table-responsive">
+                  <table class="admin-table">
+                    <thead>
+                      <tr>
+                        <th>Sender</th>
+                        <th>Subject</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tableRecentMessages">
+                      <!-- Rendered by js/admin.js -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             PANE 2: USERS MANAGEMENT
+             ================================================================ -->
+        <section class="admin-pane d-none" id="pane-users">
+          <div class="admin-page-header">
+            <div>
+              <h1 class="admin-page-title">Users Management</h1>
+              <p class="admin-page-desc">View registered client accounts, manage statuses, and grant administrative privileges.</p>
+            </div>
+            <button class="btn btn-primary btn-sm" id="btnAddUser">
+              <i class="bi bi-person-plus-fill me-1"></i> Add New User
+            </button>
+          </div>
+
+          <div class="admin-card">
+            <div class="admin-card-header flex-wrap gap-2">
+              <div class="d-flex align-items-center gap-2">
+                <input type="text" class="admin-form-control" style="width: 240px;" id="searchUsersInput" placeholder="Filter by name or email...">
+                <select class="admin-form-control" style="width: 140px;" id="filterUserStatus">
+                  <option value="all">All Status</option>
+                  <option value="active">Active</option>
+                  <option value="inactive">Inactive</option>
+                </select>
+              </div>
+              <span class="text-muted small" id="userCountSummary">Showing 0 users</span>
+            </div>
+
+            <div class="admin-table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>User</th>
+                    <th>Email Address</th>
+                    <th>Role</th>
+                    <th>Registration Date</th>
+                    <th>Status</th>
+                    <th class="text-end">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="tableUsersList">
+                  <!-- Rendered by js/admin.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             PANE 3: SERVICES MANAGEMENT
+             ================================================================ -->
+        <section class="admin-pane d-none" id="pane-services">
+          <div class="admin-page-header">
+            <div>
+              <h1 class="admin-page-title">Services Management</h1>
+              <p class="admin-page-desc">Add, edit, or remove painting and wall finishing services dynamically appearing on the website.</p>
+            </div>
+            <button class="btn btn-primary btn-sm" id="btnAddService">
+              <i class="bi bi-plus-lg me-1"></i> Add New Service
+            </button>
+          </div>
+
+          <div class="admin-card">
+            <div class="admin-card-header flex-wrap gap-2">
+              <input type="text" class="admin-form-control" style="width: 260px;" id="searchServicesInput" placeholder="Search services...">
+              <span class="text-muted small" id="serviceCountSummary">Showing 0 services</span>
+            </div>
+
+            <div class="admin-table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Service Image</th>
+                    <th>Service Title</th>
+                    <th>Slug Identifier</th>
+                    <th>Short Description</th>
+                    <th>Price Range</th>
+                    <th class="text-end">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="tableServicesList">
+                  <!-- Rendered by js/admin.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             PANE 4: PROJECTS MANAGEMENT
+             ================================================================ -->
+        <section class="admin-pane d-none" id="pane-projects">
+          <div class="admin-page-header">
+            <div>
+              <h1 class="admin-page-title">Portfolio Projects Management</h1>
+              <p class="admin-page-desc">Manage residential, commercial, and artisan finishes portfolio projects.</p>
+            </div>
+            <button class="btn btn-primary btn-sm" id="btnAddProject">
+              <i class="bi bi-plus-lg me-1"></i> Add New Project
+            </button>
+          </div>
+
+          <div class="admin-card">
+            <div class="admin-card-header flex-wrap gap-2">
+              <div class="d-flex align-items-center gap-2 flex-wrap">
+                <input type="text" class="admin-form-control" style="width: 240px;" id="searchProjectsInput" placeholder="Search projects...">
+                <select class="admin-form-control" style="width: 180px;" id="filterProjectCategory">
+                  <option value="all">All Categories</option>
+                  <option value="residential">Residential</option>
+                  <option value="commercial">Commercial</option>
+                  <option value="interior">Interior</option>
+                  <option value="exterior">Exterior</option>
+                  <option value="texture-plaster">Texture &amp; Plaster</option>
+                </select>
+              </div>
+              <span class="text-muted small" id="projectCountSummary">Showing 0 projects</span>
+            </div>
+
+            <div class="admin-table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Photo</th>
+                    <th>Project Title</th>
+                    <th>Category</th>
+                    <th>Location</th>
+                    <th>Scope / Area</th>
+                    <th>Duration</th>
+                    <th class="text-end">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="tableProjectsList">
+                  <!-- Rendered by js/admin.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             PANE 5: PROJECT CATEGORIES
+             ================================================================ -->
+        <section class="admin-pane d-none" id="pane-categories">
+          <div class="admin-page-header">
+            <div>
+              <h1 class="admin-page-title">Project Categories</h1>
+              <p class="admin-page-desc">Organize portfolio filters and category metadata.</p>
+            </div>
+            <button class="btn btn-primary btn-sm" id="btnAddCategory">
+              <i class="bi bi-tag-fill me-1"></i> Add Category
+            </button>
+          </div>
+
+          <div class="row g-4" id="categoriesGrid">
+            <!-- Injected by js/admin.js -->
+          </div>
+        </section>
+
+        <!-- ================================================================
+             PANE 6: BLOG / ARTICLES MANAGEMENT
+             ================================================================ -->
+        <section class="admin-pane d-none" id="pane-blog">
+          <div class="admin-page-header">
+            <div>
+              <h1 class="admin-page-title">Architectural Journal Management</h1>
+              <p class="admin-page-desc">Publish and manage editorial architectural journal articles and finishing guides.</p>
+            </div>
+            <button class="btn btn-primary btn-sm" id="btnAddArticle">
+              <i class="bi bi-journal-plus me-1"></i> Write New Article
+            </button>
+          </div>
+
+          <div class="admin-card">
+            <div class="admin-card-header flex-wrap gap-2">
+              <input type="text" class="admin-form-control" style="width: 260px;" id="searchArticlesInput" placeholder="Search articles or authors...">
+              <span class="text-muted small" id="articleCountSummary">Showing 0 articles</span>
+            </div>
+
+            <div class="admin-table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Featured Image</th>
+                    <th>Article Headline</th>
+                    <th>Category</th>
+                    <th>Author</th>
+                    <th>Publish Date</th>
+                    <th>Read Time</th>
+                    <th class="text-end">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="tableArticlesList">
+                  <!-- Rendered by js/admin.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             PANE 7: TESTIMONIALS MANAGEMENT
+             ================================================================ -->
+        <section class="admin-pane d-none" id="pane-testimonials">
+          <div class="admin-page-header">
+            <div>
+              <h1 class="admin-page-title">Testimonials &amp; Reviews</h1>
+              <p class="admin-page-desc">Manage verified client reviews and ratings displayed on the website.</p>
+            </div>
+            <button class="btn btn-primary btn-sm" id="btnAddTestimonial">
+              <i class="bi bi-plus-lg me-1"></i> Add Testimonial
+            </button>
+          </div>
+
+          <div class="admin-card">
+            <div class="admin-card-header flex-wrap gap-2">
+              <input type="text" class="admin-form-control" style="width: 260px;" id="searchTestimonialsInput" placeholder="Search client reviews...">
+              <span class="text-muted small" id="testimonialCountSummary">Showing 0 reviews</span>
+            </div>
+
+            <div class="admin-table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Client</th>
+                    <th>Role / Location</th>
+                    <th>Rating</th>
+                    <th>Testimonial Quote</th>
+                    <th class="text-end">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="tableTestimonialsList">
+                  <!-- Rendered by js/admin.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             PANE 8: CONTACT MESSAGES
+             ================================================================ -->
+        <section class="admin-pane d-none" id="pane-messages">
+          <div class="admin-page-header">
+            <div>
+              <h1 class="admin-page-title">Contact Messages &amp; Inquiries</h1>
+              <p class="admin-page-desc">Review and manage direct communication inquiries submitted on the contact page.</p>
+            </div>
+            <button class="btn btn-outline-secondary btn-sm" id="btnClearMessages">
+              <i class="bi bi-trash3 me-1"></i> Clear Old Inquiries
+            </button>
+          </div>
+
+          <div class="admin-card">
+            <div class="admin-card-header flex-wrap gap-2">
+              <input type="text" class="admin-form-control" style="width: 260px;" id="searchMessagesInput" placeholder="Search sender, email, subject...">
+              <span class="text-muted small" id="messageCountSummary">Showing 0 messages</span>
+            </div>
+
+            <div class="admin-table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Sender Name</th>
+                    <th>Email Address</th>
+                    <th>Phone</th>
+                    <th>Subject / Scope</th>
+                    <th>Received Date</th>
+                    <th>Status</th>
+                    <th class="text-end">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="tableMessagesList">
+                  <!-- Rendered by js/admin.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             PANE 9: QUOTE REQUESTS
+             ================================================================ -->
+        <section class="admin-pane d-none" id="pane-quotes">
+          <div class="admin-page-header">
+            <div>
+              <h1 class="admin-page-title">Quote &amp; Estimate Requests</h1>
+              <p class="admin-page-desc">Track project estimation requests, customer square footage, and budget scopes.</p>
+            </div>
+            <button class="btn btn-outline-secondary btn-sm" id="btnClearQuotes">
+              <i class="bi bi-trash3 me-1"></i> Clean Archives
+            </button>
+          </div>
+
+          <div class="admin-card">
+            <div class="admin-card-header flex-wrap gap-2">
+              <div class="d-flex align-items-center gap-2">
+                <input type="text" class="admin-form-control" style="width: 240px;" id="searchQuotesInput" placeholder="Search client or service...">
+                <select class="admin-form-control" style="width: 150px;" id="filterQuoteStatus">
+                  <option value="all">All Statuses</option>
+                  <option value="pending">Pending</option>
+                  <option value="contacted">Contacted</option>
+                  <option value="completed">Completed</option>
+                </select>
+              </div>
+              <span class="text-muted small" id="quoteCountSummary">Showing 0 requests</span>
+            </div>
+
+            <div class="admin-table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Customer</th>
+                    <th>Contact Info</th>
+                    <th>Service Required</th>
+                    <th>Project Scope</th>
+                    <th>Submission Date</th>
+                    <th>Status</th>
+                    <th class="text-end">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="tableQuotesList">
+                  <!-- Rendered by js/admin.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             PANE 10: TEAM MEMBERS
+             ================================================================ -->
+        <section class="admin-pane d-none" id="pane-team">
+          <div class="admin-page-header">
+            <div>
+              <h1 class="admin-page-title">Artisan Team Members</h1>
+              <p class="admin-page-desc">Manage craft directors, colorists, and plaster specialists shown on the Our Artisans page.</p>
+            </div>
+            <button class="btn btn-primary btn-sm" id="btnAddTeamMember">
+              <i class="bi bi-person-plus-fill me-1"></i> Add Artisan
+            </button>
+          </div>
+
+          <div class="admin-card">
+            <div class="admin-card-header flex-wrap gap-2">
+              <input type="text" class="admin-form-control" style="width: 260px;" id="searchTeamInput" placeholder="Search team members...">
+              <span class="text-muted small" id="teamCountSummary">Showing 0 team members</span>
+            </div>
+
+            <div class="admin-table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Photo</th>
+                    <th>Name</th>
+                    <th>Role / Title</th>
+                    <th>Experience</th>
+                    <th>Bio Snippet</th>
+                    <th>Social Links</th>
+                    <th class="text-end">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="tableTeamList">
+                  <!-- Rendered by js/admin.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             PANE 11: SOCIAL MEDIA SETTINGS
+             ================================================================ -->
+        <section class="admin-pane d-none" id="pane-social">
+          <div class="admin-page-header">
+            <div>
+              <h1 class="admin-page-title">Social Media Links Configuration</h1>
+              <p class="admin-page-desc">Configure official social channels. Updating these links immediately updates all public page footers and headers.</p>
+            </div>
+          </div>
+
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div class="admin-card">
+                <div class="admin-card-header">
+                  <h3 class="admin-card-title"><i class="bi bi-share text-primary me-2"></i>Official Social Accounts</h3>
+                </div>
+                <div class="admin-card-body">
+                  <form id="formSocialSettings">
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <label class="admin-form-label"><i class="bi bi-facebook text-primary me-1"></i> Facebook Page URL</label>
+                        <input type="url" class="admin-form-control" id="socialFacebook" required placeholder="https://www.facebook.com/">
+                      </div>
+                      <div class="col-md-6">
+                        <label class="admin-form-label"><i class="bi bi-instagram text-danger me-1"></i> Instagram Profile URL</label>
+                        <input type="url" class="admin-form-control" id="socialInstagram" required placeholder="https://www.instagram.com/">
+                      </div>
+                      <div class="col-md-6">
+                        <label class="admin-form-label"><i class="bi bi-twitter-x text-dark me-1"></i> X (Twitter) URL</label>
+                        <input type="url" class="admin-form-control" id="socialTwitter" required placeholder="https://x.com/">
+                      </div>
+                      <div class="col-md-6">
+                        <label class="admin-form-label"><i class="bi bi-linkedin text-info me-1"></i> LinkedIn Company URL</label>
+                        <input type="url" class="admin-form-control" id="socialLinkedin" required placeholder="https://www.linkedin.com/">
+                      </div>
+                      <div class="col-md-6">
+                        <label class="admin-form-label"><i class="bi bi-youtube text-danger me-1"></i> YouTube Channel URL</label>
+                        <input type="url" class="admin-form-control" id="socialYoutube" placeholder="https://www.youtube.com/">
+                      </div>
+                      <div class="col-md-6">
+                        <label class="admin-form-label"><i class="bi bi-pinterest text-danger me-1"></i> Pinterest URL</label>
+                        <input type="url" class="admin-form-control" id="socialPinterest" placeholder="https://www.pinterest.com/">
+                      </div>
+                    </div>
+
+                    <div class="mt-4 pt-3 border-top border-subtle d-flex justify-content-end gap-2">
+                      <button type="button" class="btn btn-outline-secondary" id="btnResetSocials">Reset to Defaults</button>
+                      <button type="submit" class="btn btn-primary"><i class="bi bi-check2-circle me-1"></i> Save &amp; Sync Public Website</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             PANE 12: WEBSITE SETTINGS
+             ================================================================ -->
+        <section class="admin-pane d-none" id="pane-settings">
+          <div class="admin-page-header">
+            <div>
+              <h1 class="admin-page-title">General Website Settings</h1>
+              <p class="admin-page-desc">Atelier company metadata, contact information, and master demo data reset.</p>
+            </div>
+          </div>
+
+          <div class="row g-4 justify-content-center">
+            <div class="col-lg-8">
+              <div class="admin-card mb-4">
+                <div class="admin-card-header">
+                  <h3 class="admin-card-title"><i class="bi bi-building text-primary me-2"></i>Atelier Company Information</h3>
+                </div>
+                <div class="admin-card-body">
+                  <form id="formGeneralSettings">
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <label class="admin-form-label">Company Brand Name</label>
+                        <input type="text" class="admin-form-control" id="settingBrandName" value="Aura Finishes &amp; Co.">
+                      </div>
+                      <div class="col-md-6">
+                        <label class="admin-form-label">Contact Telephone</label>
+                        <input type="text" class="admin-form-control" id="settingPhone" value="+1 (800) 555-AURA">
+                      </div>
+                      <div class="col-md-6">
+                        <label class="admin-form-label">Support &amp; Inquiries Email</label>
+                        <input type="email" class="admin-form-control" id="settingEmail" value="contact@aurafinishes.com">
+                      </div>
+                      <div class="col-md-6">
+                        <label class="admin-form-label">Operating Hours</label>
+                        <input type="text" class="admin-form-control" id="settingHours" value="Mon – Sat: 8:00 AM – 7:00 PM">
+                      </div>
+                      <div class="col-12">
+                        <label class="admin-form-label">Atelier Showroom Address</label>
+                        <input type="text" class="admin-form-control" id="settingAddress" value="742 Evergreen Terrace, Manhattan, New York, NY">
+                      </div>
+                    </div>
+
+                    <div class="mt-4 pt-3 border-top border-subtle d-flex justify-content-end">
+                      <button type="submit" class="btn btn-primary"><i class="bi bi-save me-1"></i> Save Company Settings</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <!-- Reset Data Tools -->
+              <div class="admin-card border-danger-subtle">
+                <div class="admin-card-header bg-danger-subtle text-danger">
+                  <h3 class="admin-card-title text-danger fs-6"><i class="bi bi-exclamation-triangle-fill me-2"></i>Demo Data Management</h3>
+                </div>
+                <div class="admin-card-body">
+                  <p class="text-muted small mb-3">
+                    If you wish to restore all default services, projects, articles, team members, and demo inquiries to their pristine state, you can reset the local database.
+                  </p>
+                  <button type="button" class="btn btn-outline-danger btn-sm" id="btnMasterResetData">
+                    <i class="bi bi-arrow-counterclockwise me-1"></i> Reset All Website Data to Factory Defaults
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       REUSABLE MODALS (ADD / EDIT / VIEW)
+       ==================================================================== -->
+
+  <!-- 1. Modal: User Add / Edit -->
+  <div class="modal fade admin-modal" id="modalUser" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="modalUserTitle">Add New User</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form id="formModalUser">
+          <input type="hidden" id="modalUserId">
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="admin-form-label">Full Name</label>
+              <input type="text" class="admin-form-control" id="modalUserName" required placeholder="Eleanor Vance">
+            </div>
+            <div class="mb-3">
+              <label class="admin-form-label">Email Address</label>
+              <input type="email" class="admin-form-control" id="modalUserEmail" required placeholder="eleanor@example.com">
+            </div>
+            <div class="mb-3">
+              <label class="admin-form-label">Role</label>
+              <select class="admin-form-control" id="modalUserRole">
+                <option value="client">Client</option>
+                <option value="admin">Administrator</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="admin-form-label">Account Status</label>
+              <select class="admin-form-control" id="modalUserStatus">
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary btn-sm">Save User</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Modal: Service Add / Edit -->
+  <div class="modal fade admin-modal" id="modalService" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="modalServiceTitle">Add New Service</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form id="formModalService">
+          <input type="hidden" id="modalServiceId">
+          <div class="modal-body">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="admin-form-label">Service Title</label>
+                <input type="text" class="admin-form-control" id="modalServiceTitleInput" required placeholder="Venetian Plaster Finishes">
+              </div>
+              <div class="col-md-6">
+                <label class="admin-form-label">Slug Identifier (URL param)</label>
+                <input type="text" class="admin-form-control" id="modalServiceSlug" required placeholder="venetian-plaster">
+              </div>
+              <div class="col-md-6">
+                <label class="admin-form-label">Price Range / Estimate</label>
+                <input type="text" class="admin-form-control" id="modalServicePrice" placeholder="$18 – $35 / sq.ft.">
+              </div>
+              <div class="col-md-6">
+                <label class="admin-form-label">Icon Class (Bootstrap Icons)</label>
+                <input type="text" class="admin-form-control" id="modalServiceIcon" placeholder="bi-brush-fill">
+              </div>
+              <div class="col-12">
+                <label class="admin-form-label">Image URL</label>
+                <input type="url" class="admin-form-control" id="modalServiceImage" required placeholder="https://images.unsplash.com/photo-...">
+              </div>
+              <div class="col-12">
+                <label class="admin-form-label">Short Summary Description</label>
+                <textarea class="admin-form-control" id="modalServiceShortDesc" rows="2" required placeholder="Brief luxury description for cards..."></textarea>
+              </div>
+              <div class="col-12">
+                <label class="admin-form-label">Full Editorial Details</label>
+                <textarea class="admin-form-control" id="modalServiceFullDetails" rows="4" placeholder="Detailed architectural scope..."></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary btn-sm">Save Service</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Modal: Project Add / Edit -->
+  <div class="modal fade admin-modal" id="modalProject" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="modalProjectTitle">Add New Project</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form id="formModalProject">
+          <input type="hidden" id="modalProjectId">
+          <div class="modal-body">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="admin-form-label">Project Title</label>
+                <input type="text" class="admin-form-control" id="modalProjectTitleInput" required placeholder="Tribeca Penthouse Suite">
+              </div>
+              <div class="col-md-6">
+                <label class="admin-form-label">Slug Identifier (URL param)</label>
+                <input type="text" class="admin-form-control" id="modalProjectSlug" required placeholder="tribeca-penthouse-suite">
+              </div>
+              <div class="col-md-6">
+                <label class="admin-form-label">Category</label>
+                <select class="admin-form-control" id="modalProjectCategory">
+                  <option value="residential">Residential</option>
+                  <option value="commercial">Commercial</option>
+                  <option value="interior">Interior</option>
+                  <option value="exterior">Exterior</option>
+                  <option value="texture-plaster">Texture &amp; Plaster</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="admin-form-label">Category Subtitle Pill</label>
+                <input type="text" class="admin-form-control" id="modalProjectCategoryPill" placeholder="Residential • Venetian Plaster">
+              </div>
+              <div class="col-md-6">
+                <label class="admin-form-label">Location</label>
+                <input type="text" class="admin-form-control" id="modalProjectLocation" placeholder="Tribeca, New York">
+              </div>
+              <div class="col-md-3">
+                <label class="admin-form-label">Area</label>
+                <input type="text" class="admin-form-control" id="modalProjectArea" placeholder="5,200 sq.ft.">
+              </div>
+              <div class="col-md-3">
+                <label class="admin-form-label">Duration</label>
+                <input type="text" class="admin-form-control" id="modalProjectDuration" placeholder="4 Weeks">
+              </div>
+              <div class="col-12">
+                <label class="admin-form-label">Hero / Featured Image URL</label>
+                <input type="url" class="admin-form-control" id="modalProjectImage" required placeholder="https://images.unsplash.com/photo-...">
+              </div>
+              <div class="col-12">
+                <label class="admin-form-label">Project Description</label>
+                <textarea class="admin-form-control" id="modalProjectDescription" rows="3" placeholder="Architectural overview of the finish execution..."></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary btn-sm">Save Project</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3b. Modal: Category Add / Edit -->
+  <div class="modal fade admin-modal" id="modalCategory" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="modalCategoryTitle">Add Project Category</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form id="formModalCategory">
+          <input type="hidden" id="modalCategoryId">
+          <div class="modal-body">
+            <div class="row g-3">
+              <div class="col-12">
+                <label class="admin-form-label">Category Name</label>
+                <input type="text" class="admin-form-control" id="modalCategoryName" required placeholder="e.g. Architectural Millwork">
+              </div>
+              <div class="col-12">
+                <label class="admin-form-label">Category Slug / ID</label>
+                <input type="text" class="admin-form-control" id="modalCategorySlug" required placeholder="e.g. architectural-millwork">
+              </div>
+              <div class="col-12">
+                <label class="admin-form-label">Description</label>
+                <textarea class="admin-form-control" id="modalCategoryDescription" rows="3" placeholder="Brief description of this portfolio category..."></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary btn-sm">Save Category</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Modal: Article Add / Edit -->
+  <div class="modal fade admin-modal" id="modalArticle" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="modalArticleTitle">Write New Article</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form id="formModalArticle">
+          <input type="hidden" id="modalArticleId">
+          <div class="modal-body">
+            <div class="row g-3">
+              <div class="col-md-8">
+                <label class="admin-form-label">Article Headline</label>
+                <input type="text" class="admin-form-control" id="modalArticleTitleInput" required placeholder="7 Architectural Paint Colors Defining Modern Luxury in 2026">
+              </div>
+              <div class="col-md-4">
+                <label class="admin-form-label">Category</label>
+                <input type="text" class="admin-form-control" id="modalArticleCategory" required placeholder="Color Trends">
+              </div>
+              <div class="col-md-6">
+                <label class="admin-form-label">Slug Identifier (URL param)</label>
+                <input type="text" class="admin-form-control" id="modalArticleSlug" required placeholder="color-trends-2026">
+              </div>
+              <div class="col-md-3">
+                <label class="admin-form-label">Author Name</label>
+                <input type="text" class="admin-form-control" id="modalArticleAuthor" required placeholder="Elena Rostova">
+              </div>
+              <div class="col-md-3">
+                <label class="admin-form-label">Read Time</label>
+                <input type="text" class="admin-form-control" id="modalArticleReadTime" placeholder="6 Min Read">
+              </div>
+              <div class="col-12">
+                <label class="admin-form-label">Featured Image URL</label>
+                <input type="url" class="admin-form-control" id="modalArticleImage" required placeholder="https://images.unsplash.com/photo-...">
+              </div>
+              <div class="col-12">
+                <label class="admin-form-label">Article Editorial Content (Markdown / HTML supported)</label>
+                <textarea class="admin-form-control" id="modalArticleContent" rows="6" required placeholder="Rich architectural analysis content..."></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary btn-sm">Save Article</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Modal: Testimonial Add / Edit -->
+  <div class="modal fade admin-modal" id="modalTestimonial" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="modalTestimonialTitle">Add Testimonial</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form id="formModalTestimonial">
+          <input type="hidden" id="modalTestimonialId">
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="admin-form-label">Customer / Client Name</label>
+              <input type="text" class="admin-form-control" id="modalTestimonialName" required placeholder="Arthur &amp; Beatrice Sterling">
+            </div>
+            <div class="mb-3">
+              <label class="admin-form-label">Role / Residence Location</label>
+              <input type="text" class="admin-form-control" id="modalTestimonialRole" placeholder="Tribeca Penthouse Owner">
+            </div>
+            <div class="mb-3">
+              <label class="admin-form-label">Rating (1 to 5 Stars)</label>
+              <select class="admin-form-control" id="modalTestimonialRating">
+                <option value="5">★★★★★ (5 Stars)</option>
+                <option value="4">★★★★☆ (4 Stars)</option>
+                <option value="3">★★★☆☆ (3 Stars)</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="admin-form-label">Client Photo / Avatar URL</label>
+              <input type="url" class="admin-form-control" id="modalTestimonialAvatar" placeholder="https://images.unsplash.com/photo-...">
+            </div>
+            <div class="mb-3">
+              <label class="admin-form-label">Review Text</label>
+              <textarea class="admin-form-control" id="modalTestimonialText" rows="3" required placeholder="Client quote review..."></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary btn-sm">Save Testimonial</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Modal: Team Member Add / Edit -->
+  <div class="modal fade admin-modal" id="modalTeamMember" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="modalTeamMemberTitle">Add Team Member</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form id="formModalTeamMember">
+          <input type="hidden" id="modalTeamMemberId">
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="admin-form-label">Full Name</label>
+              <input type="text" class="admin-form-control" id="modalTeamName" required placeholder="Julian Vance">
+            </div>
+            <div class="mb-3">
+              <label class="admin-form-label">Position / Craft Role</label>
+              <input type="text" class="admin-form-control" id="modalTeamRole" required placeholder="Founder &amp; Master Finisher">
+            </div>
+            <div class="mb-3">
+              <label class="admin-form-label">Experience Badge</label>
+              <input type="text" class="admin-form-control" id="modalTeamExp" placeholder="18 Yrs Exp">
+            </div>
+            <div class="mb-3">
+              <label class="admin-form-label">Portrait Photo URL</label>
+              <input type="url" class="admin-form-control" id="modalTeamPhoto" required placeholder="https://images.unsplash.com/photo-...">
+            </div>
+            <div class="mb-3">
+              <label class="admin-form-label">Bio Description</label>
+              <textarea class="admin-form-control" id="modalTeamBio" rows="2" placeholder="Artisan background and specialization..."></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary btn-sm">Save Team Member</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. Modal: View Message Details -->
+  <div class="modal fade admin-modal" id="modalViewMessage" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold">Message Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="p-3 bg-surface-soft rounded-3 border border-subtle mb-3">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="fw-bold text-heading fs-6" id="viewMessageSender">Sender Name</span>
+              <span class="badge bg-primary-subtle text-primary" id="viewMessageDate">Date</span>
+            </div>
+            <div class="small text-muted mb-1"><i class="bi bi-envelope me-1"></i> <span id="viewMessageEmail">email@example.com</span></div>
+            <div class="small text-muted"><i class="bi bi-telephone me-1"></i> <span id="viewMessagePhone">Phone</span></div>
+          </div>
+          <div class="mb-2">
+            <span class="small fw-bold text-heading">Subject / Scope:</span>
+            <div class="text-primary fw-semibold" id="viewMessageSubject">Subject</div>
+          </div>
+          <div>
+            <span class="small fw-bold text-heading">Message Body:</span>
+            <div class="p-3 bg-surface-soft rounded-3 border border-subtle mt-1 text-main" id="viewMessageBody">
+              Message text...
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+          <a href="#" class="btn btn-primary btn-sm" id="viewMessageReplyBtn"><i class="bi bi-reply-fill me-1"></i> Reply via Email</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. Modal: View Quote Details -->
+  <div class="modal fade admin-modal" id="modalViewQuote" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold">Quote Request Scope</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-3 mb-3">
+            <div class="col-md-6">
+              <div class="p-3 bg-surface-soft rounded-3 border border-subtle h-100">
+                <span class="small text-muted text-uppercase fw-bold">Client Information</span>
+                <div class="fw-bold text-heading fs-6 mt-1" id="viewQuoteCustomer">Customer Name</div>
+                <div class="small text-muted mt-1"><i class="bi bi-envelope me-1"></i> <span id="viewQuoteEmail">email</span></div>
+                <div class="small text-muted"><i class="bi bi-telephone me-1"></i> <span id="viewQuotePhone">phone</span></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-3 bg-surface-soft rounded-3 border border-subtle h-100">
+                <span class="small text-muted text-uppercase fw-bold">Project Specification</span>
+                <div class="fw-bold text-primary fs-6 mt-1" id="viewQuoteService">Service Name</div>
+                <div class="small text-muted mt-1">Scope / Size: <strong class="text-heading" id="viewQuoteArea">3,500 sq.ft.</strong></div>
+                <div class="small text-muted">Timeline: <strong class="text-heading" id="viewQuoteTimeline">Immediate</strong></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <span class="small fw-bold text-heading">Project Notes &amp; Client Description:</span>
+            <div class="p-3 bg-surface-soft rounded-3 border border-subtle mt-1 text-main" id="viewQuoteMessage">
+              Detailed notes...
+            </div>
+          </div>
+          <div class="mt-3">
+            <label class="admin-form-label">Update Request Status:</label>
+            <select class="admin-form-control" style="max-width: 200px;" id="viewQuoteStatusSelect">
+              <option value="pending">Pending Review</option>
+              <option value="contacted">Contacted / Estimate Sent</option>
+              <option value="completed">Contract Signed / Completed</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary btn-sm" id="btnSaveQuoteStatus">Save Status Change</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+</body>
+</html>
