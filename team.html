@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Master Artisans — Aura Finishes & Co. | Painting Experts</title>
+  <meta name="description" content="Meet the master painters, Venetian plaster artisans, and color architects behind Aura Finishes & Co.">
+  <meta property="og:title" content="Our Master Artisans — Aura Finishes & Co.">
+  <meta property="og:description" content="Certified architectural finishers with decades of combined mastery in luxury painting and decorative plaster.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Outfit, Playfair Display & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS & Bootstrap Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Master Theme Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/dark-mode.css">
+  <link rel="stylesheet" href="css/rtl.css">
+
+  <style>
+    .team-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-normal);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .team-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--primary);
+      box-shadow: var(--shadow-xl);
+    }
+    .team-card-img-wrap {
+      position: relative;
+      aspect-ratio: 4 / 4.5;
+      overflow: hidden;
+    }
+    .team-card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-smooth);
+    }
+    .team-card:hover .team-card-img-wrap img {
+      transform: scale(1.06);
+    }
+    .team-badge-exp {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      background: rgba(20, 23, 26, 0.85);
+      color: #FFFFFF;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-full);
+      backdrop-filter: blur(6px);
+    }
+    .team-card-body {
+      padding: 1.75rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" fetchpriority="high">
+</head>
+<body>
+  <!-- Main Sticky Header & Navigation -->
+  <header class="main-header">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light p-0">
+        <a class="navbar-brand" href="index.html" aria-label="Aura Finishes Home">
+          <div class="brand-icon-wrapper"><i class="bi bi-brush-fill"></i></div><div class="brand-text-group"><span class="brand-main">AURA</span><span class="brand-sub">FINISHES</span></div>
+        </a>
+
+        <!-- Mobile Toggle Button -->
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="bi bi-list fs-2 text-dark"></i>
+        </button>
+
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Home
+              </a>
+              <ul class="dropdown-menu border-0 shadow-lg">
+                <li><a class="dropdown-item" href="index.html"><i class="bi bi-house-door me-2 text-primary"></i>Home 1 — General Contractor</a></li>
+                <li><a class="dropdown-item" href="index-2.html"><i class="bi bi-brush me-2 text-primary"></i>Home 2 — Architectural Luxury</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Services
+              </a>
+              <ul class="dropdown-menu border-0 shadow-lg">
+                <li><a class="dropdown-item" href="services.html"><i class="bi bi-grid me-2 text-primary"></i>All Services</a></li>
+                <li><a class="dropdown-item" href="service-details.html"><i class="bi bi-palette me-2 text-primary"></i>Interior Painting &amp; Finishing</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Projects
+              </a>
+              <ul class="dropdown-menu border-0 shadow-lg">
+                <li><a class="dropdown-item" href="projects.html"><i class="bi bi-images me-2 text-primary"></i>Project Portfolio</a></li>
+                <li><a class="dropdown-item" href="project-details.html"><i class="bi bi-journal-check me-2 text-primary"></i>Project Details Case Study</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="color-consultation.html">Color Studio</a></li>
+            <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Pages
+              </a>
+              <ul class="dropdown-menu border-0 shadow-lg">
+                <li><a class="dropdown-item" href="team.html"><i class="bi bi-people me-2 text-primary"></i>Our Team</a></li>
+                <li><a class="dropdown-item" href="testimonials.html"><i class="bi bi-star me-2 text-primary"></i>Testimonials</a></li>
+                <li><a class="dropdown-item" href="faq.html"><i class="bi bi-question-circle me-2 text-primary"></i>FAQ</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Journal
+              </a>
+              <ul class="dropdown-menu border-0 shadow-lg">
+                <li><a class="dropdown-item" href="blog.html"><i class="bi bi-newspaper me-2 text-primary"></i>Blog Journal</a></li>
+                <li><a class="dropdown-item" href="blog-details.html"><i class="bi bi-file-earmark-text me-2 text-primary"></i>Article Details</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+
+          <!-- Action Controls -->
+          <div class="header-actions">
+            <button class="mode-toggle" type="button" title="Toggle Dark/Light Mode" aria-label="Toggle Dark Theme">
+              <i class="bi bi-moon-stars-fill"></i>
+            </button>
+            <button class="rtl-toggle" type="button" title="Toggle RTL Text Direction" aria-label="Toggle RTL Direction">
+              <i class="bi bi-translate"></i>
+            </button>
+            <a href="register.html" class="btn btn-primary btn-sm ms-2">
+              <i class="bi bi-person-plus me-1"></i> Sign Up
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="py-5 bg-surface-soft border-bottom border-subtle">
+      <div class="container py-4 text-center">
+        <div class="eyebrow justify-content-center">The Artisans</div>
+        <h1 class="display-4 fw-bold mb-3">Master Craftsmen &amp; Color Architects</h1>
+        <p class="text-muted fs-5 max-w-700 mx-auto mb-0">
+          Our team comprises certified Italian plaster masters, architectural colorists, and project leads dedicated to flawless execution.
+        </p>
+      </div>
+    </section>
+
+    <!-- TEAM GRID -->
+    <section class="py-6" style="padding: 6rem 0;">
+      <div class="container">
+        <div class="row g-4">
+          <!-- Member 1 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="team-card">
+              <div class="team-card-img-wrap">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Julian Vance" width="800" height="600" decoding="async" loading="eager" fetchpriority="high">
+                <span class="team-badge-exp">18 Yrs Exp</span>
+              </div>
+              <div class="team-card-body">
+                <h4 class="fw-bold fs-5 mb-1">Julian Vance</h4>
+                <div class="text-primary small fw-bold mb-2">Founder &amp; Master Finisher</div>
+                <p class="text-muted small mb-3">Trained in Florence, Julian specializes in grand estate lime plasters and architectural gilding.</p>
+                <div class="mt-auto d-flex gap-2 text-muted">
+                  <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                  <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Member 2 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="team-card">
+              <div class="team-card-img-wrap">
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80" alt="Elena Rostova" width="800" height="600" decoding="async" loading="lazy">
+                <span class="team-badge-exp">14 Yrs Exp</span>
+              </div>
+              <div class="team-card-body">
+                <h4 class="fw-bold fs-5 mb-1">Elena Rostova</h4>
+                <div class="text-primary small fw-bold mb-2">Head of Color Architecture</div>
+                <p class="text-muted small mb-3">Former museum conservator, Elena formulates custom mineral pigments and room color palettes.</p>
+                <div class="mt-auto d-flex gap-2 text-muted">
+                  <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                  <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Member 3 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="team-card">
+              <div class="team-card-img-wrap">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" alt="Mateo Rossi" width="800" height="600" decoding="async" loading="lazy">
+                <span class="team-badge-exp">16 Yrs Exp</span>
+              </div>
+              <div class="team-card-body">
+                <h4 class="fw-bold fs-5 mb-1">Mateo Rossi</h4>
+                <div class="text-primary small fw-bold mb-2">Venetian Plaster Specialist</div>
+                <p class="text-muted small mb-3">Third-generation Italian plasterer mastering Marmorino, Grassello, and seamless micro-cement.</p>
+                <div class="mt-auto d-flex gap-2 text-muted">
+                  <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                  <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Member 4 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="team-card">
+              <div class="team-card-img-wrap">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80" alt="David Thorne" width="800" height="600" decoding="async" loading="lazy">
+                <span class="team-badge-exp">12 Yrs Exp</span>
+              </div>
+              <div class="team-card-body">
+                <h4 class="fw-bold fs-5 mb-1">David Thorne</h4>
+                <div class="text-primary small fw-bold mb-2">Senior Project Director</div>
+                <p class="text-muted small mb-3">Directs on-site quality assurance, client timelines, and zero-dust preparation protocols.</p>
+                <div class="mt-auto d-flex gap-2 text-muted">
+                  <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                  <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Member 5 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="team-card">
+              <div class="team-card-img-wrap">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Claire Montgomery" width="800" height="600" decoding="async" loading="lazy">
+                <span class="team-badge-exp">10 Yrs Exp</span>
+              </div>
+              <div class="team-card-body">
+                <h4 class="fw-bold fs-5 mb-1">Claire Montgomery</h4>
+                <div class="text-primary small fw-bold mb-2">Heritage Restoration Lead</div>
+                <p class="text-muted small mb-3">Specialist in historic brownstone plaster restoration, molding replication, and patina matching.</p>
+                <div class="mt-auto d-flex gap-2 text-muted">
+                  <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                  <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Member 6 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="team-card">
+              <div class="team-card-img-wrap">
+                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80" alt="Liam O'Connor" width="800" height="600" decoding="async" loading="lazy">
+                <span class="team-badge-exp">15 Yrs Exp</span>
+              </div>
+              <div class="team-card-body">
+                <h4 class="fw-bold fs-5 mb-1">Liam O'Connor</h4>
+                <div class="text-primary small fw-bold mb-2">Commercial Coating Lead</div>
+                <p class="text-muted small mb-3">Oversees large-scale corporate facilities, high-performance epoxies, and facade waterproofing.</p>
+                <div class="mt-auto d-flex gap-2 text-muted">
+                  <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                  <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Member 7 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="team-card">
+              <div class="team-card-img-wrap">
+                <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=600&q=80" alt="Sofia Al-Mansoor" width="800" height="600" decoding="async" loading="lazy">
+                <span class="team-badge-exp">9 Yrs Exp</span>
+              </div>
+              <div class="team-card-body">
+                <h4 class="fw-bold fs-5 mb-1">Sofia Al-Mansoor</h4>
+                <div class="text-primary small fw-bold mb-2">Interior Color Stylist</div>
+                <p class="text-muted small mb-3">Helps homeowners and designers match ambient light temperature with curated mineral hues.</p>
+                <div class="mt-auto d-flex gap-2 text-muted">
+                  <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                  <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Member 8 -->
+          <div class="col-md-6 col-lg-3">
+            <div class="team-card">
+              <div class="team-card-img-wrap">
+                <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=600&q=80" alt="Henrik Lindqvist" width="800" height="600" decoding="async" loading="lazy">
+                <span class="team-badge-exp">11 Yrs Exp</span>
+              </div>
+              <div class="team-card-body">
+                <h4 class="fw-bold fs-5 mb-1">Henrik Lindqvist</h4>
+                <div class="text-primary small fw-bold mb-2">Precision Spray &amp; Prep Lead</div>
+                <p class="text-muted small mb-3">Master of German airless spray equipment for mirror-smooth lacquer and level-5 cabinetry finishes.</p>
+                <div class="mt-auto d-flex gap-2 text-muted">
+                  <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                  <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn btn-sm" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="py-6 bg-surface-soft" style="padding: 6rem 0; background-color: var(--bg-surface-soft);">
+      <div class="container text-center max-w-700">
+        <div class="eyebrow justify-content-center">Join Our Artisans</div>
+        <h2 class="section-title">Have a Project for Our Master Team?</h2>
+        <p class="text-muted fs-5 mb-4">
+          Our craftsmen are ready to evaluate your space and provide custom physical sample boards.
+        </p>
+        <a href="quote.html" class="btn btn-primary btn-lg">Request Project Proposal</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- MASTER GLOBAL FOOTER -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4 col-md-6">
+          <a class="navbar-brand text-white mb-3 d-inline-flex align-items-center" href="index.html">
+            <div class="brand-icon-wrapper me-2">
+              <i class="bi bi-brush-fill"></i>
+            </div>
+            <div>
+              <span class="fw-bold text-white">AURA</span><span class="text-secondary fw-light">FINISHES</span>
+            </div>
+          </a>
+          <p class="text-muted mt-3 mb-4">
+            Aura Finishes &amp; Co. is a premier painting contractor specializing in luxury residential and commercial painting, Italian Venetian plaster, and architectural wall coatings.
+          </p>
+          <div class="d-flex gap-2">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://x.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6 col-6">
+          <h4 class="footer-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="team.html">Our Artisans</a></li>
+            <li><a href="projects.html">Project Gallery</a></li>
+            <li><a href="testimonials.html">Client Reviews</a></li>
+            <li><a href="pricing.html">Pricing Packages</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-6">
+          <h4 class="footer-title">Master Services</h4>
+          <ul class="footer-links">
+            <li><a href="service-details.html">Interior Painting</a></li>
+            <li><a href="service-details.html">Exterior Painting</a></li>
+            <li><a href="service-details.html">Venetian Plaster</a></li>
+            <li><a href="service-details.html">Texture Coatings</a></li>
+            <li><a href="service-details.html">Commercial Finishing</a></li>
+            <li><a href="service-details.html">Waterproofing Systems</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h4 class="footer-title">Stay Inspired</h4>
+          <p class="text-muted small mb-3">Subscribe to receive seasonal color trends, architectural finish tips, and special offers.</p>
+          <form data-validate="true" data-form-type="Newsletter Subscription" class="mb-4">
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Enter your email" required aria-label="Email address">
+              <button class="btn btn-primary" type="submit"><i class="bi bi-send-fill"></i></button>
+            </div>
+          </form>
+          <div class="text-muted small">
+            <div><i class="bi bi-geo-alt text-primary me-2"></i>742 Evergreen Terrace, New York, NY</div>
+            <div class="mt-1"><i class="bi bi-envelope text-primary me-2"></i>contact@aurafinishes.com</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center">
+        <div>
+          &copy; 2026 Aura Finishes &amp; Co. All Rights Reserved. Built for Luxury Contractors.
+        </div>
+        <div class="d-flex gap-4 mt-2 mt-md-0">
+          <a href="#" class="text-muted small">Privacy Policy</a>
+          <a href="#" class="text-muted small">Terms of Service</a>
+          <a href="faq.html" class="text-muted small">Help &amp; FAQ</a>
+          <a href="login.html" class="text-muted small">Client Portal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle & Main Interactive Script -->
+  <script src="js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+</body>
+</html>

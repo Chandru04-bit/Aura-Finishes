@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Consultation &amp; Studio — Aura Finishes & Co.</title>
+  <meta name="description" content="Explore bespoke color palettes and preview interactive room wall paints in real-time with Aura Finishes Color Studio.">
+  <meta property="og:title" content="Color Studio — Aura Finishes & Co.">
+  <meta property="og:description" content="Interactive color visualizer, mineral pigments, and in-home architectural color consultation.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Outfit, Playfair Display & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS & Bootstrap Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Master Theme Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/dark-mode.css">
+  <link rel="stylesheet" href="css/rtl.css">
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=80" fetchpriority="high">
+</head>
+<body>
+  <!-- Main Sticky Header & Navigation -->
+  <header class="main-header">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light p-0">
+        <a class="navbar-brand" href="index.html" aria-label="Aura Finishes Home">
+          <div class="brand-icon-wrapper"><i class="bi bi-brush-fill"></i></div><div class="brand-text-group"><span class="brand-main">AURA</span><span class="brand-sub">FINISHES</span></div>
+        </a>
+
+        <!-- Mobile Toggle Button -->
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="bi bi-list fs-2 text-dark"></i>
+        </button>
+
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Home
+              </a>
+              <ul class="dropdown-menu border-0 shadow-lg">
+                <li><a class="dropdown-item" href="index.html"><i class="bi bi-house-door me-2 text-primary"></i>Home 1 — General Contractor</a></li>
+                <li><a class="dropdown-item" href="index-2.html"><i class="bi bi-brush me-2 text-primary"></i>Home 2 — Architectural Luxury</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Services
+              </a>
+              <ul class="dropdown-menu border-0 shadow-lg">
+                <li><a class="dropdown-item" href="services.html"><i class="bi bi-grid me-2 text-primary"></i>All Services</a></li>
+                <li><a class="dropdown-item" href="service-details.html"><i class="bi bi-palette me-2 text-primary"></i>Interior Painting &amp; Finishing</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Projects
+              </a>
+              <ul class="dropdown-menu border-0 shadow-lg">
+                <li><a class="dropdown-item" href="projects.html"><i class="bi bi-images me-2 text-primary"></i>Project Portfolio</a></li>
+                <li><a class="dropdown-item" href="project-details.html"><i class="bi bi-journal-check me-2 text-primary"></i>Project Details Case Study</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="color-consultation.html">Color Studio</a></li>
+            <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Pages
+              </a>
+              <ul class="dropdown-menu border-0 shadow-lg">
+                <li><a class="dropdown-item" href="team.html"><i class="bi bi-people me-2 text-primary"></i>Our Team</a></li>
+                <li><a class="dropdown-item" href="testimonials.html"><i class="bi bi-star me-2 text-primary"></i>Testimonials</a></li>
+                <li><a class="dropdown-item" href="faq.html"><i class="bi bi-question-circle me-2 text-primary"></i>FAQ</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Journal
+              </a>
+              <ul class="dropdown-menu border-0 shadow-lg">
+                <li><a class="dropdown-item" href="blog.html"><i class="bi bi-newspaper me-2 text-primary"></i>Blog Journal</a></li>
+                <li><a class="dropdown-item" href="blog-details.html"><i class="bi bi-file-earmark-text me-2 text-primary"></i>Article Details</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+
+          <!-- Action Controls -->
+          <div class="header-actions">
+            <button class="mode-toggle" type="button" title="Toggle Dark/Light Mode" aria-label="Toggle Dark Theme">
+              <i class="bi bi-moon-stars-fill"></i>
+            </button>
+            <button class="rtl-toggle" type="button" title="Toggle RTL Text Direction" aria-label="Toggle RTL Direction">
+              <i class="bi bi-translate"></i>
+            </button>
+            <a href="register.html" class="btn btn-primary btn-sm ms-2">
+              <i class="bi bi-person-plus me-1"></i> Sign Up
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="py-5 bg-surface-soft border-bottom border-subtle">
+      <div class="container py-4 text-center">
+        <div class="eyebrow justify-content-center">Interactive Color Studio</div>
+        <h1 class="display-4 fw-bold mb-3">Architectural Color Consultation</h1>
+        <p class="text-muted fs-5 max-w-700 mx-auto mb-0">
+          Experience our signature mineral palettes in real-time. Test hues under varied room lighting conditions and book an in-home color specialist.
+        </p>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE VISUALIZER STAGE & PALETTES -->
+    <section class="py-6" style="padding: 6rem 0;">
+      <div class="container">
+        <div class="row g-5 align-items-center mb-6">
+          <div class="col-lg-5">
+            <div class="eyebrow">Interactive Visualizer</div>
+            <h2 class="section-title">Select A Signature Tone</h2>
+            <p class="text-muted mb-4">
+              Click any swatch below to instantly apply our calibrated mineral coatings to the luxury living room model.
+            </p>
+
+            <div class="d-flex flex-column gap-3 mb-4">
+              <button class="color-swatch-btn active" data-color="#C35A38" data-name="Venetian Terracotta (Signature)">
+                <span class="color-dot" style="background-color: #C35A38;"></span>
+                <div>
+                  <div class="fw-bold">Venetian Terracotta</div>
+                  <div class="text-muted small">Warm Earth &bull; #C35A38 &bull; Matte Velvet</div>
+                </div>
+              </button>
+              <button class="color-swatch-btn" data-color="#2D4A43" data-name="Verdant Forest Sage">
+                <span class="color-dot" style="background-color: #2D4A43;"></span>
+                <div>
+                  <div class="fw-bold">Verdant Forest Sage</div>
+                  <div class="text-muted small">Botanical Cool &bull; #2D4A43 &bull; Satin Sheen</div>
+                </div>
+              </button>
+              <button class="color-swatch-btn" data-color="#1E2A38" data-name="Midnight Architectural Navy">
+                <span class="color-dot" style="background-color: #1E2A38;"></span>
+                <div>
+                  <div class="fw-bold">Midnight Architectural Navy</div>
+                  <div class="text-muted small">Deep Luxury &bull; #1E2A38 &bull; Eggshell Finish</div>
+                </div>
+              </button>
+              <button class="color-swatch-btn" data-color="#D4A359" data-name="Ochre Brass &amp; Gold">
+                <span class="color-dot" style="background-color: #D4A359;"></span>
+                <div>
+                  <div class="fw-bold">Ochre Brass &amp; Gold</div>
+                  <div class="text-muted small">Warm Accent &bull; #D4A359 &bull; Pearl Finish</div>
+                </div>
+              </button>
+              <button class="color-swatch-btn" data-color="#E5DDD0" data-name="Nordic Linen &amp; Champagne">
+                <span class="color-dot" style="background-color: #E5DDD0;"></span>
+                <div>
+                  <div class="fw-bold">Nordic Linen &amp; Champagne</div>
+                  <div class="text-muted small">Timeless Neutral &bull; #E5DDD0 &bull; Ultra Flat</div>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <div class="color-studio-container p-4">
+              <div class="room-visualizer-stage" style="height: 420px;">
+                <div class="visualizer-wall-layer"></div>
+                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=80" alt="Living Room Visualizer" class="visualizer-room-bg" width="800" height="600" decoding="async" loading="eager" fetchpriority="high">
+                
+                <div class="visualizer-overlay-info">
+                  <div class="small text-uppercase text-secondary fw-bold" style="font-size: 0.7rem;">Active Architectural Hue</div>
+                  <div class="fw-bold selected-color-name fs-6">Venetian Terracotta (Signature)</div>
+                  <div class="text-light small selected-color-hex">#C35A38 &bull; Zero-VOC Mineral Paint</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LIGHT TEMPERATURE GUIDE -->
+        <div class="p-5 bg-surface-soft rounded-4 border border-subtle mb-6" style="margin-top: 4rem;">
+          <h3 class="fw-bold fs-3 mb-4 text-center">Understanding Light Temperature &amp; Wall Pigments</h3>
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="p-4 bg-surface rounded-3 border border-subtle h-100">
+                <h4 class="fw-bold fs-5 text-primary mb-2">North-Facing Rooms</h4>
+                <p class="text-muted small mb-0">Receives cool, bluish daylight. We recommend warm ochres, terracotta, or champagne ivories to balance cold shadows and prevent a dingy cast.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="p-4 bg-surface rounded-3 border border-subtle h-100">
+                <h4 class="fw-bold fs-5 text-secondary mb-2">South-Facing Rooms</h4>
+                <p class="text-muted small mb-0">Bathed in warm, intense all-day light. Accommodates cooler sage greens, slate blues, or deep naval hues without feeling chilly or dark.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="p-4 bg-surface rounded-3 border border-subtle h-100">
+                <h4 class="fw-bold fs-5 text-dark mb-2">Artificial LED (2700K vs 4000K)</h4>
+                <p class="text-muted small mb-0">Our color consultants test physical sample boards under both daytime sunlight and your specific nighttime indoor lighting fixtures.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOOKING FORM -->
+        <div class="row justify-content-center" style="margin-top: 4rem;">
+          <div class="col-lg-8">
+            <div class="p-5 bg-surface rounded-4 border border-subtle shadow-md">
+              <div class="text-center mb-4">
+                <div class="eyebrow justify-content-center">Book In-Home Consultation</div>
+                <h3 class="fw-bold fs-2 mb-2">Schedule an On-Site Colorist Session</h3>
+                <p class="text-muted small">Our color architects will arrive with physical 12x12 sample boards, lighting spectrophotometers, and material binders.</p>
+              </div>
+              <form data-validate="true" data-form-type="Color Consultation Booking">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">Full Name</label>
+                    <input type="text" class="form-control" required placeholder="Eleanor Vance">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">Phone Number</label>
+                    <input type="tel" class="form-control" required placeholder="+1 (555) 000-0000">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">Email Address</label>
+                    <input type="email" class="form-control" required placeholder="eleanor@example.com">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">Preferred Palette Family</label>
+                    <select class="form-select">
+                      <option>Warm Earth &amp; Terracotta</option>
+                      <option>Botanical &amp; Sage Green</option>
+                      <option>Architectural Navy &amp; Charcoal</option>
+                      <option>Timeless Mineral Linen</option>
+                    </select>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label small fw-bold">Project Details &amp; Room Types</label>
+                    <textarea class="form-control" rows="3" placeholder="Living room, master suite, dining room lighting conditions..."></textarea>
+                  </div>
+                  <div class="col-12 text-center mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg">Confirm Consultation Booking</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MASTER GLOBAL FOOTER -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4 col-md-6">
+          <a class="navbar-brand text-white mb-3 d-inline-flex align-items-center" href="index.html">
+            <div class="brand-icon-wrapper me-2">
+              <i class="bi bi-brush-fill"></i>
+            </div>
+            <div>
+              <span class="fw-bold text-white">AURA</span><span class="text-secondary fw-light">FINISHES</span>
+            </div>
+          </a>
+          <p class="text-muted mt-3 mb-4">
+            Aura Finishes &amp; Co. is a premier painting contractor specializing in luxury residential and commercial painting, Italian Venetian plaster, and architectural wall coatings.
+          </p>
+          <div class="d-flex gap-2">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://x.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6 col-6">
+          <h4 class="footer-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="team.html">Our Artisans</a></li>
+            <li><a href="projects.html">Project Gallery</a></li>
+            <li><a href="testimonials.html">Client Reviews</a></li>
+            <li><a href="pricing.html">Pricing Packages</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-6">
+          <h4 class="footer-title">Master Services</h4>
+          <ul class="footer-links">
+            <li><a href="service-details.html">Interior Painting</a></li>
+            <li><a href="service-details.html">Exterior Painting</a></li>
+            <li><a href="service-details.html">Venetian Plaster</a></li>
+            <li><a href="service-details.html">Texture Coatings</a></li>
+            <li><a href="service-details.html">Commercial Finishing</a></li>
+            <li><a href="service-details.html">Waterproofing Systems</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h4 class="footer-title">Stay Inspired</h4>
+          <p class="text-muted small mb-3">Subscribe to receive seasonal color trends, architectural finish tips, and special offers.</p>
+          <form data-validate="true" data-form-type="Newsletter Subscription" class="mb-4">
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Enter your email" required aria-label="Email address">
+              <button class="btn btn-primary" type="submit"><i class="bi bi-send-fill"></i></button>
+            </div>
+          </form>
+          <div class="text-muted small">
+            <div><i class="bi bi-geo-alt text-primary me-2"></i>742 Evergreen Terrace, New York, NY</div>
+            <div class="mt-1"><i class="bi bi-envelope text-primary me-2"></i>contact@aurafinishes.com</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center">
+        <div>
+          &copy; 2026 Aura Finishes &amp; Co. All Rights Reserved. Built for Luxury Contractors.
+        </div>
+        <div class="d-flex gap-4 mt-2 mt-md-0">
+          <a href="#" class="text-muted small">Privacy Policy</a>
+          <a href="#" class="text-muted small">Terms of Service</a>
+          <a href="faq.html" class="text-muted small">Help &amp; FAQ</a>
+          <a href="login.html" class="text-muted small">Client Portal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle & Main Interactive Script -->
+  <script src="js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+</body>
+</html>

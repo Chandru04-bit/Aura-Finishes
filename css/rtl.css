@@ -1,0 +1,249 @@
+/* ==========================================================================
+   AURA FINISHES & CO. — PREMIUM PAINTING & WALL FINISHING CONTRACTOR
+   RTL (Right-to-Left) Stylesheet (rtl.css)
+   ========================================================================== */
+
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] body {
+  font-family: 'Plus Jakarta Sans', 'Segoe UI', Tahoma, Arial, sans-serif;
+}
+
+/* Eyebrow in RTL */
+[dir="rtl"] .eyebrow::before {
+  display: none;
+}
+[dir="rtl"] .eyebrow::after {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 2px;
+  background-color: var(--primary);
+  border-radius: var(--radius-full);
+}
+
+/* Header & Navbar in RTL */
+[dir="rtl"] .navbar-brand {
+  margin-right: 0 !important;
+  margin-left: 1.75rem !important;
+}
+
+[dir="rtl"] .header-actions {
+  margin-left: 0 !important;
+  margin-right: 1rem !important;
+}
+
+[dir="rtl"] .dropdown-toggle::after {
+  margin-left: 0 !important;
+  margin-right: 0.35rem !important;
+}
+
+@media (min-width: 992px) {
+  [dir="rtl"] .navbar-nav .dropdown-menu,
+  [dir="rtl"] .main-header .dropdown-menu {
+    left: auto !important;
+    right: 0 !important;
+    text-align: right !important;
+  }
+}
+
+[dir="rtl"] .dropdown-item:hover,
+[dir="rtl"] .dropdown-item:focus,
+[dir="rtl"] .dropdown-item.active {
+  padding-left: 1rem !important;
+  padding-right: 1.25rem !important;
+}
+
+[dir="rtl"] .user-auth-dropdown-menu {
+  right: auto !important;
+  left: 0 !important;
+  text-align: right !important;
+}
+
+[dir="rtl"] .navbar-nav {
+  padding-right: 0;
+}
+
+[dir="rtl"] .me-auto {
+  margin-right: 0 !important;
+  margin-left: auto !important;
+}
+
+[dir="rtl"] .ms-auto {
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+[dir="rtl"] .me-2, [dir="rtl"] .me-3, [dir="rtl"] .me-4 {
+  margin-right: 0 !important;
+}
+
+/* Before / After Slider Labels in RTL */
+[dir="rtl"] .comparison-label.label-before {
+  right: auto;
+  left: 1.25rem;
+}
+[dir="rtl"] .comparison-label.label-after {
+  left: auto;
+  right: 1.25rem;
+}
+
+/* Floating Badges in RTL */
+[dir="rtl"] .floating-badge.badge-top-left {
+  left: auto;
+  right: -1rem;
+}
+[dir="rtl"] .floating-badge.badge-bottom-right {
+  right: auto;
+  left: -1rem;
+}
+
+/* Service Card Icon */
+[dir="rtl"] .service-card-icon {
+  right: auto;
+  left: 1.5rem;
+}
+
+/* Visualizer Overlay */
+[dir="rtl"] .visualizer-overlay-info {
+  left: auto;
+  right: 1rem;
+}
+
+/* Timeline & Stats in RTL */
+[dir="rtl"] .stat-item {
+  border-right: none;
+  border-left: 1px solid var(--border-subtle);
+}
+[dir="rtl"] .stat-item:last-child {
+  border-left: none;
+}
+
+/* Custom Toast in RTL */
+[dir="rtl"] .toast-container {
+  right: auto;
+  left: 2rem;
+}
+[dir="rtl"] .custom-toast {
+  animation-name: slideInLeft;
+}
+[dir="rtl"] .custom-toast.toast-success {
+  border-left: none;
+  border-right: 4px solid #10B981;
+}
+[dir="rtl"] .custom-toast.toast-error {
+  border-left: none;
+  border-right: 4px solid #EF4444;
+}
+[dir="rtl"] .custom-toast.toast-info {
+  border-left: none;
+  border-right: 4px solid var(--primary);
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Back to top in RTL */
+[dir="rtl"] .back-to-top-btn {
+  right: auto;
+  left: 2rem;
+}
+
+/* Footer in RTL */
+[dir="rtl"] .footer-links a:hover {
+  transform: translateX(-4px);
+}
+
+/* ==========================================================================
+   ADMIN DASHBOARD RTL SUPPORT
+   ========================================================================== */
+[dir="rtl"] .admin-sidebar {
+  left: auto;
+  right: 0;
+  border-right: none;
+  border-left: 1px solid var(--admin-border-subtle);
+}
+
+[dir="rtl"] .admin-main {
+  margin-left: 0;
+  margin-right: var(--admin-sidebar-width);
+}
+
+[dir="rtl"] .admin-nav-link {
+  border-left: none;
+  border-right: 3px solid transparent;
+}
+
+[dir="rtl"] .admin-nav-link.active {
+  border-left: none;
+  border-right: 3px solid var(--admin-primary);
+}
+
+[dir="rtl"] .admin-nav-link i {
+  margin-right: 0 !important;
+  margin-left: 0.85rem !important;
+}
+
+[dir="rtl"] .admin-sidebar-brand {
+  border-right: none;
+}
+
+[dir="rtl"] .admin-sidebar-brand img,
+[dir="rtl"] .admin-sidebar-brand i {
+  margin-right: 0 !important;
+  margin-left: 0.75rem !important;
+}
+
+[dir="rtl"] .admin-nav-link .badge {
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+[dir="rtl"] .admin-header-right {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+[dir="rtl"] .admin-header-left {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+[dir="rtl"] .dropdown-menu-end {
+  --bs-position: start;
+  right: auto !important;
+  left: 0 !important;
+}
+
+[dir="rtl"] .stat-card {
+  text-align: right;
+}
+
+[dir="rtl"] .stat-icon-wrapper {
+  margin-left: 0;
+  margin-right: 0.15rem;
+}
+
+[dir="rtl"] .admin-icon-btn.rtl-toggle.active {
+  background-color: var(--admin-primary-light);
+  color: var(--admin-primary);
+  border-color: var(--admin-primary);
+}
+
+@media (max-width: 991.98px) {
+  [dir="rtl"] .admin-sidebar {
+    transform: translateX(100%);
+  }
+  [dir="rtl"] .admin-sidebar.active {
+    transform: translateX(0);
+  }
+  [dir="rtl"] .admin-main {
+    margin-right: 0 !important;
+  }
+}
+

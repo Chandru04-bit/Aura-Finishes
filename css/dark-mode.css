@@ -1,0 +1,493 @@
+/* ==========================================================================
+   AURA FINISHES & CO. — PREMIUM PAINTING & WALL FINISHING CONTRACTOR
+   Dark Theme Stylesheet (dark-mode.css)
+   ========================================================================== */
+
+[data-theme="dark"] {
+  /* Bootstrap Bridge Overrides */
+  --bs-body-bg: #0D1013;
+  --bs-body-color: #DCE3EA;
+  --bs-border-color: #252D37;
+  --bs-table-bg: #15191E;
+  --bs-table-color: #DCE3EA;
+  --bs-table-border-color: #252D37;
+  --bs-table-striped-bg: #1B2127;
+  --bs-table-hover-bg: #222932;
+
+  /* Dark Mode Tokens */
+  --bg-body: #0D1013;
+  --bg-surface: #15191E;
+  --bg-surface-soft: #1B2127;
+  --bg-surface-alt: #222932;
+  --bg-surface-hover: #262E38;
+
+  --text-main: #DCE3EA;
+  --text-heading: #FFFFFF;
+  --text-muted: #9AA7B5;
+  --text-light: #6E7C8C;
+  --text-inverse: #101418;
+
+  --border-subtle: #252D37;
+  --border-card: rgba(255, 255, 255, 0.08);
+  --border-focus: rgba(195, 90, 56, 0.6);
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.45);
+  --shadow-xl: 0 24px 60px rgba(0, 0, 0, 0.55);
+}
+
+[data-theme="dark"] body {
+  background-color: var(--bg-body);
+  color: var(--text-main);
+}
+
+/* Header & Navigation in Dark Mode */
+[data-theme="dark"] .main-header {
+  background-color: rgba(13, 16, 19, 0.94);
+  border-bottom-color: var(--border-subtle);
+}
+
+[data-theme="dark"] .main-header.scrolled {
+  background-color: rgba(21, 25, 30, 0.98);
+}
+
+[data-theme="dark"] .brand-main {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .brand-sub {
+  color: var(--secondary) !important;
+}
+
+[data-theme="dark"] .nav-link {
+  color: #DCE3EA !important;
+}
+
+[data-theme="dark"] .nav-link:hover,
+[data-theme="dark"] .nav-link.active {
+  color: var(--secondary) !important;
+}
+
+[data-theme="dark"] .nav-link.active::after {
+  background: var(--secondary);
+}
+
+/* Floating Elements & Badges */
+[data-theme="dark"] .floating-badge {
+  background: rgba(21, 25, 30, 0.92);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .mode-toggle,
+[data-theme="dark"] .rtl-toggle,
+[data-theme="dark"] .search-trigger-btn {
+  background: var(--bg-surface-soft);
+  border-color: var(--border-subtle);
+  color: #FFFFFF;
+}
+
+/* Dropdown Menus in Dark Mode */
+[data-theme="dark"] .dropdown-menu {
+  background-color: var(--bg-surface) !important;
+  border-color: var(--border-subtle) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6) !important;
+}
+
+[data-theme="dark"] .dropdown-item {
+  color: var(--text-main) !important;
+}
+
+[data-theme="dark"] .dropdown-item:hover,
+[data-theme="dark"] .dropdown-item:focus,
+[data-theme="dark"] .dropdown-item.active {
+  background-color: var(--bg-surface-alt) !important;
+  color: var(--secondary) !important;
+}
+
+/* Cards & Containers */
+[data-theme="dark"] .service-card,
+[data-theme="dark"] .process-step-card,
+[data-theme="dark"] .pricing-card,
+[data-theme="dark"] .testimonial-card,
+[data-theme="dark"] .blog-card,
+[data-theme="dark"] .color-studio-container,
+[data-theme="dark"] .calculator-box,
+[data-theme="dark"] .stats-section,
+[data-theme="dark"] .custom-toast,
+[data-theme="dark"] .search-modal-box {
+  background-color: var(--bg-surface);
+  border-color: var(--border-subtle);
+}
+
+[data-theme="dark"] .service-card-icon {
+  border: none !important;
+}
+
+/* Form Controls */
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .form-select {
+  background-color: var(--bg-surface-soft);
+  border-color: var(--border-subtle);
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .form-control:focus,
+[data-theme="dark"] .form-select:focus {
+  background-color: var(--bg-surface-alt);
+  border-color: var(--secondary);
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .form-control::placeholder {
+  color: #718096;
+}
+
+/* Filter Buttons */
+[data-theme="dark"] .filter-btn {
+  background-color: var(--bg-surface);
+  border-color: var(--border-subtle);
+  color: var(--text-main);
+}
+
+[data-theme="dark"] .filter-btn:hover,
+[data-theme="dark"] .filter-btn.active {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: #FFFFFF;
+}
+
+/* Color Swatches */
+[data-theme="dark"] .color-swatch-btn {
+  background-color: var(--bg-surface-soft);
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .color-swatch-btn:hover,
+[data-theme="dark"] .color-swatch-btn.active {
+  background-color: var(--bg-surface-alt);
+}
+
+/* Accordion */
+[data-theme="dark"] .accordion-item {
+  background-color: var(--bg-surface);
+  border-color: var(--border-subtle);
+}
+
+[data-theme="dark"] .accordion-button {
+  background-color: var(--bg-surface);
+  color: var(--text-heading);
+}
+
+[data-theme="dark"] .accordion-button:not(.collapsed) {
+  background-color: var(--bg-surface-soft);
+  color: var(--secondary);
+}
+
+/* Custom Scrollbar for Dark Mode */
+[data-theme="dark"]::-webkit-scrollbar-track {
+  background: var(--bg-body);
+}
+
+[data-theme="dark"]::-webkit-scrollbar-thumb {
+  background: #333F4D;
+  border-color: var(--bg-body);
+}
+
+/* Text Overrides */
+[data-theme="dark"] .text-dark {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .bg-light {
+  background-color: var(--bg-surface-soft) !important;
+}
+
+[data-theme="dark"] .bg-white {
+  background-color: var(--bg-surface) !important;
+}
+
+/* Calculator Result Card in Dark Mode */
+[data-theme="dark"] .calc-result-display {
+  background: linear-gradient(135deg, var(--accent), #2A3948) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #FFFFFF !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+[data-theme="dark"] .calc-result-title {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .calc-total-amount {
+  color: var(--secondary) !important;
+}
+
+[data-theme="dark"] .calc-result-note {
+  color: #DCE3EA !important;
+  opacity: 0.9;
+}
+
+/* Tables & Comparison Matrix in Dark Mode */
+[data-theme="dark"] .table {
+  --bs-table-bg: var(--bg-surface) !important;
+  --bs-table-color: var(--text-main) !important;
+  --bs-table-border-color: var(--border-subtle) !important;
+  background-color: var(--bg-surface) !important;
+  color: var(--text-main) !important;
+  border-color: var(--border-subtle) !important;
+}
+
+[data-theme="dark"] .table > :not(caption) > * > * {
+  background-color: var(--bg-surface) !important;
+  color: var(--text-main) !important;
+  border-color: var(--border-subtle) !important;
+}
+
+[data-theme="dark"] .table thead th,
+[data-theme="dark"] .table thead tr {
+  background-color: var(--bg-surface-soft) !important;
+  color: var(--text-heading) !important;
+  border-color: var(--border-subtle) !important;
+}
+
+[data-theme="dark"] .table tbody th {
+  background-color: var(--bg-surface-soft) !important;
+  color: var(--text-heading) !important;
+  border-color: var(--border-subtle) !important;
+}
+
+[data-theme="dark"] .table tbody td {
+  background-color: var(--bg-surface) !important;
+  color: var(--text-main) !important;
+  border-color: var(--border-subtle) !important;
+}
+
+[data-theme="dark"] .table tbody td.fw-bold,
+[data-theme="dark"] .table tbody td.text-start {
+  color: var(--text-heading) !important;
+}
+
+[data-theme="dark"] .table thead th.bg-primary-light,
+[data-theme="dark"] .table td.bg-primary-light {
+  background-color: rgba(195, 90, 56, 0.28) !important;
+  color: var(--secondary) !important;
+  border-color: var(--border-subtle) !important;
+}
+
+[data-theme="dark"] .table tr:hover td {
+  background-color: var(--bg-surface-hover) !important;
+}
+
+[data-theme="dark"] .table-bordered {
+  border-color: var(--border-subtle) !important;
+}
+
+[data-theme="dark"] .border-subtle {
+  border-color: var(--border-subtle) !important;
+}
+
+/* Process Step Numbers & Icons in Dark Mode */
+[data-theme="dark"] .process-number {
+  color: var(--primary) !important;
+  opacity: 1 !important;
+}
+
+[data-theme="dark"] .process-step-card:hover .process-number {
+  color: var(--secondary) !important;
+}
+
+[data-theme="dark"] .process-icon-wrap {
+  background-color: rgba(224, 109, 72, 0.16) !important;
+  color: var(--primary) !important;
+  border: 1px solid rgba(224, 109, 72, 0.28) !important;
+}
+
+[data-theme="dark"] .process-step-card:hover .process-icon-wrap {
+  background-color: var(--primary) !important;
+  color: #FFFFFF !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 4px 18px rgba(224, 109, 72, 0.4) !important;
+}
+
+/* Button Text & Background Visibility in Dark Mode */
+[data-theme="dark"] .btn-white,
+[data-theme="dark"] .project-card-overlay .btn-white {
+  background-color: #FFFFFF !important;
+  border-color: #FFFFFF !important;
+  color: #101418 !important;
+  font-weight: 600 !important;
+}
+
+[data-theme="dark"] .btn-white:hover,
+[data-theme="dark"] .project-card-overlay .btn-white:hover {
+  background-color: var(--secondary) !important;
+  border-color: var(--secondary) !important;
+  color: #101418 !important;
+}
+
+[data-theme="dark"] .btn-outline-dark,
+[data-theme="dark"] .pricing-card .btn-outline-dark {
+  background-color: transparent !important;
+  border-color: var(--border-subtle) !important;
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .btn-outline-dark:hover,
+[data-theme="dark"] .btn-outline-dark:focus,
+[data-theme="dark"] .btn-outline-dark:active,
+[data-theme="dark"] .btn-outline-dark.active,
+[data-theme="dark"] .btn-outline-dark:focus-visible,
+[data-theme="dark"] .pricing-card .btn-outline-dark:hover,
+[data-theme="dark"] .pricing-card .btn-outline-dark:focus,
+[data-theme="dark"] .pricing-card .btn-outline-dark:active,
+[data-theme="dark"] .pricing-card .btn-outline-dark.active,
+[data-theme="dark"] .pricing-card .btn-outline-dark:focus-visible {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: #FFFFFF !important;
+}
+
+/* --- Milestone Year Badges in Dark Mode --- */
+[data-theme="dark"] .milestone-badge-primary {
+  background-color: rgba(224, 109, 72, 0.2) !important;
+  color: #FFA688 !important;
+  border-color: rgba(224, 109, 72, 0.45) !important;
+}
+
+[data-theme="dark"] .milestone-badge-secondary {
+  background-color: rgba(212, 175, 55, 0.2) !important;
+  color: #F8DE8A !important;
+  border-color: rgba(212, 175, 55, 0.45) !important;
+}
+
+[data-theme="dark"] .milestone-badge-sage {
+  background-color: rgba(110, 165, 110, 0.2) !important;
+  color: #A7EAA4 !important;
+  border-color: rgba(110, 165, 110, 0.45) !important;
+}
+
+[data-theme="dark"] .milestone-badge-accent {
+  background-color: rgba(96, 165, 250, 0.2) !important;
+  color: #93C5FD !important;
+  border-color: rgba(96, 165, 250, 0.45) !important;
+}
+
+/* Global Dark Mode Badge Visibility Guards */
+[data-theme="dark"] .badge.bg-dark {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+}
+
+[data-theme="dark"] .badge.bg-primary {
+  background-color: rgba(224, 109, 72, 0.22) !important;
+  color: #FFA688 !important;
+  border: 1px solid rgba(224, 109, 72, 0.45) !important;
+}
+
+[data-theme="dark"] .badge.bg-secondary {
+  background-color: rgba(212, 175, 55, 0.22) !important;
+  color: #F8DE8A !important;
+  border: 1px solid rgba(212, 175, 55, 0.45) !important;
+}
+
+[data-theme="dark"] .badge.bg-sage {
+  background-color: rgba(110, 165, 110, 0.22) !important;
+  color: #A7EAA4 !important;
+  border: 1px solid rgba(110, 165, 110, 0.45) !important;
+}
+
+[data-theme="dark"] .badge.bg-surface-soft {
+  background-color: var(--bg-surface-soft) !important;
+  color: var(--secondary) !important;
+  border-color: var(--border-subtle) !important;
+}
+
+/* Auth Compact Card in Dark Mode */
+[data-theme="dark"] .auth-card-compact {
+  background-color: var(--bg-surface) !important;
+  border-color: var(--border-subtle) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+[data-theme="dark"] .auth-card-compact .form-control {
+  background-color: var(--bg-surface-soft) !important;
+  border-color: var(--border-subtle) !important;
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .auth-card-compact .form-control:focus {
+  background-color: var(--bg-surface-alt) !important;
+  border-color: var(--secondary) !important;
+}
+
+[data-theme="dark"] .auth-card-compact .password-toggle-btn {
+  background-color: var(--bg-surface-soft) !important;
+  border-color: var(--border-subtle) !important;
+  color: #DCE3EA !important;
+}
+
+[data-theme="dark"] .auth-card-compact .password-toggle-btn:hover {
+  background-color: var(--bg-surface-alt) !important;
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .auth-icon-badge {
+  background-color: rgba(224, 109, 72, 0.22) !important;
+  color: #FFA688 !important;
+}
+
+[data-theme="dark"] .auth-divider {
+  color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .auth-divider::before,
+[data-theme="dark"] .auth-divider::after {
+  border-bottom-color: var(--border-subtle) !important;
+}
+
+[data-theme="dark"] .social-auth-btn {
+  background-color: var(--bg-surface-soft) !important;
+  border-color: var(--border-subtle) !important;
+  color: var(--text-main) !important;
+}
+
+[data-theme="dark"] .social-auth-btn:hover,
+[data-theme="dark"] .social-auth-btn:focus {
+  background-color: var(--bg-surface-alt) !important;
+  border-color: var(--secondary) !important;
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+[data-theme="dark"] .form-check-input {
+  background-color: var(--bg-surface-soft);
+  border-color: var(--border-subtle);
+}
+
+[data-theme="dark"] .form-check-input:checked {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+[data-theme="dark"] .form-check-label {
+  color: var(--text-main) !important;
+}
+
+/* Smooth transitions for public pages */
+body,
+.main-header,
+.service-card,
+.process-step-card,
+.pricing-card,
+.testimonial-card,
+.blog-card,
+.modal-content,
+.dropdown-menu {
+  transition: background-color 0.22s ease, border-color 0.22s ease, color 0.22s ease, box-shadow 0.22s ease;
+}
