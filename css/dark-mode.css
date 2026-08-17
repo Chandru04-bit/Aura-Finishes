@@ -480,6 +480,56 @@
   color: var(--text-main) !important;
 }
 
+[data-theme="dark"] .social-btn,
+[data-theme="dark"] .footer-social-btn {
+  background-color: var(--bg-surface-soft) !important;
+  color: #FFFFFF !important;
+  border-color: var(--border-subtle) !important;
+}
+
+[data-theme="dark"] .social-btn i,
+[data-theme="dark"] .footer-social-btn i {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .social-btn:hover,
+[data-theme="dark"] .footer-social-btn:hover {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .social-btn:hover i,
+[data-theme="dark"] .footer-social-btn:hover i {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .share-article-label {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .share-btn {
+  background-color: var(--bg-surface-soft) !important;
+  color: #FFFFFF !important;
+  border-color: var(--border-subtle) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25) !important;
+}
+
+[data-theme="dark"] .share-btn i {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .share-btn:hover {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 20px rgba(195, 90, 56, 0.45) !important;
+}
+
+[data-theme="dark"] .share-btn:hover i {
+  color: #FFFFFF !important;
+}
+
 /* Smooth transitions for public pages */
 body,
 .main-header,

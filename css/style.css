@@ -2015,23 +2015,166 @@ img {
   transform: translateX(4px);
 }
 
+/* --- Social Button Components --- */
+.social-btn,
 .footer-social-btn {
   width: 38px;
   height: 38px;
-  background: rgba(255, 255, 255, 0.06);
-  color: #FFFFFF;
+  background-color: var(--bg-surface-alt) !important;
+  color: var(--accent) !important;
+  border: 1px solid var(--border-subtle) !important;
   border-radius: var(--radius-md);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-right: 0.5rem;
+  margin-right: 0.35rem;
   transition: all var(--transition-fast);
+  text-decoration: none !important;
+  font-size: 1rem;
+  box-shadow: 0 1px 3px rgba(20, 23, 26, 0.05);
 }
 
+.social-btn i,
+.footer-social-btn i {
+  color: var(--accent) !important;
+  font-size: 1rem;
+  line-height: 1;
+  transition: color var(--transition-fast);
+}
+
+.social-btn:hover,
 .footer-social-btn:hover {
-  background: var(--primary);
-  color: #FFFFFF;
-  transform: translateY(-3px);
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(195, 90, 56, 0.3);
+}
+
+.social-btn:hover i,
+.footer-social-btn:hover i {
+  color: #FFFFFF !important;
+}
+
+.social-btn.btn-sm,
+.footer-social-btn.btn-sm {
+  width: 34px;
+  height: 34px;
+  font-size: 0.875rem;
+}
+
+.social-btn.btn-sm i,
+.footer-social-btn.btn-sm i {
+  font-size: 0.875rem;
+}
+
+.main-footer .footer-social-btn {
+  background-color: var(--bg-surface-alt);
+  color: var(--accent);
+  border: 1px solid var(--border-subtle);
+}
+
+.main-footer .footer-social-btn i {
+  color: var(--accent);
+}
+
+.main-footer .footer-social-btn:hover {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: #FFFFFF !important;
+}
+
+.main-footer .footer-social-btn:hover i {
+  color: #FFFFFF !important;
+}
+
+/* ==========================================================================
+   Share Article Component (Exact Reference Specifications matching Image 1)
+   ========================================================================== */
+.share-article-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.share-article-label {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-heading, #101418);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.share-article-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.share-btn {
+  width: 40px;
+  height: 40px;
+  background-color: #ECE5DA !important;
+  color: #101418 !important;
+  border: 1px solid #D8CFC2 !important;
+  border-radius: 11px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none !important;
+  box-shadow: 0 3px 8px rgba(76, 54, 35, 0.08);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              background-color 0.25s ease, 
+              color 0.25s ease, 
+              border-color 0.25s ease, 
+              box-shadow 0.25s ease;
+  flex-shrink: 0;
+}
+
+.share-btn i {
+  color: #101418 !important;
+  font-size: 15px;
+  line-height: 1;
+  display: inline-block;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.share-btn:hover {
+  background-color: var(--primary, #C35A38) !important;
+  border-color: var(--primary, #C35A38) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(195, 90, 56, 0.3);
+}
+
+.share-btn:hover i {
+  color: #FFFFFF !important;
+  transform: scale(1.08);
+}
+
+.share-btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(76, 54, 35, 0.15);
+}
+
+@media (max-width: 576px) {
+  .share-article-wrapper {
+    gap: 12px;
+  }
+  .share-article-label {
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 2px;
+  }
+  .share-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+  .share-btn i {
+    font-size: 14px;
+  }
 }
 
 .footer-bottom {
@@ -2105,16 +2248,25 @@ html:not([data-theme="dark"]) .main-footer .footer-links a:hover {
 }
 
 html:not([data-theme="dark"]) .main-footer .footer-social-btn {
-  background: rgba(255, 255, 255, 0.72);
-  color: var(--accent);
-  border: 1px solid #E5D9CA;
-  box-shadow: 0 4px 12px rgba(76, 54, 35, 0.05);
+  background-color: #ECE5DA !important;
+  color: var(--accent) !important;
+  border: 1px solid #D8CFC2 !important;
+  box-shadow: 0 2px 6px rgba(76, 54, 35, 0.08) !important;
+}
+
+html:not([data-theme="dark"]) .main-footer .footer-social-btn i {
+  color: var(--accent) !important;
 }
 
 html:not([data-theme="dark"]) .main-footer .footer-social-btn:hover {
-  background: var(--primary);
-  border-color: var(--primary);
-  color: #FFFFFF;
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 14px rgba(195, 90, 56, 0.3) !important;
+}
+
+html:not([data-theme="dark"]) .main-footer .footer-social-btn:hover i {
+  color: #FFFFFF !important;
 }
 
 html:not([data-theme="dark"]) .main-footer .footer-bottom {

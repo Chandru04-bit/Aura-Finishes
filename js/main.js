@@ -3162,7 +3162,7 @@ function initLivePublicSocialLinks() {
     const socials = JSON.parse(raw);
     if (!socials) return;
 
-    document.querySelectorAll('.footer-social-btn').forEach(btn => {
+    document.querySelectorAll('.footer-social-btn, .social-btn, .article-share-btn, .share-btn').forEach(btn => {
       const label = (btn.getAttribute('aria-label') || '').toLowerCase();
       if (label.includes('facebook') && socials.facebook) btn.href = socials.facebook;
       if (label.includes('instagram') && socials.instagram) btn.href = socials.instagram;
