@@ -988,6 +988,7 @@ function initializePage() {
   initComingSoonTimer();
   initBackToTop();
   initImageModals();
+  initLegalModals();
   initServiceLinkPrefetch();
   initProjectLinkPrefetch();
   initArticleLinkPrefetch();
@@ -3251,3 +3252,153 @@ function initImageModals() {
     });
   });
 }
+
+/* ==========================================================================
+   16. LEGAL & POLICY MODALS (Privacy Policy & Terms of Service)
+   ========================================================================== */
+function initLegalModals() {
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href*="privacy-policy.html"], a[href*="terms-of-service.html"]');
+    if (!link) return;
+
+    // Check if middle click or ctrl/cmd click (open in new tab)
+    if (e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey) return;
+
+    const currentPath = window.location.pathname.toLowerCase();
+    const href = (link.getAttribute('href') || '').toLowerCase();
+
+    // If already on that specific page, allow normal page behavior
+    if (currentPath.endsWith(href) || currentPath.endsWith('/' + href)) return;
+
+    e.preventDefault();
+
+    const isPrivacy = href.includes('privacy');
+    const modalId = isPrivacy ? 'privacyPolicyModal' : 'termsOfServiceModal';
+    let modalEl = document.getElementById(modalId);
+
+    if (!modalEl) {
+      modalEl = document.createElement('div');
+      modalEl.id = modalId;
+      modalEl.className = 'modal fade';
+      modalEl.tabIndex = -1;
+      modalEl.setAttribute('aria-hidden', 'true');
+
+      if (isPrivacy) {
+        modalEl.innerHTML = `
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+            <div class="modal-content bg-surface border border-subtle shadow-lg" style="border-radius: 18px;">
+              <div class="modal-header border-bottom border-subtle px-4 py-3">
+                <div class="d-flex align-items-center gap-2">
+                  <div class="bg-primary-subtle text-primary p-2 rounded-3">
+                    <i class="bi bi-shield-lock-fill fs-5"></i>
+                  </div>
+                  <div>
+                    <h5 class="modal-title fw-bold mb-0">Privacy Policy</h5>
+                    <span class="text-muted small">Aura Finishes &amp; Co. &bull; Last Updated: August 2026</span>
+                  </div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body px-4 py-4" style="max-height: 65vh; overflow-y: auto; line-height: 1.7;">
+                <h6 class="fw-bold text-heading mb-2">1. Information We Collect</h6>
+                <p class="text-muted small mb-3">
+                  We collect your contact details (name, email, phone, estate address), project dimensions, architectural plans, and color consultation requests exclusively to provide precision proposals and artisanal finishes.
+                </p>
+
+                <h6 class="fw-bold text-heading mb-2">2. How We Utilize Your Information</h6>
+                <p class="text-muted small mb-3">
+                  Your data is used solely for estimate generation, project scheduling, dustless surface preparation coordination, and issuing 10-year warranty certificates.
+                </p>
+
+                <h6 class="fw-bold text-heading mb-2">3. Zero Third-Party Resale &amp; Confidentiality</h6>
+                <p class="text-muted small mb-3">
+                  Aura Finishes maintains a strict non-disclosure standard. We never monetize, sell, or trade client property records or contact information to data brokers or third parties.
+                </p>
+
+                <h6 class="fw-bold text-heading mb-2">4. Data Security Standards</h6>
+                <p class="text-muted small mb-3">
+                  All digital records and portal accounts are encrypted with industry-standard TLS 1.3 encryption.
+                </p>
+
+                <h6 class="fw-bold text-heading mb-2">5. Your Privacy Rights</h6>
+                <p class="text-muted small mb-0">
+                  You have the right to request a complete copy of your records or petition for permanent deletion at <a href="mailto:privacy@aurafinishes.com" class="text-primary text-decoration-none">privacy@aurafinishes.com</a>.
+                </p>
+              </div>
+              <div class="modal-footer border-top border-subtle px-4 py-3 d-flex justify-content-between">
+                <a href="privacy-policy.html" class="btn btn-outline-dark btn-sm">
+                  <i class="bi bi-box-arrow-up-right me-1"></i> Open Full Page
+                </a>
+                <button type="button" class="btn btn-primary btn-sm px-4" data-bs-dismiss="modal">
+                  I Understand &amp; Close
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        modalEl.innerHTML = `
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+            <div class="modal-content bg-surface border border-subtle shadow-lg" style="border-radius: 18px;">
+              <div class="modal-header border-bottom border-subtle px-4 py-3">
+                <div class="d-flex align-items-center gap-2">
+                  <div class="bg-primary-subtle text-primary p-2 rounded-3">
+                    <i class="bi bi-file-text-fill fs-5"></i>
+                  </div>
+                  <div>
+                    <h5 class="modal-title fw-bold mb-0">Terms of Service</h5>
+                    <span class="text-muted small">Aura Finishes &amp; Co. &bull; Master Contracting SLA</span>
+                  </div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body px-4 py-4" style="max-height: 65vh; overflow-y: auto; line-height: 1.7;">
+                <h6 class="fw-bold text-heading mb-2">1. Scope of Master Services</h6>
+                <p class="text-muted small mb-3">
+                  Aura Finishes &amp; Co. contracts luxury architectural painting, Italian Venetian plaster, lime wash, and Level-5 surface finishes according to Master Painter Association standards.
+                </p>
+
+                <h6 class="fw-bold text-heading mb-2">2. Quote &amp; Estimate Validity</h6>
+                <p class="text-muted small mb-3">
+                  All official written estimates and digital proposals remain valid for <strong>30 calendar days</strong>. Online instant estimates are subject to on-site substrate verification.
+                </p>
+
+                <h6 class="fw-bold text-heading mb-2">3. Craftsmanship Warranty Protection</h6>
+                <p class="text-muted small mb-3">
+                  We provide a <strong>10-Year Exterior Warranty</strong> and a <strong>5-Year Interior Venetian Plaster Warranty</strong> on all fully prepped surfaces against peeling or blistering.
+                </p>
+
+                <h6 class="fw-bold text-heading mb-2">4. Payment &amp; Milestone Schedules</h6>
+                <p class="text-muted small mb-3">
+                  Standard terms: 25% booking deposit, 35% mid-project surface prep milestone, and 40% final balance upon punch-list walk-through satisfaction.
+                </p>
+
+                <h6 class="fw-bold text-heading mb-2">5. Rescheduling Policy</h6>
+                <p class="text-muted small mb-0">
+                  Projects may be rescheduled up to 5 business days before the project kickoff date with zero penalty fees.
+                </p>
+              </div>
+              <div class="modal-footer border-top border-subtle px-4 py-3 d-flex justify-content-between">
+                <a href="terms-of-service.html" class="btn btn-outline-dark btn-sm">
+                  <i class="bi bi-box-arrow-up-right me-1"></i> Open Full Page
+                </a>
+                <button type="button" class="btn btn-primary btn-sm px-4" data-bs-dismiss="modal">
+                  Accept &amp; Close
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+      document.body.appendChild(modalEl);
+    }
+
+    if (window.bootstrap && window.bootstrap.Modal) {
+      const modal = window.bootstrap.Modal.getOrCreateInstance(modalEl);
+      modal.show();
+    } else {
+      window.location.href = href;
+    }
+  });
+}
+
