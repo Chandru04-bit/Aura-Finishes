@@ -421,7 +421,7 @@ function checkAdminAuthGuard() {
     // 2. If logged in as normal user (role === 'user') -> Deny access & redirect to /signin
     if (authUser && authUser.role === 'user') {
       alert('Access Denied: Administrator privileges required.');
-      window.location.replace(window.location.protocol === 'file:' ? 'signin.html' : '/signin');
+      window.location.replace('signin.html');
       return false;
     }
 

@@ -1220,23 +1220,32 @@ function initActiveNavLink() {
 }
 
 function initSignInRouteNavigation() {
-  // Ensure clicking Sign In button navigates only to Sign In page (/signin)
+  // Ensure clicking Sign In button navigates reliably to Sign In page (signin.html) across all protocols & environments
   document.addEventListener('click', (e) => {
     const link = e.target.closest('a[href="/signin"], a[href*="/signin"], a[href="signin.html"], a[href="login.html"], .auth-btn, .auth-signin-btn');
     if (!link) return;
 
-    const href = link.getAttribute('href') || '';
-    
-    // In local file:// protocol, /signin maps to root of drive which fails, so resolve to signin.html / login.html
-    if (window.location.protocol === 'file:' && (href === '/signin' || href === '/signin/')) {
-      e.preventDefault();
-      const currentPath = window.location.pathname;
-      if (currentPath.includes('/signin/')) {
-        window.location.href = 'index.html';
-      } else {
-        window.location.href = 'signin.html';
+    // Check if current page is already sign in
+    let currentPath = window.location.pathname.split('/').pop();
+    if (!currentPath || currentPath === '') currentPath = 'index.html';
+    const isAlreadyOnSignIn = currentPath === 'signin.html' || currentPath === 'login.html' || window.location.pathname.endsWith('/signin') || window.location.pathname.endsWith('/signin/');
+
+    if (isAlreadyOnSignIn) {
+      // Focus login field if already on sign in page
+      const idInput = document.getElementById('clientLoginIdentifier') || document.querySelector('input[name="loginIdentifier"]');
+      if (idInput) {
+        e.preventDefault();
+        idInput.focus();
       }
+      return;
     }
+
+    // Determine target relative path (handle nested subdirectories)
+    const isNested = window.location.pathname.includes('/signin/');
+    const targetUrl = isNested ? '../signin.html' : 'signin.html';
+    
+    e.preventDefault();
+    window.location.href = targetUrl;
   });
 }
 
@@ -2786,10 +2795,11 @@ function updateNavbarAuth() {
       signInLinks.forEach(link => {
         link.style.display = '';
         link.classList.remove('d-none');
+        link.href = 'signin.html';
       });
     } else {
       const newSignIn = document.createElement('a');
-      newSignIn.href = '/signin';
+      newSignIn.href = 'signin.html';
       newSignIn.className = 'btn btn-primary btn-sm ms-2 auth-btn auth-signin-btn';
       newSignIn.innerHTML = '<i class="bi bi-person me-1"></i> Sign In';
       actions.appendChild(newSignIn);
@@ -2891,7 +2901,7 @@ function initFormValidationAndToasts() {
             form.reset();
             form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
             setTimeout(() => {
-              window.location.href = window.location.protocol === 'file:' ? 'signin.html' : '/signin';
+              window.location.href = 'signin.html';
             }, 900);
           } else {
             showToast('An account with this email already exists. Please login.', 'error');
@@ -3006,7 +3016,7 @@ function initFormValidationAndToasts() {
           form.reset();
           form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
           setTimeout(() => {
-            window.location.href = window.location.protocol === 'file:' ? 'signin.html' : '/signin';
+            window.location.href = 'signin.html';
           }, 1100);
           return;
         }

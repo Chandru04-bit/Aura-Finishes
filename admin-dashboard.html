@@ -40,7 +40,7 @@
       if (!isVerifiedAdmin) {
         if (authUser && authUser.role === 'user') {
           alert('Access Denied: Administrator privileges required.');
-          window.location.replace(window.location.protocol === 'file:' ? 'signin.html' : '/signin');
+          window.location.replace('signin.html');
           return;
         }
         window.location.replace('admin-login.html');

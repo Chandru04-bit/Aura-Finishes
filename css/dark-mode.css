@@ -313,6 +313,43 @@
 }
 
 /* Button Text & Background Visibility in Dark Mode */
+[data-theme="dark"] .btn-primary,
+[data-theme="dark"] .auth-btn,
+[data-theme="dark"] .auth-signin-btn,
+[data-theme="dark"] .header-actions .auth-signin-btn,
+[data-theme="dark"] .header-actions .btn.auth-signin-btn {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 20px rgba(195, 90, 56, 0.4) !important;
+}
+
+[data-theme="dark"] .btn-primary:hover,
+[data-theme="dark"] .btn-primary:focus,
+[data-theme="dark"] .btn-primary:active,
+[data-theme="dark"] .btn-primary.active,
+[data-theme="dark"] .btn-primary:focus-visible,
+[data-theme="dark"] .auth-btn:hover,
+[data-theme="dark"] .auth-btn:focus,
+[data-theme="dark"] .auth-btn:active,
+[data-theme="dark"] .auth-btn.active,
+[data-theme="dark"] .auth-signin-btn:hover,
+[data-theme="dark"] .auth-signin-btn:focus,
+[data-theme="dark"] .auth-signin-btn:active,
+[data-theme="dark"] .auth-signin-btn.active,
+[data-theme="dark"] .header-actions .auth-signin-btn:hover,
+[data-theme="dark"] .header-actions .auth-signin-btn:focus,
+[data-theme="dark"] .header-actions .auth-signin-btn:active,
+[data-theme="dark"] .header-actions .auth-signin-btn.active,
+[data-theme="dark"] .header-actions .btn.auth-signin-btn:hover,
+[data-theme="dark"] .header-actions .btn.auth-signin-btn:focus,
+[data-theme="dark"] .header-actions .btn.auth-signin-btn:active {
+  background-color: var(--primary-hover) !important;
+  border-color: var(--primary-hover) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 6px 25px rgba(195, 90, 56, 0.55) !important;
+}
+
 [data-theme="dark"] .btn-white,
 [data-theme="dark"] .project-card-overlay .btn-white {
   background-color: #FFFFFF !important;
