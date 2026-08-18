@@ -101,8 +101,8 @@
             <button class="rtl-toggle" type="button" title="Toggle RTL Text Direction" aria-label="Toggle RTL Direction">
               <i class="bi bi-translate"></i>
             </button>
-            <a href="register.html" class="btn btn-primary btn-sm ms-2">
-              <i class="bi bi-person-plus me-1"></i> Sign Up
+            <a href="/signin" class="btn btn-primary btn-sm ms-2 auth-btn auth-signin-btn">
+              <i class="bi bi-person me-1"></i> Sign In
             </a>
           </div>
         </div>
@@ -123,10 +123,14 @@
             <p class="text-muted small mb-0">View daily logs, sample approvals &amp; timelines.</p>
           </div>
 
-          <form data-validate="true" data-form-type="Client Portal Login">
+          <div id="clientLoginAlert" class="alert alert-danger py-2 small d-none" role="alert">
+            <i class="bi bi-exclamation-circle-fill me-1"></i> <span id="clientLoginAlertText">Invalid credentials.</span>
+          </div>
+
+          <form data-validate="true" data-form-type="Client Portal Login" id="clientLoginForm">
             <div class="form-group-compact">
-              <label class="form-label">Email or Name</label>
-              <input type="text" class="form-control" name="loginIdentifier" required placeholder="name or client@example.com">
+              <label class="form-label">Email or Username</label>
+              <input type="text" class="form-control" name="loginIdentifier" id="clientLoginIdentifier" required placeholder="client@example.com or name">
             </div>
 
             <div class="form-group-compact">
@@ -135,7 +139,7 @@
                 <a href="forgot-password.html" class="small text-primary text-decoration-none" style="font-size: 0.8125rem;">Forgot?</a>
               </div>
               <div class="password-input-group input-group">
-                <input type="password" name="password" class="form-control" required placeholder="••••••••">
+                <input type="password" name="password" id="clientLoginPassword" class="form-control" required placeholder="••••••••">
                 <button class="password-toggle-btn" type="button" aria-label="Toggle password visibility">
                   <i class="bi bi-eye"></i>
                 </button>
@@ -172,6 +176,13 @@
 
             <div class="text-center small text-muted">
               Don’t have an account? <a href="register.html" class="fw-bold text-primary text-decoration-none">Create an account</a>
+            </div>
+
+            <!-- Clearly Visible Admin Login Link -->
+            <div class="text-center mt-3 pt-3 border-top border-subtle">
+              <a href="admin-login.html" class="small text-muted text-decoration-none d-inline-flex align-items-center gap-1 hover-primary" id="adminLoginLink">
+                <i class="bi bi-shield-lock text-primary"></i> Are you an Administrator? <span class="fw-bold text-primary">Admin Login</span>
+              </a>
             </div>
 
           </form>

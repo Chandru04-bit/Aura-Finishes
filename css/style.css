@@ -731,6 +731,23 @@ img {
   border-color: var(--primary);
 }
 
+.auth-btn,
+.auth-signin-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.auth-btn i,
+.auth-signin-btn i {
+  font-size: 1rem;
+}
+
 /* User Authentication Navbar Menu */
 .user-auth-menu {
   position: relative;

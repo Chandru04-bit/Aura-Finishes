@@ -982,6 +982,7 @@ function initializePage() {
   initQuoteCalculator();
   initAnimatedCounters();
   initNavbarAuth();
+  initSignInRouteNavigation();
   initFormValidationAndToasts();
   initPasswordToggles();
   initSocialAuthButtons();
@@ -1169,23 +1170,30 @@ function initStickyHeader() {
 }
 
 /* ==========================================================================
-   4. ACTIVE NAV LINK HIGHLIGHTER
+   4. ACTIVE NAV LINK HIGHLIGHTER & SIGN IN ROUTE INTERCEPTOR
    ========================================================================== */
 function initActiveNavLink() {
   const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
   const dropdownItems = document.querySelectorAll('.dropdown-menu .dropdown-item');
   let currentPath = window.location.pathname.split('/').pop();
   if (!currentPath || currentPath === '') currentPath = 'index.html';
+  const fullPath = window.location.pathname.toLowerCase();
+  const isSignIn = fullPath.endsWith('/signin') || fullPath.endsWith('/signin/') || currentPath === 'signin.html' || currentPath === 'login.html';
 
   // Clear existing active states
   navLinks.forEach(link => link.classList.remove('active'));
   dropdownItems.forEach(item => item.classList.remove('active'));
 
+  // Highlight Sign In button if on sign in route
+  if (isSignIn) {
+    document.querySelectorAll('.auth-signin-btn').forEach(btn => btn.classList.add('active'));
+  }
+
   // Match top-level link
   let matched = false;
   navLinks.forEach(link => {
     const linkHref = link.getAttribute('href');
-    if (linkHref && linkHref === currentPath) {
+    if (linkHref && (linkHref === currentPath || (isSignIn && (linkHref === '/signin' || linkHref === 'signin.html' || linkHref === 'login.html')))) {
       link.classList.add('active');
       matched = true;
     }
@@ -1205,10 +1213,31 @@ function initActiveNavLink() {
   });
 
   // Fallback to Home if on index.html
-  if (!matched && (currentPath === 'index.html' || currentPath === '')) {
+  if (!matched && !isSignIn && (currentPath === 'index.html' || currentPath === '')) {
     const homeToggle = document.querySelector('.navbar-nav .nav-link.dropdown-toggle');
     if (homeToggle) homeToggle.classList.add('active');
   }
+}
+
+function initSignInRouteNavigation() {
+  // Ensure clicking Sign In button navigates only to Sign In page (/signin)
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href="/signin"], a[href*="/signin"], a[href="signin.html"], a[href="login.html"], .auth-btn, .auth-signin-btn');
+    if (!link) return;
+
+    const href = link.getAttribute('href') || '';
+    
+    // In local file:// protocol, /signin maps to root of drive which fails, so resolve to signin.html / login.html
+    if (window.location.protocol === 'file:' && (href === '/signin' || href === '/signin/')) {
+      e.preventDefault();
+      const currentPath = window.location.pathname;
+      if (currentPath.includes('/signin/')) {
+        window.location.href = 'index.html';
+      } else {
+        window.location.href = 'signin.html';
+      }
+    }
+  });
 }
 
 /* ==========================================================================
@@ -2482,6 +2511,10 @@ function getAdminSessionData() {
 }
 
 function logoutUser() {
+  const adminSession = getAdminSessionData();
+  const authUser = getAuthUser();
+  const wasAdmin = (adminSession && adminSession.role === 'admin') || (authUser && authUser.role === 'admin');
+
   try {
     localStorage.removeItem('aura_auth_user');
     localStorage.removeItem('aura_admin_session');
@@ -2499,8 +2532,8 @@ function logoutUser() {
   }
 
   const currentFile = window.location.pathname.split('/').pop() || 'index.html';
-  if (currentFile.includes('admin.html')) {
-    window.location.replace('index.html');
+  if (currentFile.includes('admin-dashboard.html') || currentFile.includes('admin.html') || wasAdmin) {
+    window.location.replace('admin-login.html');
   } else if (currentFile !== 'index.html' && currentFile !== '') {
     setTimeout(() => {
       window.location.replace('index.html');
@@ -2533,8 +2566,8 @@ function updateNavbarAuth() {
     const initials = (adminName.split(' ').map(n => n[0]).join('') || adminName.slice(0, 2)).toUpperCase();
 
     headerActionsList.forEach(actions => {
-      // 1. Hide generic Sign Up button
-      actions.querySelectorAll('a[href*="register.html"], .auth-signup-btn').forEach(link => {
+      // 1. Hide generic Sign In & Sign Up buttons
+      actions.querySelectorAll('a[href*="signin"], a[href*="login.html"], .auth-btn, .auth-signin-btn, a[href*="register.html"], .auth-signup-btn').forEach(link => {
         link.style.display = 'none';
         link.classList.add('d-none');
       });
@@ -2567,7 +2600,7 @@ function updateNavbarAuth() {
             </div>
           </li>
           <li>
-            <a class="dropdown-item" href="admin.html">
+            <a class="dropdown-item" href="admin-dashboard.html">
               <i class="bi bi-speedometer2 text-primary"></i>
               <span>Admin Dashboard</span>
             </a>
@@ -2617,7 +2650,7 @@ function updateNavbarAuth() {
       const adminLi = document.createElement('li');
       adminLi.className = 'nav-item d-lg-none admin-nav-item border-top border-subtle mt-2 pt-2';
       adminLi.innerHTML = `
-        <a class="nav-link text-primary fw-bold" href="admin.html">
+        <a class="nav-link text-primary fw-bold" href="admin-dashboard.html">
           <i class="bi bi-speedometer2 me-1"></i> Admin Dashboard
         </a>
       `;
@@ -2646,8 +2679,8 @@ function updateNavbarAuth() {
     const initials = (displayName.split(' ').map(n => n[0]).join('') || displayName.slice(0, 2)).toUpperCase();
 
     headerActionsList.forEach(actions => {
-      // 1. Hide generic Sign Up button
-      actions.querySelectorAll('a[href*="register.html"], .auth-signup-btn').forEach(link => {
+      // 1. Hide generic Sign In & Sign Up buttons
+      actions.querySelectorAll('a[href*="signin"], a[href*="login.html"], .auth-btn, .auth-signin-btn, a[href*="register.html"], .auth-signup-btn').forEach(link => {
         link.style.display = 'none';
         link.classList.add('d-none');
       });
@@ -2733,7 +2766,7 @@ function updateNavbarAuth() {
 
   // =========================================================================
   // STATE 3: USER LOGGED OUT
-  // Navbar shows: [ Sign Up ] / Login links. Remove profile dropdown & Admin button.
+  // Navbar shows: [ Sign In ] (Primary button). Remove profile dropdown & Admin button.
   // =========================================================================
   headerActionsList.forEach(actions => {
     // 1. Remove user menu and standalone admin button completely
@@ -2744,19 +2777,22 @@ function updateNavbarAuth() {
     const adminControls = actions.querySelector('.admin-auth-controls');
     if (adminControls) adminControls.remove();
 
-    // 2. Ensure Sign Up button is visible and restored in exact position
-    const signUpLinks = actions.querySelectorAll('a[href*="register.html"], .auth-signup-btn');
-    if (signUpLinks && signUpLinks.length > 0) {
-      signUpLinks.forEach(link => {
+    // 2. Remove any old Sign Up buttons completely
+    actions.querySelectorAll('a[href*="register.html"], .auth-signup-btn').forEach(link => link.remove());
+
+    // 3. Ensure Sign In button is visible and restored in primary style
+    const signInLinks = actions.querySelectorAll('a[href*="signin"], a[href*="login.html"], .auth-btn, .auth-signin-btn');
+    if (signInLinks && signInLinks.length > 0) {
+      signInLinks.forEach(link => {
         link.style.display = '';
         link.classList.remove('d-none');
       });
     } else {
-      const newSignUp = document.createElement('a');
-      newSignUp.href = 'register.html';
-      newSignUp.className = 'btn btn-primary btn-sm ms-2 auth-signup-btn';
-      newSignUp.innerHTML = '<i class="bi bi-person-plus me-1"></i> Sign Up';
-      actions.appendChild(newSignUp);
+      const newSignIn = document.createElement('a');
+      newSignIn.href = '/signin';
+      newSignIn.className = 'btn btn-primary btn-sm ms-2 auth-btn auth-signin-btn';
+      newSignIn.innerHTML = '<i class="bi bi-person me-1"></i> Sign In';
+      actions.appendChild(newSignIn);
     }
   });
 }
@@ -2855,7 +2891,7 @@ function initFormValidationAndToasts() {
             form.reset();
             form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
             setTimeout(() => {
-              window.location.href = 'login.html';
+              window.location.href = window.location.protocol === 'file:' ? 'signin.html' : '/signin';
             }, 900);
           } else {
             showToast('An account with this email already exists. Please login.', 'error');
@@ -2864,14 +2900,16 @@ function initFormValidationAndToasts() {
         }
 
         // 2. Client Portal Login -> Check Admin or Registered Client
-        if (formType === 'Client Portal Login') {
+        if (formType === 'Client Portal Login' || formType === 'Sign In') {
           const identifierInput = form.querySelector('input[name="loginIdentifier"], input[type="text"], input[type="email"]');
           const passInput = form.querySelector('input[name="password"]');
+          const alertBox = document.getElementById('clientLoginAlert');
+          const alertText = document.getElementById('clientLoginAlertText');
 
           const enteredVal = identifierInput ? identifierInput.value.trim() : '';
           const enteredPass = passInput ? passInput.value.trim() : '';
 
-          // 2a. Admin Login Check (admin credentials)
+          // 2a. Admin Login Check (admin credentials entered on client portal)
           if ((enteredVal.toLowerCase() === 'admin@aurafinishes.com' || enteredVal.toLowerCase() === 'admin') && enteredPass === 'admin123') {
             const adminUser = {
               id: 'usr-admin',
@@ -2882,11 +2920,12 @@ function initFormValidationAndToasts() {
             };
             localStorage.setItem('aura_admin_session', JSON.stringify(adminUser));
             setAuthUser(adminUser);
+            if (alertBox) alertBox.classList.add('d-none');
             showToast('Admin authentication verified! Redirecting to Admin Dashboard...', 'success');
             form.reset();
             form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
             setTimeout(() => {
-              window.location.href = 'admin.html';
+              window.location.href = 'admin-dashboard.html';
             }, 700);
             return;
           }
@@ -2897,6 +2936,10 @@ function initFormValidationAndToasts() {
           // If NOT registered:
           if (!user) {
             if (identifierInput) identifierInput.classList.add('is-invalid');
+            if (alertBox) {
+              alertBox.classList.remove('d-none');
+              if (alertText) alertText.textContent = 'Account not found. Please register first or check your email.';
+            }
             showToast('Account not found. Please register first.', 'error');
             return;
           }
@@ -2904,6 +2947,10 @@ function initFormValidationAndToasts() {
           // If registered, but password does NOT match:
           if (user.password && user.password !== enteredPass) {
             if (passInput) passInput.classList.add('is-invalid');
+            if (alertBox) {
+              alertBox.classList.remove('d-none');
+              if (alertText) alertText.textContent = 'Invalid email or password. Please try again.';
+            }
             showToast('Invalid email or password.', 'error');
             return;
           }
@@ -2919,22 +2966,29 @@ function initFormValidationAndToasts() {
             };
             localStorage.setItem('aura_admin_session', JSON.stringify(adminUser));
             setAuthUser(adminUser);
+            if (alertBox) alertBox.classList.add('d-none');
             showToast('Admin authentication verified! Redirecting to Admin Dashboard...', 'success');
             form.reset();
             form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
             setTimeout(() => {
-              window.location.href = 'admin.html';
+              window.location.href = 'admin-dashboard.html';
             }, 700);
             return;
           }
 
           // Normal Client Login
+          if (alertBox) alertBox.classList.add('d-none');
           const authSession = {
             id: user.id,
             name: user.name,
             email: user.email,
             role: user.role || 'user'
           };
+
+          // Clear any dangling admin session so client does not retain admin privs
+          try {
+            localStorage.removeItem('aura_admin_session');
+          } catch (e) {}
 
           setAuthUser(authSession);
           showToast(`Welcome back, ${user.name}! Sign in successful.`, 'success');
@@ -2946,13 +3000,13 @@ function initFormValidationAndToasts() {
           return;
         }
 
-        // 3. Password Reset Request -> Redirect to Sign In (login.html)
+        // 3. Password Reset Request -> Redirect to Sign In (/signin)
         if (formType === 'Password Reset Request') {
           showToast('Password reset link dispatched to your email! Redirecting...', 'success');
           form.reset();
           form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
           setTimeout(() => {
-            window.location.href = 'login.html';
+            window.location.href = window.location.protocol === 'file:' ? 'signin.html' : '/signin';
           }, 1100);
           return;
         }
@@ -3077,10 +3131,12 @@ function showToast(message, type = 'info') {
   `;
 
   const closeBtn = toast.querySelector('.btn-close');
-  closeBtn.addEventListener('click', () => {
-    toast.style.opacity = '0';
-    setTimeout(() => toast.remove(), 300);
-  });
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      toast.style.opacity = '0';
+      setTimeout(() => toast.remove(), 300);
+    });
+  }
 
   toastContainer.appendChild(toast);
 
@@ -3133,7 +3189,7 @@ function initComingSoonTimer() {
    ========================================================================== */
 
 function initAdminPublicDock() {
-  const isDashboard = window.location.pathname.includes('admin.html') || window.location.pathname.includes('admin-login.html');
+  const isDashboard = window.location.pathname.includes('admin-dashboard.html') || window.location.pathname.includes('admin.html') || window.location.pathname.includes('admin-login.html');
   if (isDashboard) return;
 
   try {

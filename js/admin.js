@@ -400,7 +400,7 @@ function setAdminSession(admin) {
 
 function checkAdminAuthGuard() {
   const isLoginPage = window.location.pathname.includes('admin-login.html');
-  const isAdminDashboard = window.location.pathname.includes('admin.html');
+  const isAdminDashboard = window.location.pathname.includes('admin-dashboard.html') || window.location.pathname.includes('admin.html');
   const admin = getAdminSession();
 
   let authUser = null;
@@ -418,10 +418,10 @@ function checkAdminAuthGuard() {
       return true;
     }
 
-    // 2. If logged in as normal user (role === 'user') -> Deny access & redirect to home
+    // 2. If logged in as normal user (role === 'user') -> Deny access & redirect to /signin
     if (authUser && authUser.role === 'user') {
       alert('Access Denied: Administrator privileges required.');
-      window.location.replace('index.html');
+      window.location.replace(window.location.protocol === 'file:' ? 'signin.html' : '/signin');
       return false;
     }
 
@@ -432,14 +432,14 @@ function checkAdminAuthGuard() {
 
   // If on Admin Login page and already logged in as admin -> Redirect to admin dashboard
   if (isLoginPage && isVerifiedAdmin) {
-    window.location.replace('admin.html');
+    window.location.replace('admin-dashboard.html');
     return;
   }
 }
 
 // Ensure back-button cache (BFCache) re-evaluates auth guard
 window.addEventListener('pageshow', (event) => {
-  if (window.location.pathname.includes('admin.html')) {
+  if (window.location.pathname.includes('admin-dashboard.html') || window.location.pathname.includes('admin.html')) {
     checkAdminAuthGuard();
   }
 });
@@ -463,14 +463,16 @@ function initAdminLoginHandler() {
 
     const isValid = (email === 'admin@aurafinishes.com' && password === 'admin123') ||
                     (email === 'admin' && password === 'admin123') ||
-                    (foundAdmin && password.length >= 6);
+                    (foundAdmin && (foundAdmin.password ? foundAdmin.password === password : password === 'admin123'));
 
     if (isValid) {
       if (alertBox) alertBox.classList.add('d-none');
+      if (emailInput) emailInput.classList.remove('is-invalid');
+      if (passwordInput) passwordInput.classList.remove('is-invalid');
 
       const adminUser = {
         name: foundAdmin ? foundAdmin.name : 'Master Admin',
-        email: email === 'admin' ? 'admin@aurafinishes.com' : email,
+        email: email === 'admin' ? 'admin@aurafinishes.com' : (foundAdmin ? foundAdmin.email : email),
         role: 'admin',
         loginTime: new Date().toISOString()
       };
@@ -483,9 +485,11 @@ function initAdminLoginHandler() {
       }
 
       setTimeout(() => {
-        window.location.replace('admin.html');
+        window.location.replace('admin-dashboard.html');
       }, 400);
     } else {
+      if (emailInput) emailInput.classList.add('is-invalid');
+      if (passwordInput) passwordInput.classList.add('is-invalid');
       if (alertBox) {
         alertBox.classList.remove('d-none');
         const text = alertBox.querySelector('#adminLoginAlertText');
@@ -507,7 +511,7 @@ function logoutAdmin() {
     showToast('Administrator logged out successfully.', 'info');
   }
   setTimeout(() => {
-    window.location.replace('index.html');
+    window.location.replace('admin-login.html');
   }, 250);
 }
 
@@ -516,7 +520,7 @@ function logoutAdmin() {
    ========================================================================== */
 
 function initAdminDashboard() {
-  const isAdminDashboard = window.location.pathname.includes('admin.html');
+  const isAdminDashboard = window.location.pathname.includes('admin-dashboard.html') || window.location.pathname.includes('admin.html');
   if (!isAdminDashboard) return;
 
   initAdminDataStore();
@@ -660,6 +664,11 @@ function setupTopbarControls() {
   if (sidebarName) sidebarName.textContent = admin.name;
   if (dropName) dropName.textContent = admin.name;
   if (dropEmail) dropEmail.textContent = admin.email;
+
+  const initials = ((admin.name || 'Admin').split(' ').map(n => n[0]).join('') || (admin.name || 'AD').slice(0, 2)).toUpperCase();
+  document.querySelectorAll('.admin-avatar').forEach(el => {
+    el.textContent = initials;
+  });
 
   // Logout Listeners
   const logoutButtons = [

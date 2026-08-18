@@ -170,6 +170,25 @@ pre, code, kbd, samp {
     padding: 0.5rem;
   }
 
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-top: 0.85rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid var(--border-subtle);
+    width: 100%;
+  }
+
+  .header-actions .auth-btn,
+  .header-actions .auth-signin-btn {
+    flex: 1;
+    justify-content: center;
+    text-align: center;
+    padding: 0.55rem 1rem;
+    font-size: 0.875rem;
+  }
+
   /* Hero Section */
   .hero-section {
     padding: 3.5rem 0 2.5rem;
