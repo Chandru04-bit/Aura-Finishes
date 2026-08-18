@@ -27,14 +27,14 @@
   <script>
     (() => {
       const images = {
-        'interior-painting': 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80',
-        'exterior-painting': 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
-        'residential-painting': 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80',
-        'wall-finishing': 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1200&q=80',
-        'texture-finishing': 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80',
-        'waterproofing': 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&h=800&q=80',
+        'interior-painting': 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=75',
+        'exterior-painting': 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=75',
+        'residential-painting': 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=75',
+        'wall-finishing': 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1200&q=75',
+        'texture-finishing': 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=75',
+        'waterproofing': 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&h=800&q=75',
         'decorative-painting': 'images/services/decorative-painting.jpg',
-        'commercial-painting': 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
+        'commercial-painting': 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=75',
         'industrial-painting': 'images/services/industrial-painting.jpg'
       };
       const image = images[new URLSearchParams(location.search).get('service')] || images['interior-painting'];
@@ -46,7 +46,7 @@
       document.head.append(preload);
     })();
   </script>
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80" fetchpriority="high">
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=75" fetchpriority="high">
 </head>
 <body>
   <!-- Main Sticky Header & Navigation -->
@@ -160,7 +160,7 @@
           <!-- Main Content Column -->
           <div class="col-lg-8">
             <div class="mb-5">
-              <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80" alt="Interior Painting Showcase" class="rounded-4 shadow-lg w-100 mb-4" id="serviceImage" width="1200" height="800" decoding="async" loading="eager" fetchpriority="high">
+              <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=75" alt="Interior Painting Showcase" class="rounded-4 shadow-lg w-100 mb-4" id="serviceImage" width="1200" height="800" decoding="async" loading="eager" fetchpriority="high">
               <h2 class="fw-bold fs-2 mb-3" id="serviceIntroTitle">Architectural Living Environments, Crafted Without Compromise</h2>
               <p class="text-muted lead mb-4" id="serviceIntroLead">
                 Interior painting is more than just rolling color onto drywall. It is about creating pure, uninterrupted planes of light and tone that harmonize with flooring, millwork, and natural daylighting.
@@ -228,24 +228,6 @@
                     <div class="text-primary fw-bold mb-2">Stage 04 &bull; White-Glove Handover</div>
                     <p class="text-muted small mb-0">Detailed edge inspection, full protective film removal, HEPA vacuuming, and touch-up kit delivery.</p>
                   </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Interactive Before / After Comparison -->
-            <div class="mb-5" id="serviceComparisonSection">
-              <h3 class="fw-bold fs-3 mb-3">Transformation Case</h3>
-              <div class="comparison-slider-container" id="serviceComparisonSlider">
-                <div class="comparison-image-wrapper before-image">
-                  <img id="serviceBeforeImage" src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=1000&h=667&q=80" alt="Before Transformation" width="1000" height="667" loading="lazy" decoding="async">
-                  <span class="comparison-label label-before" id="serviceBeforeLabel">Before Prep</span>
-                </div>
-                <div class="comparison-image-wrapper after-image">
-                  <img id="serviceAfterImage" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&h=667&q=80" alt="After Master Finish" width="1000" height="667" loading="lazy" decoding="async">
-                  <span class="comparison-label label-after" id="serviceAfterLabel">After Master Finish</span>
-                </div>
-                <div class="comparison-handle">
-                  <div class="comparison-handle-btn"><i class="bi bi-arrows-expand-vertical" style="transform: rotate(90deg);"></i></div>
                 </div>
               </div>
             </div>

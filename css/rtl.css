@@ -1,31 +1,177 @@
 /* ==========================================================================
    AURA FINISHES & CO. — PREMIUM PAINTING & WALL FINISHING CONTRACTOR
-   RTL (Right-to-Left) Stylesheet (rtl.css)
+   Master RTL (Right-to-Left) Stylesheet (rtl.css)
+   Comprehensive layout, navigation, typography, form, card, modal & icon mirroring
+   Universal device compatibility with full BiDi isolation and punctuation preservation
    ========================================================================== */
 
+/* --------------------------------------------------------------------------
+   1. GLOBAL DIRECTION, BIDI ISOLATION & TYPOGRAPHY
+   -------------------------------------------------------------------------- */
 [dir="rtl"] {
   direction: rtl;
   text-align: right;
 }
 
 [dir="rtl"] body {
-  font-family: 'Plus Jakarta Sans', 'Segoe UI', Tahoma, Arial, sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Segoe UI', -apple-system, Tahoma, Arial, sans-serif;
+  text-align: right;
 }
 
-/* Eyebrow in RTL */
+/* Universal BiDi Text Content Handling - Fixes trailing punctuation, mixed English/RTL sentences, and numbers across all devices */
+[dir="rtl"] p,
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6,
+[dir="rtl"] .hero-title,
+[dir="rtl"] .hero-description,
+[dir="rtl"] .section-title,
+[dir="rtl"] .section-subtitle,
+[dir="rtl"] .page-title,
+[dir="rtl"] .page-banner-title,
+[dir="rtl"] .lead,
+[dir="rtl"] .eyebrow,
+[dir="rtl"] .blockquote,
+[dir="rtl"] .card-title,
+[dir="rtl"] .card-text,
+[dir="rtl"] .pricing-feature-list,
+[dir="rtl"] .form-label,
+[dir="rtl"] .form-text,
+[dir="rtl"] .form-control,
+[dir="rtl"] .form-select,
+[dir="rtl"] .form-check-label,
+[dir="rtl"] .btn,
+[dir="rtl"] .nav-link,
+[dir="rtl"] .dropdown-item,
+[dir="rtl"] .footer-links,
+[dir="rtl"] .footer-contact-item,
+[dir="rtl"] .stat-label,
+[dir="rtl"] .stat-value,
+[dir="rtl"] .process-step-card,
+[dir="rtl"] .process-step-card p,
+[dir="rtl"] .service-card p,
+[dir="rtl"] .testimonial-quote,
+[dir="rtl"] .badge {
+  unicode-bidi: plaintext;
+}
+
+/* Centered Text Containers - Preserve center alignment while maintaining proper punctuation flow */
+[dir="rtl"] .text-center,
+[dir="rtl"] .text-center p,
+[dir="rtl"] .text-center h1,
+[dir="rtl"] .text-center h2,
+[dir="rtl"] .text-center h3,
+[dir="rtl"] .text-center h4,
+[dir="rtl"] .text-center .section-subtitle,
+[dir="rtl"] .text-center .section-title,
+[dir="rtl"] .text-center .eyebrow {
+  text-align: center !important;
+}
+
+/* Eyebrow Accent in RTL - Force direction: ltr so the line is always on the left prefixing the title */
+[dir="rtl"] .eyebrow {
+  direction: ltr !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
+
 [dir="rtl"] .eyebrow::before {
-  display: none;
-}
-[dir="rtl"] .eyebrow::after {
-  content: '';
-  display: inline-block;
-  width: 14px;
-  height: 2px;
-  background-color: var(--primary);
-  border-radius: var(--radius-full);
+  content: '' !important;
+  display: inline-block !important;
+  width: 14px !important;
+  height: 2px !important;
+  background-color: var(--primary) !important;
+  border-radius: var(--radius-full) !important;
 }
 
-/* Header & Navbar in RTL */
+[dir="rtl"] .eyebrow::after {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. BOOTSTRAP 5 UTILITY CLASS RTL INVERSIONS
+   -------------------------------------------------------------------------- */
+/* Margins */
+[dir="rtl"] .me-1 { margin-left: 0.25rem !important; margin-right: 0 !important; }
+[dir="rtl"] .me-2 { margin-left: 0.5rem !important; margin-right: 0 !important; }
+[dir="rtl"] .me-3 { margin-left: 1rem !important; margin-right: 0 !important; }
+[dir="rtl"] .me-4 { margin-left: 1.5rem !important; margin-right: 0 !important; }
+[dir="rtl"] .me-5 { margin-left: 3rem !important; margin-right: 0 !important; }
+[dir="rtl"] .me-auto { margin-left: auto !important; margin-right: 0 !important; }
+
+[dir="rtl"] .ms-1 { margin-right: 0.25rem !important; margin-left: 0 !important; }
+[dir="rtl"] .ms-2 { margin-right: 0.5rem !important; margin-left: 0 !important; }
+[dir="rtl"] .ms-3 { margin-right: 1rem !important; margin-left: 0 !important; }
+[dir="rtl"] .ms-4 { margin-right: 1.5rem !important; margin-left: 0 !important; }
+[dir="rtl"] .ms-5 { margin-right: 3rem !important; margin-left: 0 !important; }
+[dir="rtl"] .ms-auto { margin-right: auto !important; margin-left: 0 !important; }
+
+/* Paddings */
+[dir="rtl"] .pe-1 { padding-left: 0.25rem !important; padding-right: 0 !important; }
+[dir="rtl"] .pe-2 { padding-left: 0.5rem !important; padding-right: 0 !important; }
+[dir="rtl"] .pe-3 { padding-left: 1rem !important; padding-right: 0 !important; }
+[dir="rtl"] .pe-4 { padding-left: 1.5rem !important; padding-right: 0 !important; }
+[dir="rtl"] .pe-5 { padding-left: 3rem !important; padding-right: 0 !important; }
+
+[dir="rtl"] .ps-1 { padding-right: 0.25rem !important; padding-left: 0 !important; }
+[dir="rtl"] .ps-2 { padding-right: 0.5rem !important; padding-left: 0 !important; }
+[dir="rtl"] .ps-3 { padding-right: 1rem !important; padding-left: 0 !important; }
+[dir="rtl"] .ps-4 { padding-right: 1.5rem !important; padding-left: 0 !important; }
+[dir="rtl"] .ps-5 { padding-right: 3rem !important; padding-left: 0 !important; }
+
+/* Text Alignment */
+[dir="rtl"] .text-start,
+[dir="rtl"] .text-sm-start,
+[dir="rtl"] .text-md-start,
+[dir="rtl"] .text-lg-start,
+[dir="rtl"] .text-xl-start {
+  text-align: right !important;
+}
+
+[dir="rtl"] .text-end,
+[dir="rtl"] .text-sm-end,
+[dir="rtl"] .text-md-end,
+[dir="rtl"] .text-lg-end,
+[dir="rtl"] .text-xl-end {
+  text-align: left !important;
+}
+
+/* Common start/end alignment utilities used throughout the layout */
+[dir="rtl"] .justify-content-start { justify-content: flex-end !important; }
+[dir="rtl"] .justify-content-end { justify-content: flex-start !important; }
+[dir="rtl"] .align-items-start { align-items: flex-end !important; }
+[dir="rtl"] .align-items-end { align-items: flex-start !important; }
+[dir="rtl"] .flex-row { flex-direction: row-reverse !important; }
+[dir="rtl"] .d-flex.gap-1,
+[dir="rtl"] .d-flex.gap-2,
+[dir="rtl"] .d-flex.gap-3,
+[dir="rtl"] .d-flex.gap-4,
+[dir="rtl"] .d-flex.gap-5 {
+  flex-direction: row-reverse !important;
+}
+
+/* Floats */
+[dir="rtl"] .float-start { float: right !important; }
+[dir="rtl"] .float-end { float: left !important; }
+
+/* Borders & Dividers */
+[dir="rtl"] .border-start {
+  border-left: 0 !important;
+  border-right: 1px solid var(--border-subtle) !important;
+}
+
+[dir="rtl"] .border-end {
+  border-right: 0 !important;
+  border-left: 1px solid var(--border-subtle) !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. HEADER, NAVBAR & NAVIGATION
+   -------------------------------------------------------------------------- */
 [dir="rtl"] .navbar-brand {
   margin-right: 0 !important;
   margin-left: 1.75rem !important;
@@ -36,9 +182,18 @@
   margin-right: 1rem !important;
 }
 
+[dir="rtl"] .navbar-nav {
+  padding-right: 0;
+  padding-left: 0;
+}
+
 [dir="rtl"] .dropdown-toggle::after {
   margin-left: 0 !important;
-  margin-right: 0.35rem !important;
+  margin-right: 0.4rem !important;
+}
+
+[dir="rtl"] .dropdown-menu {
+  text-align: right !important;
 }
 
 @media (min-width: 992px) {
@@ -46,172 +201,33 @@
   [dir="rtl"] .main-header .dropdown-menu {
     left: auto !important;
     right: 0 !important;
+    min-width: 270px !important;
+    width: max-content !important;
+    max-width: 360px !important;
     text-align: right !important;
   }
+}
+
+[dir="rtl"] .dropdown-item {
+  text-align: right !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  white-space: nowrap !important;
+  width: 100% !important;
+  padding: 0.6rem 1rem !important;
+}
+
+[dir="rtl"] .dropdown-item i {
+  margin-right: 0 !important;
+  margin-left: 0.65rem !important;
 }
 
 [dir="rtl"] .dropdown-item:hover,
 [dir="rtl"] .dropdown-item:focus,
 [dir="rtl"] .dropdown-item.active {
   padding-left: 1rem !important;
-  padding-right: 1.25rem !important;
-}
-
-[dir="rtl"] .user-auth-dropdown-menu {
-  right: auto !important;
-  left: 0 !important;
-  text-align: right !important;
-}
-
-[dir="rtl"] .navbar-nav {
-  padding-right: 0;
-}
-
-[dir="rtl"] .me-auto {
-  margin-right: 0 !important;
-  margin-left: auto !important;
-}
-
-[dir="rtl"] .ms-auto {
-  margin-left: 0 !important;
-  margin-right: auto !important;
-}
-
-[dir="rtl"] .me-2, [dir="rtl"] .me-3, [dir="rtl"] .me-4 {
-  margin-right: 0 !important;
-}
-
-/* Before / After Slider Labels in RTL */
-[dir="rtl"] .comparison-label.label-before {
-  right: auto;
-  left: 1.25rem;
-}
-[dir="rtl"] .comparison-label.label-after {
-  left: auto;
-  right: 1.25rem;
-}
-
-/* Floating Badges in RTL */
-[dir="rtl"] .floating-badge.badge-top-left {
-  left: auto;
-  right: -1rem;
-}
-[dir="rtl"] .floating-badge.badge-bottom-right {
-  right: auto;
-  left: -1rem;
-}
-
-/* Service Card Icon */
-[dir="rtl"] .service-card-icon {
-  right: auto;
-  left: 1.5rem;
-}
-
-/* Visualizer Overlay */
-[dir="rtl"] .visualizer-overlay-info {
-  left: auto;
-  right: 1rem;
-}
-
-/* Timeline & Stats in RTL */
-[dir="rtl"] .stat-item {
-  border-right: none;
-  border-left: 1px solid var(--border-subtle);
-}
-[dir="rtl"] .stat-item:last-child {
-  border-left: none;
-}
-
-/* Custom Toast in RTL */
-[dir="rtl"] .toast-container {
-  right: auto;
-  left: 2rem;
-}
-[dir="rtl"] .custom-toast {
-  animation-name: slideInLeft;
-}
-[dir="rtl"] .custom-toast.toast-success {
-  border-left: none;
-  border-right: 4px solid #10B981;
-}
-[dir="rtl"] .custom-toast.toast-error {
-  border-left: none;
-  border-right: 4px solid #EF4444;
-}
-[dir="rtl"] .custom-toast.toast-info {
-  border-left: none;
-  border-right: 4px solid var(--primary);
-}
-
-@keyframes slideInLeft {
-  from { transform: translateX(-100%); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
-
-/* Back to top in RTL */
-[dir="rtl"] .back-to-top-btn {
-  right: auto;
-  left: 2rem;
-}
-
-/* Footer in RTL */
-[dir="rtl"] .footer-links a:hover {
-  transform: translateX(-4px);
-}
-
-/* ==========================================================================
-   ADMIN DASHBOARD RTL SUPPORT
-   ========================================================================== */
-[dir="rtl"] .admin-sidebar {
-  left: auto;
-  right: 0;
-  border-right: none;
-  border-left: 1px solid var(--admin-border-subtle);
-}
-
-[dir="rtl"] .admin-main {
-  margin-left: 0;
-  margin-right: var(--admin-sidebar-width);
-}
-
-[dir="rtl"] .admin-nav-link {
-  border-left: none;
-  border-right: 3px solid transparent;
-}
-
-[dir="rtl"] .admin-nav-link.active {
-  border-left: none;
-  border-right: 3px solid var(--admin-primary);
-}
-
-[dir="rtl"] .admin-nav-link i {
-  margin-right: 0 !important;
-  margin-left: 0.85rem !important;
-}
-
-[dir="rtl"] .admin-sidebar-brand {
-  border-right: none;
-}
-
-[dir="rtl"] .admin-sidebar-brand img,
-[dir="rtl"] .admin-sidebar-brand i {
-  margin-right: 0 !important;
-  margin-left: 0.75rem !important;
-}
-
-[dir="rtl"] .admin-nav-link .badge {
-  margin-left: 0 !important;
-  margin-right: auto !important;
-}
-
-[dir="rtl"] .admin-header-right {
-  margin-left: 0;
-  margin-right: auto;
-}
-
-[dir="rtl"] .admin-header-left {
-  margin-right: 0;
-  margin-left: auto;
+  padding-right: 1.15rem !important;
 }
 
 [dir="rtl"] .dropdown-menu-end {
@@ -220,30 +236,320 @@
   left: 0 !important;
 }
 
-[dir="rtl"] .stat-card {
+[dir="rtl"] .user-auth-dropdown-menu {
+  right: auto !important;
+  left: 0 !important;
+  text-align: right !important;
+}
+
+[dir="rtl"] .user-avatar-badge {
+  margin-right: 0 !important;
+  margin-left: 0.75rem !important;
+}
+
+/* Mobile Nav Drawer in RTL */
+@media (max-width: 991.98px) {
+  [dir="rtl"] .navbar-collapse {
+    text-align: right;
+  }
+
+  [dir="rtl"] .navbar-collapse .dropdown-menu {
+    margin-right: 0.5rem !important;
+    margin-left: 0.5rem !important;
+    text-align: right !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. DIRECTIONAL ICON MIRRORING
+   -------------------------------------------------------------------------- */
+[dir="rtl"] .bi-arrow-right,
+[dir="rtl"] .bi-arrow-left,
+[dir="rtl"] .bi-chevron-right,
+[dir="rtl"] .bi-chevron-left,
+[dir="rtl"] .bi-chevron-double-right,
+[dir="rtl"] .bi-chevron-double-left,
+[dir="rtl"] .bi-box-arrow-right,
+[dir="rtl"] .bi-box-arrow-left,
+[dir="rtl"] .bi-arrow-up-right,
+[dir="rtl"] .bi-arrow-down-right {
+  transform: scaleX(-1);
+  display: inline-block;
+}
+
+[dir="rtl"] .service-card:hover .service-card-link i,
+[dir="rtl"] .blog-card:hover .blog-card-link i {
+  transform: scaleX(-1) translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   5. FORMS, INPUTS & CONTROLS
+   -------------------------------------------------------------------------- */
+[dir="rtl"] .form-label {
+  text-align: right;
+  display: block;
+}
+
+[dir="rtl"] .form-control,
+[dir="rtl"] .form-select {
   text-align: right;
 }
 
-[dir="rtl"] .stat-icon-wrapper {
-  margin-left: 0;
-  margin-right: 0.15rem;
+[dir="rtl"] .form-select {
+  background-position: left 0.75rem center !important;
+  padding-right: 0.85rem !important;
+  padding-left: 2.25rem !important;
 }
 
-[dir="rtl"] .admin-icon-btn.rtl-toggle.active {
-  background-color: var(--admin-primary-light);
-  color: var(--admin-primary);
-  border-color: var(--admin-primary);
+/* Password Input Group */
+[dir="rtl"] .password-input-group .password-toggle-btn {
+  right: auto !important;
+  left: 12px !important;
 }
 
-@media (max-width: 991.98px) {
-  [dir="rtl"] .admin-sidebar {
-    transform: translateX(100%);
-  }
-  [dir="rtl"] .admin-sidebar.active {
-    transform: translateX(0);
-  }
-  [dir="rtl"] .admin-main {
-    margin-right: 0 !important;
-  }
+[dir="rtl"] .password-input-group .form-control {
+  padding-left: 2.75rem !important;
+  padding-right: 0.85rem !important;
 }
+
+[dir="rtl"] .auth-card-compact .password-input-group .form-control {
+  border-top-right-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-left: none !important;
+  border-right: 1.5px solid var(--border-subtle) !important;
+}
+
+[dir="rtl"] .auth-card-compact .password-input-group .password-toggle-btn {
+  border-top-left-radius: 8px !important;
+  border-bottom-left-radius: 8px !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-right: none !important;
+  border-left: 1.5px solid var(--border-subtle) !important;
+}
+
+/* Input Group Rounded Corners */
+[dir="rtl"] .input-group > .form-control:not(:last-child) {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-top-right-radius: var(--radius-md) !important;
+  border-bottom-right-radius: var(--radius-md) !important;
+}
+
+[dir="rtl"] .input-group > .btn:not(:first-child) {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-top-left-radius: var(--radius-md) !important;
+  border-bottom-left-radius: var(--radius-md) !important;
+}
+
+/* Checkboxes & Radios */
+[dir="rtl"] .form-check {
+  padding-left: 0 !important;
+  padding-right: 1.6em !important;
+  text-align: right;
+}
+
+[dir="rtl"] .form-check-input {
+  float: right !important;
+  margin-left: 0 !important;
+  margin-right: -1.6em !important;
+}
+
+/* File Upload Button */
+[dir="rtl"] .form-control::file-selector-button,
+[dir="rtl"] input[type="file"]::file-selector-button,
+[dir="rtl"] .form-control::-webkit-file-upload-button,
+[dir="rtl"] input[type="file"]::-webkit-file-upload-button {
+  margin-inline-end: 0 !important;
+  margin-inline-start: 0.85rem !important;
+  border-inline-end: 0 !important;
+  border-inline-start: 1.5px solid var(--border-subtle) !important;
+}
+
+/* --------------------------------------------------------------------------
+   6. CARDS, GRIDS & HERO SECTIONS
+   -------------------------------------------------------------------------- */
+/* Hero Editorial Split in RTL */
+[dir="rtl"] .hero-editorial-bg {
+  right: auto !important;
+  left: 0 !important;
+  mask-image: linear-gradient(to left, transparent 0%, rgba(0, 0, 0, 0.3) 15%, black 100%) !important;
+  -webkit-mask-image: linear-gradient(to left, transparent 0%, rgba(0, 0, 0, 0.3) 15%, black 100%) !important;
+}
+
+/* Floating Badges in Hero */
+[dir="rtl"] .floating-badge.badge-top-left {
+  left: auto !important;
+  right: -1rem !important;
+}
+
+[dir="rtl"] .floating-badge.badge-bottom-right {
+  right: auto !important;
+  left: -1rem !important;
+}
+
+[dir="rtl"] .floating-badge.badge-top-right {
+  right: auto !important;
+  left: -1rem !important;
+}
+
+[dir="rtl"] .floating-badge.badge-bottom-left {
+  left: auto !important;
+  right: -1rem !important;
+}
+
+/* Service Card Icon */
+[dir="rtl"] .service-card-icon {
+  right: auto !important;
+  left: 1.5rem !important;
+}
+
+/* Project Card Badge */
+[dir="rtl"] .project-card-badge {
+  left: auto !important;
+  right: 1.25rem !important;
+}
+
+/* Blog Date Badge */
+[dir="rtl"] .blog-date-badge {
+  left: auto !important;
+  right: 1rem !important;
+}
+
+/* Team Badge */
+[dir="rtl"] .team-badge-exp {
+  right: auto !important;
+  left: 1rem !important;
+}
+
+/* Pricing Card Feature List */
+[dir="rtl"] .pricing-feature-list li i {
+  margin-right: 0 !important;
+  margin-left: 0.6rem !important;
+}
+
+/* Timeline & Stats */
+[dir="rtl"] .stat-item {
+  border-right: none !important;
+  border-left: 1px solid var(--border-subtle) !important;
+}
+
+[dir="rtl"] .stat-item:last-child {
+  border-left: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   7. INTERACTIVE COMPONENTS (SLIDERS, STUDIO, ACCORDIONS)
+   -------------------------------------------------------------------------- */
+/* Before / After Slider Labels in RTL */
+[dir="rtl"] .comparison-badge.comparison-badge-before,
+[dir="rtl"] .comparison-label.label-before {
+  right: auto !important;
+  left: 1.25rem !important;
+}
+
+[dir="rtl"] .comparison-badge.comparison-badge-after,
+[dir="rtl"] .comparison-label.label-after {
+  left: auto !important;
+  right: 1.25rem !important;
+}
+
+/* Room Color Visualizer Overlay */
+[dir="rtl"] .visualizer-overlay-info {
+  left: auto !important;
+  right: 1.25rem !important;
+  text-align: right !important;
+}
+
+/* FAQ Accordion */
+[dir="rtl"] .accordion-button {
+  text-align: right !important;
+}
+
+[dir="rtl"] .accordion-button::after {
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+[dir="rtl"] .accordion-button i {
+  margin-right: 0 !important;
+  margin-left: 0.75rem !important;
+}
+
+/* Cost Estimator Calculator */
+[dir="rtl"] .calculator-box {
+  text-align: right;
+}
+
+[dir="rtl"] .calc-range-value {
+  text-align: left;
+}
+
+/* --------------------------------------------------------------------------
+   8. MODALS, TOASTS & FLOATING ACTIONS
+   -------------------------------------------------------------------------- */
+[dir="rtl"] .modal-header .btn-close {
+  margin-left: -0.5rem !important;
+  margin-right: auto !important;
+}
+
+[dir="rtl"] .toast-container {
+  right: auto !important;
+  left: 1.5rem !important;
+}
+
+[dir="rtl"] .custom-toast {
+  animation-name: slideInLeft;
+}
+
+[dir="rtl"] .custom-toast.toast-success {
+  border-left: none !important;
+  border-right: 4px solid #10B981 !important;
+}
+
+[dir="rtl"] .custom-toast.toast-error {
+  border-left: none !important;
+  border-right: 4px solid #EF4444 !important;
+}
+
+[dir="rtl"] .custom-toast.toast-info {
+  border-left: none !important;
+  border-right: 4px solid var(--primary) !important;
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+[dir="rtl"] .back-to-top-btn {
+  right: auto !important;
+  left: 1.5rem !important;
+}
+
+/* --------------------------------------------------------------------------
+   9. FOOTER IN RTL
+   -------------------------------------------------------------------------- */
+[dir="rtl"] .main-footer {
+  text-align: right;
+}
+
+[dir="rtl"] .footer-links a {
+  text-align: right;
+}
+
+[dir="rtl"] .footer-links a:hover {
+  transform: translateX(-4px) !important;
+}
+
+[dir="rtl"] .footer-contact-item i {
+  margin-right: 0 !important;
+  margin-left: 0.75rem !important;
+}
+
+
+
 

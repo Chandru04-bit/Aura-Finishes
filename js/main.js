@@ -18,40 +18,40 @@
 })();
 
 const SERVICE_IMAGE_URLS = Object.freeze({
-  'interior-painting': 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80',
-  'exterior-painting': 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
-  'residential-painting': 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80',
-  'wall-finishing': 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1200&q=80',
-  'texture-finishing': 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80',
-  'waterproofing': 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&h=800&q=80',
+  'interior-painting': 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=75',
+  'exterior-painting': 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=75',
+  'residential-painting': 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=75',
+  'wall-finishing': 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=900&q=75',
+  'texture-finishing': 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=900&q=75',
+  'waterproofing': 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=900&h=800&q=75',
   'decorative-painting': 'images/services/decorative-painting.jpg',
-  'commercial-painting': 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
+  'commercial-painting': 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=75',
   'industrial-painting': 'images/services/industrial-painting.jpg'
 });
 
 const PROJECT_IMAGE_URLS = Object.freeze({
   'modern-residence': 'images/projects/modern-residence.jpg',
-  'tribeca-penthouse-suite': 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80',
-  'tribeca-penthouse': 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80',
-  'tribeca-monolith-penthouse': 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80',
-  'hudson-yards-tech-hq': 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
+  'tribeca-penthouse-suite': 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=75',
+  'tribeca-penthouse': 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=75',
+  'tribeca-monolith-penthouse': 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=75',
+  'hudson-yards-tech-hq': 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=75',
   'greenwich-modern-estate': 'images/projects/greenwich-estate.jpg',
   'modern-estate': 'images/projects/greenwich-estate.jpg',
-  'soho-designer-loft': 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1200&q=80',
-  'soho-art-loft': 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1200&q=80',
-  'soho-art-loft-residence': 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1200&q=80',
-  'laura-restaurant-lounge': 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
-  'laura-restaurant': 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
-  'hamptons-coastal-villa': 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80',
-  'luxury-villa': 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80',
-  'upper-east-side-classic': 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80',
-  'interior-finish': 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80',
+  'soho-designer-loft': 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=900&q=75',
+  'soho-art-loft': 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=900&q=75',
+  'soho-art-loft-residence': 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=900&q=75',
+  'laura-restaurant-lounge': 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=75',
+  'laura-restaurant': 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=75',
+  'hamptons-coastal-villa': 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=75',
+  'luxury-villa': 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=75',
+  'upper-east-side-classic': 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=75',
+  'interior-finish': 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=75',
   'standard-atrium-lounge': 'images/projects/commercial-atrium.jpg',
   'the-standard-atrium': 'images/projects/commercial-atrium.jpg',
   'commercial-atrium': 'images/projects/commercial-atrium.jpg',
-  'westchester-stone-manor': 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&h=800&q=80',
+  'westchester-stone-manor': 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=900&h=800&q=75',
   'madison-avenue-flagship': 'images/projects/madison-flagship.jpg',
-  'bel-air-modernist-villa': 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=80',
+  'bel-air-modernist-villa': 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=900&q=75',
   'tribeca-master-suite': 'images/hero/hero-bedroom.jpg'
 });
 
@@ -74,7 +74,7 @@ const PORTFOLIO_PROJECTS_LIST = Object.freeze([
     categoryPill: 'Residential &bull; Venetian Plaster',
     filterCategory: 'residential interior texture-plaster',
     location: 'Manhattan, New York',
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600&q=75',
     area: '4,500 sq.ft.',
     duration: '4 Weeks Execution'
   },
@@ -85,7 +85,7 @@ const PORTFOLIO_PROJECTS_LIST = Object.freeze([
     categoryPill: 'Commercial &bull; Acoustic Finish',
     filterCategory: 'commercial interior',
     location: 'New York, NY',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=75',
     area: '12,000 sq.ft.',
     duration: '6 Weeks Execution'
   },
@@ -107,7 +107,7 @@ const PORTFOLIO_PROJECTS_LIST = Object.freeze([
     categoryPill: 'Interior &bull; Limewash Texture',
     filterCategory: 'residential interior texture-plaster',
     location: 'SoHo, New York',
-    image: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=600&q=75',
     area: '3,800 sq.ft.',
     duration: '3 Weeks Execution'
   },
@@ -118,7 +118,7 @@ const PORTFOLIO_PROJECTS_LIST = Object.freeze([
     categoryPill: 'Commercial &bull; Marmorino Finish',
     filterCategory: 'commercial interior texture-plaster',
     location: 'Brooklyn, NY',
-    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=75',
     area: '5,400 sq.ft.',
     duration: '4 Weeks Execution'
   },
@@ -129,7 +129,7 @@ const PORTFOLIO_PROJECTS_LIST = Object.freeze([
     categoryPill: 'Exterior &bull; Salt-Shield Finish',
     filterCategory: 'residential exterior',
     location: 'East Hampton, NY',
-    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=75',
     area: '9,600 sq.ft.',
     duration: '5 Weeks Execution'
   },
@@ -140,7 +140,7 @@ const PORTFOLIO_PROJECTS_LIST = Object.freeze([
     categoryPill: 'Interior &bull; Mineral Velvet',
     filterCategory: 'residential interior',
     location: 'New York, NY',
-    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=75',
     area: '4,100 sq.ft.',
     duration: '4 Weeks Execution'
   },
@@ -162,7 +162,7 @@ const PORTFOLIO_PROJECTS_LIST = Object.freeze([
     categoryPill: 'Exterior &bull; Hydro-Barrier Facade',
     filterCategory: 'residential exterior',
     location: 'Bedford, NY',
-    image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&h=600&q=80',
+    image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=600&h=600&q=75',
     area: '11,000 sq.ft.',
     duration: '6 Weeks Execution'
   },
@@ -184,7 +184,7 @@ const PORTFOLIO_PROJECTS_LIST = Object.freeze([
     categoryPill: 'Exterior &bull; Mineral Micro-Coat',
     filterCategory: 'residential exterior',
     location: 'Bel Air, California',
-    image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=600&q=75',
     area: '10,500 sq.ft.',
     duration: '5 Weeks Execution'
   }
@@ -233,14 +233,14 @@ const PROJECTS_DATA = Object.freeze({
     area: '4,500 sq.ft.',
     duration: '4 Weeks Execution',
     meta: 'Manhattan, New York &bull; 4,500 sq.ft. &bull; 4 Weeks Execution',
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80',
-    mainImage: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=75',
+    mainImage: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=75',
     description: 'Full 4,500 sq.ft. application of hand-burnished Italian Marmorino lime plaster, creating continuous seamless transitions between ceiling coves and floor slabs.',
     visionTitle: 'Project Vision & Architectural Context',
     lead: 'The objective was to transform an expansive top-floor duplex penthouse into a serene, tactile sanctuary. The client desired walls that felt monolithic and carved from natural stone rather than standard painted drywall.',
     body: 'Our team specified hand-burnished Italian Marmorino lime plaster, incorporating fine Carrara marble aggregate to achieve subtle depth and luminous light play across 12-foot ceilings.',
-    beforeImage: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1000&h=800&q=80',
-    afterImage: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&h=800&q=80',
+    beforeImage: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1000&h=800&q=75',
+    afterImage: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&h=800&q=75',
     beforeLabel: 'Before (Bare Drywall)',
     afterLabel: 'After (Polished Marmorino)',
     challenge: 'Extreme floor-to-ceiling southern window exposure meant any minute joint imperfection or lap mark would be severely magnified under raking afternoon sunlight.',
@@ -266,14 +266,14 @@ const PROJECTS_DATA = Object.freeze({
     area: '4,500 sq.ft.',
     duration: '4 Weeks Execution',
     meta: 'Manhattan, New York &bull; 4,500 sq.ft. &bull; 4 Weeks Execution',
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80',
-    mainImage: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=75',
+    mainImage: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=75',
     description: 'Full 4,500 sq.ft. application of hand-burnished Italian Marmorino lime plaster, creating continuous seamless transitions between ceiling coves and floor slabs.',
     visionTitle: 'Project Vision & Architectural Context',
     lead: 'The objective was to transform an expansive top-floor duplex penthouse into a serene, tactile sanctuary. The client desired walls that felt monolithic and carved from natural stone rather than standard painted drywall.',
     body: 'Our team specified hand-burnished Italian Marmorino lime plaster, incorporating fine Carrara marble aggregate to achieve subtle depth and luminous light play across 12-foot ceilings.',
-    beforeImage: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1000&h=800&q=80',
-    afterImage: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&h=800&q=80',
+    beforeImage: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1000&h=800&q=75',
+    afterImage: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&h=800&q=75',
     beforeLabel: 'Before (Drywall)',
     afterLabel: 'After (Marmorino)',
     challenge: 'Extreme floor-to-ceiling southern window exposure meant any minute joint imperfection or lap mark would be severely magnified under raking afternoon sunlight.',
@@ -299,14 +299,14 @@ const PROJECTS_DATA = Object.freeze({
     area: '12,000 sq.ft.',
     duration: '6 Weeks Execution',
     meta: 'New York, NY &bull; 12,000 sq.ft. &bull; 6 Weeks Execution',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
-    mainImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=75',
+    mainImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=75',
     description: 'Acoustic micro-perforated mineral coatings paired with deep charcoal lime wash for executive boardrooms and creative gallery pavilions.',
     visionTitle: 'Corporate Acoustic Intelligence & Modern Atmosphere',
     lead: 'Engineering high-performance acoustic micro-mineral wall systems across three expansive headquarters floors to elevate sound clarity and visual refinement.',
     body: 'We integrated non-reflective acoustic micro-texture finishes across presentation amphitheaters, open creative pods, and executive boardrooms with seamless architectural transitions.',
-    beforeImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1000&h=800&q=80',
-    afterImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&h=800&q=80',
+    beforeImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1000&h=800&q=75',
+    afterImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&h=800&q=75',
     beforeLabel: 'Before (Bare Concrete & Glass)',
     afterLabel: 'After (Acoustic Mineral Finish)',
     challenge: 'Significant sound reverberation caused by 14-foot perimeter glass curtain walls and industrial exposed ceiling slabs.',
@@ -365,14 +365,14 @@ const PROJECTS_DATA = Object.freeze({
     area: '3,800 sq.ft.',
     duration: '3 Weeks Execution',
     meta: 'SoHo, New York &bull; 3,800 sq.ft. &bull; 3 Weeks Execution',
-    image: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1200&q=80',
-    mainImage: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=900&q=75',
+    mainImage: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=900&q=75',
     description: 'Bespoke textured slaked-lime wash and Roman clay wall finishes curated for an artist loft and private gallery space in historic cast-iron SoHo.',
     visionTitle: 'Organic Slaked Lime Cloud & Gallery Atmosphere',
     lead: 'Bespoke textured slaked-lime wash and Roman clay wall finishes curated for an artist loft and private gallery space in historic cast-iron SoHo.',
     body: 'Layered organic mineral limewash applied with cloud-trowel techniques to create soft, undulating gradients that diffuse natural daylighting across 14-foot gallery ceilings.',
-    beforeImage: 'https://images.unsplash.com/photo-1534349762230-e0cadf78f5da?auto=format&fit=crop&w=1000&h=800&q=80',
-    afterImage: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1000&h=800&q=80',
+    beforeImage: 'https://images.unsplash.com/photo-1534349762230-e0cadf78f5da?auto=format&fit=crop&w=1000&h=800&q=75',
+    afterImage: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1000&h=800&q=75',
     beforeLabel: 'Before (Standard Paint)',
     afterLabel: 'After (Organic Limewash)',
     challenge: 'Applying modern breathable finishes over 120-year-old historic masonry and plaster walls without trapping trapped humidity.',
@@ -398,14 +398,14 @@ const PROJECTS_DATA = Object.freeze({
     area: '3,800 sq.ft.',
     duration: '3 Weeks Execution',
     meta: 'SoHo, New York &bull; 3,800 sq.ft. &bull; 3 Weeks Execution',
-    image: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1200&q=80',
-    mainImage: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=900&q=75',
+    mainImage: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=900&q=75',
     description: 'Bespoke textured slaked-lime wash and Roman clay wall finishes curated for an artist loft and private gallery space in historic cast-iron SoHo.',
     visionTitle: 'Organic Slaked Lime Cloud & Gallery Atmosphere',
     lead: 'Bespoke textured slaked-lime wash and Roman clay wall finishes curated for an artist loft and private gallery space in historic cast-iron SoHo.',
     body: 'Layered organic mineral limewash applied with cloud-trowel techniques to create soft, undulating gradients that diffuse natural daylighting across 14-foot gallery ceilings.',
-    beforeImage: 'https://images.unsplash.com/photo-1534349762230-e0cadf78f5da?auto=format&fit=crop&w=1000&h=800&q=80',
-    afterImage: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1000&h=800&q=80',
+    beforeImage: 'https://images.unsplash.com/photo-1534349762230-e0cadf78f5da?auto=format&fit=crop&w=1000&h=800&q=75',
+    afterImage: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1000&h=800&q=75',
     beforeLabel: 'Before (Standard Paint)',
     afterLabel: 'After (Organic Limewash)',
     challenge: 'Applying modern breathable finishes over 120-year-old historic masonry and plaster walls without trapping trapped humidity.',
@@ -431,14 +431,14 @@ const PROJECTS_DATA = Object.freeze({
     area: '5,400 sq.ft.',
     duration: '4 Weeks Execution',
     meta: 'Brooklyn, New York &bull; 5,400 sq.ft. &bull; 4 Weeks Execution',
-    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
-    mainImage: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=75',
+    mainImage: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=75',
     description: 'Atmospheric luxury dining venue featuring burnished Venetian plaster, fluted textured columns, and washable protective beeswax sealants.',
     visionTitle: 'Sensory Warmth & Burnished Italian Plaster',
     lead: 'Atmospheric luxury dining venue featuring burnished Venetian plaster, fluted textured columns, and washable protective beeswax sealants.',
     body: 'Crafted warm terracotta and olive-hued Marmorino finishes that withstand high-traffic hospitality use while radiating candlelit intimacy.',
-    beforeImage: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&h=800&q=80',
-    afterImage: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&h=800&q=80',
+    beforeImage: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&h=800&q=75',
+    afterImage: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&h=800&q=75',
     beforeLabel: 'Before (Drywall Shell)',
     afterLabel: 'After (Burnished Marmorino)',
     challenge: 'Commercial dining environments require heavy scrub resistance without compromising the authentic tactile texture of lime plaster.',
@@ -464,14 +464,14 @@ const PROJECTS_DATA = Object.freeze({
     area: '9,600 sq.ft.',
     duration: '5 Weeks Execution',
     meta: 'East Hampton, NY &bull; 9,600 sq.ft. &bull; 5 Weeks Execution',
-    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80',
-    mainImage: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=75',
+    mainImage: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=75',
     description: 'Oceanfront luxury residence treated with marine-grade exterior fluoropolymer coatings engineered for intense salt-fog resistance.',
     visionTitle: 'Marine-Grade Exterior Defense & Estate Elegance',
     lead: 'Oceanfront luxury residence treated with marine-grade exterior fluoropolymer coatings engineered for intense salt-fog resistance.',
     body: 'Multi-coat protective architectural coating system formulated specifically for oceanfront estates subject to high UV, maritime humidity, and coastal wind loads.',
-    beforeImage: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1000&h=800&q=80',
-    afterImage: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1000&h=800&q=80',
+    beforeImage: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1000&h=800&q=75',
+    afterImage: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1000&h=800&q=75',
     beforeLabel: 'Before (Salt-Worn Stucco)',
     afterLabel: 'After (Fluoropolymer Salt-Shield)',
     challenge: 'Salty sea mist and intense direct coastal sun caused premature chalking and peeling on previous exterior paints.',
@@ -497,14 +497,14 @@ const PROJECTS_DATA = Object.freeze({
     area: '4,100 sq.ft.',
     duration: '4 Weeks Execution',
     meta: 'Upper East Side, New York, NY &bull; 4,100 sq.ft. &bull; 4 Weeks Execution',
-    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80',
-    mainImage: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=75',
+    mainImage: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=75',
     description: 'Full pre-war architectural apartment restoration including Level-5 skim coating, custom crown molding restoration, and dead-flat mineral finishes.',
     visionTitle: 'Pre-War Heritage Preservation & Level-5 Perfection',
     lead: 'Full pre-war architectural apartment restoration including Level-5 skim coating, custom crown molding restoration, and dead-flat mineral finishes.',
     body: 'Restored historic hand-carved millwork and applied museum-quality ultra-matte mineral velvet finishes across 10 distinct architectural rooms.',
-    beforeImage: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1000&h=800&q=80',
-    afterImage: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&h=800&q=80',
+    beforeImage: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1000&h=800&q=75',
+    afterImage: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&h=800&q=75',
     beforeLabel: 'Before (Aging Pre-War Plaster)',
     afterLabel: 'After (Level-5 Mineral Velvet)',
     challenge: 'Cracked 90-year-old plaster ceilings with ornate historic molding requiring delicate preservation without loss of profile.',
@@ -536,7 +536,7 @@ const PROJECTS_DATA = Object.freeze({
     visionTitle: 'Monolithic Micro-Cement & Industrial Elegance',
     lead: 'Seamless micro-cement wall and floor integration for a high-traffic hotel atrium and cocktail lounge.',
     body: 'Continuous monolithic micro-cement surfaces linking structural architectural columns to floor slabs with custom polymer-modified cementitious coatings.',
-    beforeImage: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&h=800&q=80',
+    beforeImage: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&h=800&q=75',
     afterImage: 'images/projects/commercial-atrium.jpg',
     beforeLabel: 'Before (Raw Concrete)',
     afterLabel: 'After (Polished Micro-Cement)',
@@ -563,14 +563,14 @@ const PROJECTS_DATA = Object.freeze({
     area: '11,000 sq.ft.',
     duration: '6 Weeks Execution',
     meta: 'Bedford, NY &bull; 11,000 sq.ft. &bull; 6 Weeks Execution',
-    image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&h=800&q=80',
-    mainImage: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&h=800&q=80',
+    image: 'images/before-after/waterproofing-after.jpg',
+    mainImage: 'images/before-after/waterproofing-after.jpg',
     description: 'Complete exterior restoration and hydrophobic stone-preservation sealing for a historic 1920s masonry estate.',
     visionTitle: 'Historic Masonry Preservation & Hydrophobic Shielding',
     lead: 'Complete exterior restoration and hydrophobic stone-preservation sealing for a historic 1920s masonry estate.',
     body: 'Treated exterior stone masonry and timber architectural elements with invisible silane-siloxane impregnating sealers to prevent water penetration while maintaining 100% natural breathability.',
-    beforeImage: 'https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=1000&h=800&q=80',
-    afterImage: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1000&h=800&q=80',
+    beforeImage: 'images/before-after/waterproofing-before.jpg',
+    afterImage: 'images/before-after/waterproofing-after.jpg',
     beforeLabel: 'Before (Moss & Efflorescence)',
     afterLabel: 'After (Sealed Hydrophobic Facade)',
     challenge: 'Deep efflorescence and moss growth on north-facing historic limestone and fieldstone walls.',
@@ -629,14 +629,14 @@ const PROJECTS_DATA = Object.freeze({
     area: '10,500 sq.ft.',
     duration: '5 Weeks Execution',
     meta: 'Bel Air, California &bull; 10,500 sq.ft. &bull; 5 Weeks Execution',
-    image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&h=800&q=80',
-    mainImage: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&h=800&q=80',
+    image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=900&h=800&q=75',
+    mainImage: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=900&h=800&q=75',
     description: 'Ultra-modern architectural villa featuring solar-reflective mineral micro-coatings and crisp geometric shadow lines.',
     visionTitle: 'Solar-Reflective Mineral Facades & Sculptural Lines',
     lead: 'Ultra-modern architectural villa featuring solar-reflective mineral micro-coatings and crisp geometric shadow lines.',
     body: 'Applied cool-roof and solar-reflective facade technology engineered to reduce thermal heat gain by up to 35% in sunny Southern California.',
-    beforeImage: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1000&h=800&q=80',
-    afterImage: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1000&h=800&q=80',
+    beforeImage: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1000&h=800&q=75',
+    afterImage: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1000&h=800&q=75',
     beforeLabel: 'Before (Weathered Stucco)',
     afterLabel: 'After (Solar-Reflective Micro-Coat)',
     challenge: 'Intense direct UV radiation and steep cantilevered concrete forms requiring thermal expansion tolerance.',
@@ -668,7 +668,7 @@ const PROJECTS_DATA = Object.freeze({
     visionTitle: 'Textured Bedroom Sanctuary & Warm Accentuation',
     lead: 'Intimate master bedroom sanctuary with custom textured slaked-lime accent walls and integrated architectural cove backlighting.',
     body: 'Hand-troweled multi-tonal lime wash in earthy mineral hues, creating a warm, acoustically softened retreat within a bustling urban residence.',
-    beforeImage: 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1000&h=800&q=80',
+    beforeImage: 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1000&h=800&q=75',
     afterImage: 'images/hero/hero-bedroom.jpg',
     beforeLabel: 'Before (Plain White Drywall)',
     afterLabel: 'After (Textured Slaked Lime)',
@@ -698,12 +698,12 @@ const ARTICLES_DATA = Object.freeze({
     title: '7 Architectural Paint Colors Defining Modern Luxury in 2026',
     date: 'Feb 12, 2026',
     readTime: '6 Min Read',
-    heroImage: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=75',
     alt: 'Modern Luxury Living Room in Earth Tones',
     author: {
       name: 'Elena Rostova',
       title: 'Head of Color Architecture at Aura Finishes & Co.',
-      avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80',
+      avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=75',
       bio: 'With a background in historical pigment conservation, Elena leads custom color formulation and architectural palette curation for international private estates.'
     },
     lead: 'For nearly two decades, stark monochromatic whites and cold industrial grays dominated contemporary interior architecture. In 2026, we are witnessing a profound renaissance: a decisive shift toward rich earth pigments, organic mineral warmth, and deep tactile saturation.',
@@ -747,12 +747,12 @@ const ARTICLES_DATA = Object.freeze({
     title: 'Venetian Plaster vs. Limewash: Choosing the Right Texture',
     date: 'Jan 28, 2026',
     readTime: '5 Min Read',
-    heroImage: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=900&q=75',
     alt: 'Hand-troweled Venetian Plaster Texture Detail',
     author: {
       name: 'Mateo Rossi',
       title: 'Venetian Plaster Specialist at Aura Finishes & Co.',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=75',
       bio: 'A third-generation artisan trained in Venice, Mateo specializes in Marmorino, Grassello lucido, and custom lime finishes for historic and modern residences.'
     },
     lead: 'Both Venetian plaster and limewash celebrate the tactile beauty of slaked lime and natural earth minerals, yet their surface character, application technique, and architectural longevity serve distinct design visions.',
@@ -791,12 +791,12 @@ const ARTICLES_DATA = Object.freeze({
     title: 'How to Protect Your Exterior Facade from Coastal Moisture',
     date: 'Jan 15, 2026',
     readTime: '7 Min Read',
-    heroImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=75',
     alt: 'Coastal Estate Exterior Painting and Moisture Barrier',
     author: {
       name: 'Julian Vance',
       title: 'Founder & Master Finisher at Aura Finishes & Co.',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
+      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=75',
       bio: 'Julian has over 18 years of technical experience directing luxury estate coatings, historical facade preservation, and extreme climate barrier systems.'
     },
     lead: 'Coastal atmospheric conditions subject luxury exterior facades to continuous cycles of airborne salt, wind-driven rain, and intense solar UV degradation. Protecting architectural envelopes demands specialized elastomeric coatings and dustless substrate stabilization.',
@@ -835,12 +835,12 @@ const ARTICLES_DATA = Object.freeze({
     title: 'Why Level-5 Skim Coating is Essential for Dark Saturated Hues',
     date: 'Dec 20, 2025',
     readTime: '4 Min Read',
-    heroImage: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=900&q=75',
     alt: 'Master Level 5 Drywall Preparation and Skim Coating',
     author: {
       name: 'Henrik Lindqvist',
       title: 'Precision Spray & Prep Lead at Aura Finishes & Co.',
-      avatar: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=200&q=80',
+      avatar: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=200&q=75',
       bio: 'Henrik oversees substrate flatness testing, German dustless HEPA extraction sanding, and precision airless lacquer applications for modern architecture.'
     },
     lead: 'Deep, saturated pigment formulations—such as obsidian navy, charcoal noir, and deep emerald—absorb and refract light with extreme sensitivity. Without a seamless Level-5 skim coat, standard drywall seams and fastener heads remain visibly distorted under raking light.',
@@ -879,12 +879,12 @@ const ARTICLES_DATA = Object.freeze({
     title: 'The Health Impact of Zero-VOC Mineral Wall Finishes',
     date: 'Dec 05, 2025',
     readTime: '5 Min Read',
-    heroImage: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=900&q=75',
     alt: 'Zero VOC Eco Mineral Paint Application for Living Spaces',
     author: {
       name: 'Claire Montgomery',
       title: 'Heritage Restoration Lead at Aura Finishes & Co.',
-      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80',
+      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=75',
       bio: 'Claire specializes in non-toxic historic lime chemistry, mineral silicate coatings, and sustainable architectural restoration for residential estates.'
     },
     lead: 'Standard synthetic petrochemical paints release volatile organic compounds (VOCs) that degrade indoor air quality for months after drying. Natural mineral finishes provide superior aesthetic depth while maintaining pure, allergen-free residential environments.',
@@ -923,12 +923,12 @@ const ARTICLES_DATA = Object.freeze({
     title: 'Acoustic Mineral Wall Coatings in Modern Open Offices',
     date: 'Nov 18, 2025',
     readTime: '6 Min Read',
-    heroImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=75',
     alt: 'Modern Open Office with Acoustic Wall Coatings',
     author: {
       name: 'Liam O\'Connor',
       title: 'Commercial Coating Lead at Aura Finishes & Co.',
-      avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=200&q=80',
+      avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=200&q=75',
       bio: 'Liam has directed commercial finishing projects for Fortune 500 corporate headquarters, luxury hospitality venues, and architectural creative studios.'
     },
     lead: 'Open-plan contemporary offices and commercial spaces frequently suffer from excessive reverberation caused by expansive glass, polished concrete, and exposed metal ceilings. Acoustic mineral coatings provide a seamless, elegant sound-dampening solution.',
@@ -993,7 +993,6 @@ function initializePage() {
   initServiceLinkPrefetch();
   initProjectLinkPrefetch();
   initArticleLinkPrefetch();
-  initAdminPublicDock();
   initLivePublicSocialLinks();
 }
 
@@ -1262,14 +1261,14 @@ function initServiceDetailsPage() {
       title: 'Interior Painting & Wall Finishing',
       description: 'Detailed service specifications for luxury interior painting, level-5 skim coating, and artisanal mineral finishes.',
       hero: 'Architectural surface preparation, Level-5 skim coating, and zero-VOC mineral paint application for luxury residences.',
-      image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80',
+      image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=75',
       alt: 'Interior Painting Showcase',
       introTitle: 'Architectural Living Environments, Crafted Without Compromise',
       lead: 'Interior painting is more than just rolling color onto drywall. It is about creating pure, uninterrupted planes of light and tone that harmonize with flooring, millwork, and natural daylighting.',
       body: 'We utilize German Festool HEPA extraction sanders to eliminate 99.7% of airborne dust during substrate preparation, ensuring your home remains immaculate throughout the renovation process.',
       estimate: 'Get an accurate per-square-foot cost proposal for your home interior.',
-      beforeImage: 'https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=1000&h=667&q=80',
-      afterImage: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&h=667&q=80',
+      beforeImage: 'https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=1000&h=667&q=75',
+      afterImage: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&h=667&q=75',
       beforeLabel: 'Before (Drywall & Primer)',
       afterLabel: 'After (Level-5 Satin)',
       specs: [
@@ -1291,16 +1290,16 @@ function initServiceDetailsPage() {
       title: 'Exterior Painting',
       description: 'Weatherproof exterior painting systems for facades, trim, masonry, and architectural exteriors.',
       hero: 'UV-resistant exterior coatings and elastomeric protection systems engineered for long-term curb appeal.',
-      image: 'images/projects/greenwich-estate.jpg',
+      image: 'images/before-after/exterior-painting-after.jpg',
       alt: 'Exterior Painting Showcase',
       introTitle: 'Durable Exterior Finishes Built for Weather Exposure',
       lead: 'Exterior painting protects the building envelope while sharpening the architectural character of the property.',
       body: 'Our process includes pressure washing, scraping, crack repair, primer selection, and controlled application of weather-rated coatings for clean coverage and strong adhesion.',
       estimate: 'Get an accurate exterior painting proposal for your property.',
-      beforeImage: 'images/before-after/greenwich-estate-before.jpg',
-      afterImage: 'images/before-after/greenwich-estate-after.jpg',
-      beforeLabel: 'Before (Weathered Stucco)',
-      afterLabel: 'After (Elastomeric Shield)',
+      beforeImage: 'images/before-after/exterior-painting-before.jpg',
+      afterImage: 'images/before-after/exterior-painting-after.jpg',
+      beforeLabel: 'Before (Weathered & Peeling)',
+      afterLabel: 'After (Architectural Weather-Shield)',
       specs: [
         ['Surface Preparation', 'Wash-down, loose paint removal, caulking, masonry patching, and spot priming.'],
         ['Coating System', 'UV-stable acrylic, elastomeric, or masonry coating selected by substrate and exposure.'],
@@ -1326,8 +1325,8 @@ function initServiceDetailsPage() {
       lead: 'Our residential painting service is built around clean preparation, clear communication, and finishes that elevate everyday living.',
       body: 'We protect occupied spaces, repair surfaces, select low-odor coating systems, and complete each room with careful edge work and a detailed final review.',
       estimate: 'Get an accurate residential painting proposal for your home.',
-      beforeImage: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1000&h=667&q=80',
-      afterImage: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&h=667&q=80',
+      beforeImage: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1000&h=667&q=75',
+      afterImage: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&h=667&q=75',
       beforeLabel: 'Before (Aged Interiors)',
       afterLabel: 'After (Zero-VOC Satin)',
       specs: [
@@ -1349,14 +1348,14 @@ function initServiceDetailsPage() {
       title: 'Wall Finishing',
       description: 'Premium wall finishing services including plaster, skim coating, micro-cement, and polished mineral surfaces.',
       hero: 'Refined plaster, skim, and mineral wall systems for smooth, tactile architectural interiors.',
-      image: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1200&q=80',
+      image: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=900&q=75',
       alt: 'Wall Finishing Showcase',
       introTitle: 'Seamless Wall Surfaces with Fine Architectural Texture',
       lead: 'Wall finishing creates the substrate quality and surface character that premium interiors depend on.',
       body: 'We correct uneven drywall, repair joints, refine corners, and apply specialty finishing systems that bring depth and craftsmanship to each room.',
       estimate: 'Get an accurate wall finishing proposal for your interior.',
-      beforeImage: 'https://images.unsplash.com/photo-1534349762230-e0cadf78f5da?auto=format&fit=crop&w=1000&h=667&q=80',
-      afterImage: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1000&h=667&q=80',
+      beforeImage: 'https://images.unsplash.com/photo-1534349762230-e0cadf78f5da?auto=format&fit=crop&w=1000&h=667&q=75',
+      afterImage: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1000&h=667&q=75',
       beforeLabel: 'Before (Flat Drywall)',
       afterLabel: 'After (Polished Marmorino)',
       specs: [
@@ -1378,14 +1377,14 @@ function initServiceDetailsPage() {
       title: 'Texture Finishing',
       description: 'Custom texture finishing including limewash, travertine effects, suede finishes, and metallic accents.',
       hero: 'Tactile decorative textures designed for feature walls, ceilings, niches, and statement rooms.',
-      image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80',
+      image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=900&q=75',
       alt: 'Texture Finishing Showcase',
       introTitle: 'Custom Texture Effects with Depth and Movement',
       lead: 'Texture finishing turns flat surfaces into expressive architectural features with subtle movement, shadow, and hand-applied detail.',
       body: 'We sample the finish before installation, tune color and texture density, and protect adjoining surfaces for a controlled decorative result.',
       estimate: 'Get an accurate texture finishing proposal for your feature surface.',
-      beforeImage: 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1000&h=667&q=80',
-      afterImage: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&h=667&q=80',
+      beforeImage: 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1000&h=667&q=75',
+      afterImage: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&h=667&q=75',
       beforeLabel: 'Before (Plain Sheetrock)',
       afterLabel: 'After (Slaked Limewash)',
       specs: [
@@ -1407,14 +1406,14 @@ function initServiceDetailsPage() {
       title: 'Waterproofing',
       description: 'Waterproofing systems for basements, balconies, facades, wet areas, terraces, and masonry surfaces.',
       hero: 'Hydro-barrier membranes and protective coatings that stop moisture before it damages finished spaces.',
-      image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&h=800&q=80',
+      image: 'images/before-after/waterproofing-after.jpg',
       alt: 'Waterproofing Showcase',
       introTitle: 'Moisture Protection for Vulnerable Building Surfaces',
       lead: 'Waterproofing protects structural surfaces and interior finishes from seepage, dampness, and coating failure.',
       body: 'We identify moisture paths, repair cracks, prepare substrates, and apply membrane or coating systems suited to the exposure level.',
       estimate: 'Get an accurate waterproofing proposal for your space.',
-      beforeImage: 'https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=1000&h=667&q=80',
-      afterImage: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1000&h=667&q=80',
+      beforeImage: 'images/before-after/waterproofing-before.jpg',
+      afterImage: 'images/before-after/waterproofing-after.jpg',
       beforeLabel: 'Before (Moisture Staining)',
       afterLabel: 'After (Hydrophobic Shield)',
       specs: [
@@ -1465,14 +1464,14 @@ function initServiceDetailsPage() {
       title: 'Commercial Painting',
       description: 'Commercial painting for offices, retail stores, hospitality spaces, showrooms, and occupied facilities.',
       hero: 'Professional commercial painting planned around business hours, durability, and brand presentation.',
-      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
+      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=75',
       alt: 'Commercial Painting Showcase',
       introTitle: 'Fast, Clean Commercial Coating Programs',
       lead: 'Commercial painting requires dependable scheduling, surface durability, and a finish that supports the customer experience.',
       body: 'We coordinate phases, isolate work zones, use low-odor materials where needed, and keep finishes consistent across high-traffic spaces.',
       estimate: 'Get an accurate commercial painting proposal for your facility.',
-      beforeImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1000&h=667&q=80',
-      afterImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&h=667&q=80',
+      beforeImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1000&h=667&q=75',
+      afterImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&h=667&q=75',
       beforeLabel: 'Before (Raw Concrete Core)',
       afterLabel: 'After (Acoustic Commercial Finish)',
       specs: [
@@ -1500,7 +1499,7 @@ function initServiceDetailsPage() {
       lead: 'Industrial painting prioritizes adhesion, chemical resistance, abrasion resistance, and long-term asset protection.',
       body: 'We prepare surfaces mechanically where required, specify coating systems by exposure, and apply protective finishes with strict cure timing.',
       estimate: 'Get an accurate industrial painting proposal for your facility.',
-      beforeImage: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&h=667&q=80',
+      beforeImage: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&h=667&q=75',
       afterImage: 'images/services/industrial-painting.jpg',
       beforeLabel: 'Before (Uncoated Slab)',
       afterLabel: 'After (Heavy-Duty Epoxy)',
@@ -1552,20 +1551,6 @@ function initServiceDetailsPage() {
     imageEl.fetchPriority = 'high';
     imageEl.decoding = 'async';
   }
-
-  // Before & After Transformation Slider for Service Details
-  const beforeImageEl = document.getElementById('serviceBeforeImage');
-  if (beforeImageEl && service.beforeImage) {
-    beforeImageEl.src = service.beforeImage;
-    beforeImageEl.alt = `Before - ${service.title}`;
-  }
-  const afterImageEl = document.getElementById('serviceAfterImage');
-  if (afterImageEl && service.afterImage) {
-    afterImageEl.src = service.afterImage;
-    afterImageEl.alt = `After - ${service.title}`;
-  }
-  setText('serviceBeforeLabel', service.beforeLabel || 'Before Prep');
-  setText('serviceAfterLabel', service.afterLabel || 'After Finish');
 
   const specsEl = document.getElementById('serviceSpecs');
   if (specsEl) {
@@ -1663,6 +1648,12 @@ function initProjectDetailsPage() {
       if (alt) img.alt = alt;
       img.loading = 'eager';
       img.fetchPriority = 'high';
+      img.onerror = function() {
+        if (!this.dataset.fallbackApplied) {
+          this.dataset.fallbackApplied = 'true';
+          this.src = 'images/projects/modern-residence.jpg';
+        }
+      };
     });
   };
 
@@ -2172,7 +2163,7 @@ function initBlogSearch() {
         e.preventDefault();
         performSearch(searchInput.value);
         const container = document.getElementById('blogArticlesContainer');
-        if (container) {
+        if (container && typeof container.scrollIntoView === 'function') {
           container.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       } else if (e.key === 'Escape') {
@@ -2186,7 +2177,7 @@ function initBlogSearch() {
     searchBtn.addEventListener('click', () => {
       performSearch(searchInput.value);
       const container = document.getElementById('blogArticlesContainer');
-      if (container) {
+      if (container && typeof container.scrollIntoView === 'function') {
         container.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
@@ -2217,7 +2208,7 @@ function initBlogSearch() {
         performSearch(cat);
       }
       const container = document.getElementById('blogArticlesContainer');
-      if (container) {
+      if (container && typeof container.scrollIntoView === 'function') {
         container.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
@@ -2232,7 +2223,7 @@ function initBlogSearch() {
         performSearch(tagText);
       }
       const container = document.getElementById('blogArticlesContainer');
-      if (container) {
+      if (container && typeof container.scrollIntoView === 'function') {
         container.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
@@ -2509,20 +2500,7 @@ function escapeHtml(str) {
     .replace(/'/g, '&#039;');
 }
 
-function getAdminSessionData() {
-  try {
-    const raw = localStorage.getItem('aura_admin_session');
-    if (!raw) return null;
-    return JSON.parse(raw);
-  } catch (e) {
-    return null;
-  }
-}
-
 function logoutUser() {
-  const currentFile = window.location.pathname.split('/').pop() || 'index.html';
-  const isDashboard = currentFile.includes('admin-dashboard.html') || currentFile.includes('admin.html');
-
   try {
     localStorage.removeItem('aura_auth_user');
     localStorage.removeItem('aura_admin_session');
@@ -2539,140 +2517,22 @@ function logoutUser() {
   if (typeof showToast === 'function') {
     showToast('Logged out successfully.', 'info');
   }
-
-  if (isDashboard) {
-    setTimeout(() => {
-      window.location.replace('signin.html');
-    }, 400);
-  }
 }
 
 window.logoutUser = logoutUser;
 
 function updateNavbarAuth() {
   const user = getAuthUser();
-  const adminSession = getAdminSessionData();
-  const isAdmin = (adminSession && adminSession.role === 'admin') || (user && user.role === 'admin');
-  const isNormalUser = !isAdmin && user && user.name;
+  const isAuthenticated = user && user.name;
 
-  // Clean up any old mobile admin/user nav items or legacy elements
+  // Clean up any old mobile nav items or legacy elements
   document.querySelectorAll('.admin-nav-item').forEach(el => el.remove());
   document.querySelectorAll('.admin-public-dock, #navAdminDashboardBtn, .admin-auth-controls').forEach(el => el.remove());
 
   const headerActionsList = document.querySelectorAll('.header-actions');
   const navbars = document.querySelectorAll('.navbar-nav');
 
-  // =========================================================================
-  // STATE 1: ADMIN LOGGED IN -> Header button displays "Admin"
-  // =========================================================================
-  if (isAdmin) {
-    const adminDisplayName = 'Admin';
-
-    headerActionsList.forEach(actions => {
-      // Remove any duplicate or legacy elements
-      actions.querySelectorAll('#navAdminDashboardBtn, .admin-auth-controls, .auth-signup-btn, a[href*="register.html"]').forEach(el => el.remove());
-
-      let userMenu = actions.querySelector('.user-auth-menu');
-      if (!userMenu) {
-        userMenu = document.createElement('div');
-        userMenu.className = 'user-auth-menu dropdown';
-
-        const existingSignIn = actions.querySelector('.auth-signin-btn, .auth-btn, a[href*="signin"], a[href*="login.html"]');
-        if (existingSignIn) {
-          actions.insertBefore(userMenu, existingSignIn);
-          existingSignIn.remove();
-        } else {
-          actions.appendChild(userMenu);
-        }
-      } else {
-        actions.querySelectorAll('.auth-signin-btn:not(.user-auth-menu .auth-signin-btn), .auth-btn:not(.user-auth-menu .auth-btn)').forEach(el => el.remove());
-      }
-
-      userMenu.innerHTML = `
-        <button class="btn btn-primary btn-sm auth-btn auth-signin-btn dropdown-toggle" type="button" aria-expanded="false" id="adminAuthDropdown" aria-label="Admin Account Menu">
-          <i class="bi bi-shield-lock-fill"></i>
-          <span class="auth-btn-text">${escapeHtml(adminDisplayName)}</span>
-        </button>
-        <ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg user-auth-dropdown-menu" aria-labelledby="adminAuthDropdown">
-          <li class="dropdown-header-profile">
-            <span class="user-avatar-badge"><i class="bi bi-shield-check"></i></span>
-            <div class="overflow-hidden">
-              <div class="fw-bold text-heading small text-truncate" style="max-width: 140px;">Administrator</div>
-              <span class="badge bg-primary font-monospace" style="font-size: 0.625rem;">ADMIN</span>
-            </div>
-          </li>
-          <li>
-            <a class="dropdown-item" href="admin-dashboard.html">
-              <i class="bi bi-speedometer2 text-primary"></i>
-              <span>Admin Dashboard</span>
-            </a>
-          </li>
-          <li><hr class="dropdown-divider my-1 border-subtle"></li>
-          <li>
-            <button class="dropdown-item user-logout-btn auth-logout-action text-danger" type="button">
-              <i class="bi bi-box-arrow-right"></i>
-              <span>Logout</span>
-            </button>
-          </li>
-        </ul>
-      `;
-
-      // Attach dropdown toggle and logout handlers
-      const btn = userMenu.querySelector('.auth-signin-btn');
-      const dropdownMenu = userMenu.querySelector('.user-auth-dropdown-menu');
-      if (btn && dropdownMenu) {
-        btn.addEventListener('click', (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          const isOpen = userMenu.classList.contains('show') || dropdownMenu.classList.contains('show');
-          document.querySelectorAll('.user-auth-dropdown-menu.show').forEach(el => el.classList.remove('show'));
-          document.querySelectorAll('.user-auth-menu.show').forEach(el => el.classList.remove('show'));
-          document.querySelectorAll('.auth-signin-btn[aria-expanded="true"]').forEach(el => el.setAttribute('aria-expanded', 'false'));
-          if (!isOpen) {
-            userMenu.classList.add('show');
-            dropdownMenu.classList.add('show');
-            btn.setAttribute('aria-expanded', 'true');
-          }
-        });
-      }
-
-      const logoutBtn = userMenu.querySelector('.auth-logout-action');
-      if (logoutBtn) {
-        logoutBtn.addEventListener('click', (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          logoutUser();
-        });
-      }
-    });
-
-    // Mobile Navbar Items for Admin
-    navbars.forEach(nav => {
-      const adminLi = document.createElement('li');
-      adminLi.className = 'nav-item d-lg-none admin-nav-item border-top border-subtle mt-2 pt-2';
-      adminLi.innerHTML = `
-        <a class="nav-link text-primary fw-bold" href="admin-dashboard.html">
-          <i class="bi bi-speedometer2 me-1"></i> Admin Dashboard
-        </a>
-      `;
-      const logoutLi = document.createElement('li');
-      logoutLi.className = 'nav-item d-lg-none admin-nav-item';
-      logoutLi.innerHTML = `
-        <a class="nav-link text-danger fw-semibold" href="#" onclick="logoutUser(); return false;">
-          <i class="bi bi-box-arrow-right me-1"></i> Logout (Admin)
-        </a>
-      `;
-      nav.appendChild(adminLi);
-      nav.appendChild(logoutLi);
-    });
-
-    return;
-  }
-
-  // =========================================================================
-  // STATE 2: NORMAL REGISTERED USER LOGGED IN -> Header button displays user's name (e.g. "Chandru")
-  // =========================================================================
-  if (isNormalUser) {
+  if (isAuthenticated) {
     const displayName = sanitizeDisplayName(user.name);
     const initials = (displayName.split(' ').map(n => n[0]).join('') || displayName.slice(0, 2)).toUpperCase();
 
@@ -2747,7 +2607,7 @@ function updateNavbarAuth() {
       }
     });
 
-    // Mobile Navbar Items for Normal User
+    // Mobile Navbar Items
     navbars.forEach(nav => {
       const logoutLi = document.createElement('li');
       logoutLi.className = 'nav-item d-lg-none admin-nav-item border-top border-subtle mt-2 pt-2';
@@ -2763,7 +2623,7 @@ function updateNavbarAuth() {
   }
 
   // =========================================================================
-  // STATE 3: USER LOGGED OUT -> Header button displays "Sign In"
+  // STATE 2: USER LOGGED OUT -> Header button displays "Sign In"
   // =========================================================================
   headerActionsList.forEach(actions => {
     // 1. Remove user dropdown menu and legacy elements
@@ -2900,23 +2760,21 @@ function initFormValidationAndToasts() {
           const enteredVal = identifierInput ? identifierInput.value.trim() : '';
           const enteredPass = passInput ? passInput.value.trim() : '';
 
-          // 2a. Admin Login Check (admin credentials entered on client portal)
+          // 2a. Demo / Admin login
           if ((enteredVal.toLowerCase() === 'admin@aurafinishes.com' || enteredVal.toLowerCase() === 'admin') && enteredPass === 'admin123') {
             const adminUser = {
               id: 'usr-admin',
               name: 'Admin',
               email: 'admin@aurafinishes.com',
-              role: 'admin',
-              loginTime: new Date().toISOString()
+              role: 'user'
             };
-            localStorage.setItem('aura_admin_session', JSON.stringify(adminUser));
             setAuthUser(adminUser);
             if (alertBox) alertBox.classList.add('d-none');
-            showToast('Admin authentication verified! Redirecting to Admin Dashboard...', 'success');
+            showToast('Sign in successful! Welcome back.', 'success');
             form.reset();
             form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
             setTimeout(() => {
-              window.location.href = 'admin-dashboard.html';
+              window.location.href = 'index.html';
             }, 700);
             return;
           }
@@ -2946,27 +2804,6 @@ function initFormValidationAndToasts() {
             return;
           }
 
-          // If admin account logged in via client portal with matching password:
-          if (user.role === 'admin') {
-            const adminUser = {
-              id: user.id || 'usr-admin',
-              name: user.name || 'Admin',
-              email: user.email || 'admin@aurafinishes.com',
-              role: 'admin',
-              loginTime: new Date().toISOString()
-            };
-            localStorage.setItem('aura_admin_session', JSON.stringify(adminUser));
-            setAuthUser(adminUser);
-            if (alertBox) alertBox.classList.add('d-none');
-            showToast('Admin authentication verified! Redirecting to Admin Dashboard...', 'success');
-            form.reset();
-            form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
-            setTimeout(() => {
-              window.location.href = 'admin-dashboard.html';
-            }, 700);
-            return;
-          }
-
           // Normal Client Login
           if (alertBox) alertBox.classList.add('d-none');
           const authSession = {
@@ -2975,11 +2812,6 @@ function initFormValidationAndToasts() {
             email: user.email,
             role: user.role || 'user'
           };
-
-          // Clear any dangling admin session so client does not retain admin privs
-          try {
-            localStorage.removeItem('aura_admin_session');
-          } catch (e) {}
 
           setAuthUser(authSession);
           showToast(`Welcome back, ${user.name}! Sign in successful.`, 'success');
@@ -3176,32 +3008,8 @@ function initComingSoonTimer() {
 }
 
 /* ==========================================================================
-   14. LIVE ADMIN DOCK & SOCIAL SYNC ON PUBLIC PAGES
+   14. LIVE SOCIAL SYNC ON PUBLIC PAGES
    ========================================================================== */
-
-function initAdminPublicDock() {
-  const isDashboard = window.location.pathname.includes('admin-dashboard.html') || window.location.pathname.includes('admin.html') || window.location.pathname.includes('admin-login.html');
-  if (isDashboard) return;
-
-  try {
-    const adminRaw = localStorage.getItem('aura_admin_session');
-    const userRaw = localStorage.getItem('aura_auth_user');
-    let isAdmin = false;
-    if (adminRaw) {
-      const admin = JSON.parse(adminRaw);
-      if (admin && admin.role === 'admin') isAdmin = true;
-    }
-    if (userRaw) {
-      const user = JSON.parse(userRaw);
-      if (user && user.role === 'admin') isAdmin = true;
-    }
-
-    const existingDock = document.querySelector('.admin-public-dock');
-    if (!isAdmin && existingDock) {
-      existingDock.remove();
-    }
-  } catch (e) {}
-}
 
 function initLivePublicSocialLinks() {
   try {

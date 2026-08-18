@@ -317,7 +317,7 @@ body {
   color: var(--text-main);
   line-height: 1.65;
   font-weight: 400;
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color var(--transition-normal), color var(--transition-normal);
@@ -646,10 +646,14 @@ img {
    MASTER GLOBAL NAVBAR & ZERO-SHIFT FLOATING DROPDOWN SYSTEM
    ========================================================================== */
 .main-header {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   z-index: 1030;
-  background-color: rgba(251, 249, 245, 0.94);
+  background-color: rgba(251, 249, 245, 0.96);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border-subtle);
@@ -1092,7 +1096,9 @@ img {
     top: 100% !important;
     left: 0 !important;
     transform: translateY(8px) !important;
-    min-width: 250px !important;
+    min-width: 270px !important;
+    width: max-content !important;
+    max-width: 360px !important;
     background: var(--bg-surface) !important;
     border: 1px solid var(--border-subtle) !important;
     border-radius: var(--radius-md) !important;
@@ -1128,6 +1134,7 @@ img {
   transition: all var(--transition-fast);
   display: flex;
   align-items: center;
+  white-space: nowrap;
 }
 
 .dropdown-item i {
@@ -1140,7 +1147,7 @@ img {
 .dropdown-item.active {
   background-color: var(--primary-light) !important;
   color: var(--primary) !important;
-  padding-left: 1.25rem !important;
+  padding-left: 1.15rem !important;
 }
 
 /* --- Hero Section (Home 1) --- */
@@ -2536,6 +2543,51 @@ html:not([data-theme="dark"]) .main-footer .footer-bottom .text-muted {
   margin-bottom: 0.4rem;
 }
 
+/* File Upload Inputs */
+.form-control[type="file"],
+input[type="file"].form-control {
+  padding: 0.45rem 0.75rem;
+  cursor: pointer;
+}
+
+.form-control::file-selector-button,
+input[type="file"]::file-selector-button {
+  padding: 0.45rem 1rem;
+  margin: -0.45rem -0.75rem;
+  margin-inline-end: 0.85rem;
+  color: #FFFFFF;
+  background-color: var(--primary);
+  border: 0;
+  border-inline-end: 1.5px solid var(--border-subtle);
+  border-radius: 0;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.form-control:hover::file-selector-button,
+input[type="file"]:hover::file-selector-button {
+  background-color: var(--primary-hover);
+  color: #FFFFFF;
+}
+
+.form-control::-webkit-file-upload-button,
+input[type="file"]::-webkit-file-upload-button {
+  padding: 0.45rem 1rem;
+  margin: -0.45rem -0.75rem;
+  margin-inline-end: 0.85rem;
+  color: #FFFFFF;
+  background-color: var(--primary);
+  border: 0;
+  border-inline-end: 1.5px solid var(--border-subtle);
+  border-radius: 0;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
 /* Input Groups Integration */
 .input-group > .form-control:not(:last-child) {
   border-top-right-radius: 0;
@@ -2786,4 +2838,23 @@ html:not([data-theme="dark"]) .main-footer .footer-bottom .text-muted {
     padding: 1.5rem 1.25rem;
     border-radius: 12px;
   }
+}
+
+/* Image Loading Performance & Progressive Placeholders */
+img {
+  content-visibility: auto;
+}
+
+img[loading="lazy"] {
+  background-color: var(--bg-surface-soft);
+  transition: opacity 0.3s ease;
+}
+
+.project-card,
+.service-card,
+.blog-card-img,
+.team-card-img-wrap,
+.comparison-image-wrapper {
+  background-color: var(--bg-surface-soft);
+  position: relative;
 }

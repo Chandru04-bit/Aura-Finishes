@@ -145,6 +145,44 @@
   color: #718096;
 }
 
+/* File Upload Selector Button in Dark Mode */
+[data-theme="dark"] .form-control[type="file"],
+[data-theme="dark"] input[type="file"].form-control {
+  background-color: var(--bg-surface-soft);
+  border-color: var(--border-subtle);
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .form-control::file-selector-button,
+[data-theme="dark"] input[type="file"]::file-selector-button {
+  background-color: var(--primary) !important;
+  color: #FFFFFF !important;
+  border: 0 !important;
+  border-inline-end: 1.5px solid var(--border-subtle) !important;
+  font-weight: 600;
+}
+
+[data-theme="dark"] .form-control:hover::file-selector-button,
+[data-theme="dark"] input[type="file"]:hover::file-selector-button {
+  background-color: var(--primary-hover) !important;
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .form-control::-webkit-file-upload-button,
+[data-theme="dark"] input[type="file"]::-webkit-file-upload-button {
+  background-color: var(--primary) !important;
+  color: #FFFFFF !important;
+  border: 0 !important;
+  border-inline-end: 1.5px solid var(--border-subtle) !important;
+  font-weight: 600;
+}
+
+[data-theme="dark"] .form-control:hover::-webkit-file-upload-button,
+[data-theme="dark"] input[type="file"]:hover::-webkit-file-upload-button {
+  background-color: var(--primary-hover) !important;
+  color: #FFFFFF !important;
+}
+
 /* Filter Buttons */
 [data-theme="dark"] .filter-btn {
   background-color: var(--bg-surface);
