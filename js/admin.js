@@ -12,7 +12,7 @@
    ========================================================================== */
 const DEFAULT_ADMIN_CREDENTIALS = {
   email: 'admin@aurafinishes.com',
-  name: 'Master Admin',
+  name: 'Admin',
   role: 'admin',
   status: 'active'
 };
@@ -306,7 +306,7 @@ function initAdminDataStore() {
   const users = getStore('aura_users', []);
   if (users.length === 0) {
     const defaultUsers = [
-      { id: 'usr-1', name: 'Master Admin', email: 'admin@aurafinishes.com', role: 'admin', date: '2025-10-01', status: 'active' },
+      { id: 'usr-1', name: 'Admin', email: 'admin@aurafinishes.com', role: 'admin', date: '2025-10-01', status: 'active' },
       { id: 'usr-2', name: 'Arthur Sterling', email: 'sterling@example.com', role: 'client', date: '2026-01-12', status: 'active' },
       { id: 'usr-3', name: 'Eleanor Vance', email: 'eleanor@example.com', role: 'client', date: '2026-02-04', status: 'active' }
     ];
@@ -471,7 +471,7 @@ function initAdminLoginHandler() {
       if (passwordInput) passwordInput.classList.remove('is-invalid');
 
       const adminUser = {
-        name: foundAdmin ? foundAdmin.name : 'Master Admin',
+        name: foundAdmin ? foundAdmin.name : 'Admin',
         email: email === 'admin' ? 'admin@aurafinishes.com' : (foundAdmin ? foundAdmin.email : email),
         role: 'admin',
         loginTime: new Date().toISOString()
@@ -653,7 +653,7 @@ function setupSidebarNavigation() {
  * Topbar Controls: Profile name, Logout triggers, Dark mode, Notifications
  */
 function setupTopbarControls() {
-  const admin = getAdminSession() || { name: 'Master Admin', email: 'admin@aurafinishes.com' };
+  const admin = getAdminSession() || { name: 'Admin', email: 'admin@aurafinishes.com' };
 
   const headerName = document.getElementById('headerAdminName');
   const sidebarName = document.getElementById('sidebarAdminName');

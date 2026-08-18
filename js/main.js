@@ -2353,7 +2353,7 @@ function sanitizeDisplayName(val) {
 const DEFAULT_REGISTERED_USERS = {
   'admin@aurafinishes.com': {
     id: 'usr-admin',
-    name: 'Master Admin',
+    name: 'Admin',
     email: 'admin@aurafinishes.com',
     password: 'admin123',
     role: 'admin',
@@ -2520,9 +2520,8 @@ function getAdminSessionData() {
 }
 
 function logoutUser() {
-  const adminSession = getAdminSessionData();
-  const authUser = getAuthUser();
-  const wasAdmin = (adminSession && adminSession.role === 'admin') || (authUser && authUser.role === 'admin');
+  const currentFile = window.location.pathname.split('/').pop() || 'index.html';
+  const isDashboard = currentFile.includes('admin-dashboard.html') || currentFile.includes('admin.html');
 
   try {
     localStorage.removeItem('aura_auth_user');
@@ -2532,21 +2531,19 @@ function logoutUser() {
 
   document.querySelectorAll('.user-auth-dropdown-menu').forEach(el => el.remove());
   document.querySelectorAll('.user-auth-menu').forEach(el => el.remove());
-  document.querySelectorAll('.admin-auth-controls, .admin-nav-item, #navAdminDashboardBtn, #navAdminLogoutBtn').forEach(el => el.remove());
+  document.querySelectorAll('.admin-auth-controls, .admin-nav-item, #navAdminDashboardBtn, #navAdminLogoutBtn, .admin-public-dock').forEach(el => el.remove());
 
+  // Immediately reflect logged-out state in the navbar without requiring a page refresh
   updateNavbarAuth();
 
   if (typeof showToast === 'function') {
     showToast('Logged out successfully.', 'info');
   }
 
-  const currentFile = window.location.pathname.split('/').pop() || 'index.html';
-  if (currentFile.includes('admin-dashboard.html') || currentFile.includes('admin.html') || wasAdmin) {
-    window.location.replace('admin-login.html');
-  } else if (currentFile !== 'index.html' && currentFile !== '') {
+  if (isDashboard) {
     setTimeout(() => {
-      window.location.replace('index.html');
-    }, 200);
+      window.location.replace('signin.html');
+    }, 400);
   }
 }
 
@@ -2556,56 +2553,52 @@ function updateNavbarAuth() {
   const user = getAuthUser();
   const adminSession = getAdminSessionData();
   const isAdmin = (adminSession && adminSession.role === 'admin') || (user && user.role === 'admin');
+  const isNormalUser = !isAdmin && user && user.name;
 
-  // Clean up any old mobile admin/user nav items
+  // Clean up any old mobile admin/user nav items or legacy elements
   document.querySelectorAll('.admin-nav-item').forEach(el => el.remove());
+  document.querySelectorAll('.admin-public-dock, #navAdminDashboardBtn, .admin-auth-controls').forEach(el => el.remove());
 
   const headerActionsList = document.querySelectorAll('.header-actions');
   const navbars = document.querySelectorAll('.navbar-nav');
 
   // =========================================================================
-  // STATE 1: AUTHENTICATED ADMIN USER LOGGED IN
-  // Navbar shows: [ Admin Dashboard ] [ 👤 Admin Name ▾ ]
-  // Dropdown shows: [ 👤 Admin Name / Administrator ]
-  //                 [ ⚙ Admin Dashboard ]
-  //                 [ ⇥ Logout ]
+  // STATE 1: ADMIN LOGGED IN -> Header button displays "Admin"
   // =========================================================================
   if (isAdmin) {
-    const adminName = sanitizeDisplayName((adminSession && adminSession.name) || (user && user.name) || 'Admin');
-    const initials = (adminName.split(' ').map(n => n[0]).join('') || adminName.slice(0, 2)).toUpperCase();
+    const adminDisplayName = 'Admin';
 
     headerActionsList.forEach(actions => {
-      // 1. Hide generic Sign In & Sign Up buttons
-      actions.querySelectorAll('a[href*="signin"], a[href*="login.html"], .auth-btn, .auth-signin-btn, a[href*="register.html"], .auth-signup-btn').forEach(link => {
-        link.style.display = 'none';
-        link.classList.add('d-none');
-      });
+      // Remove any duplicate or legacy elements
+      actions.querySelectorAll('#navAdminDashboardBtn, .admin-auth-controls, .auth-signup-btn, a[href*="register.html"]').forEach(el => el.remove());
 
-      // Remove any standalone admin button or legacy controls
-      const adminNavBtn = actions.querySelector('#navAdminDashboardBtn');
-      if (adminNavBtn) adminNavBtn.remove();
-      const oldControls = actions.querySelector('.admin-auth-controls');
-      if (oldControls) oldControls.remove();
-
-      // 2. Render User/Profile dropdown [ 👤 Admin Name ▾ ]
       let userMenu = actions.querySelector('.user-auth-menu');
       if (!userMenu) {
         userMenu = document.createElement('div');
-        userMenu.className = 'user-auth-menu dropdown ms-2';
-        actions.appendChild(userMenu);
+        userMenu.className = 'user-auth-menu dropdown';
+
+        const existingSignIn = actions.querySelector('.auth-signin-btn, .auth-btn, a[href*="signin"], a[href*="login.html"]');
+        if (existingSignIn) {
+          actions.insertBefore(userMenu, existingSignIn);
+          existingSignIn.remove();
+        } else {
+          actions.appendChild(userMenu);
+        }
+      } else {
+        actions.querySelectorAll('.auth-signin-btn:not(.user-auth-menu .auth-signin-btn), .auth-btn:not(.user-auth-menu .auth-btn)').forEach(el => el.remove());
       }
 
       userMenu.innerHTML = `
-        <button class="user-auth-btn dropdown-toggle border-0" type="button" aria-expanded="false" id="userAuthDropdown" aria-label="Admin Account Menu">
-          <span class="user-avatar-badge">${initials}</span>
-          <span class="user-display-name fw-semibold">${escapeHtml(adminName)}</span>
+        <button class="btn btn-primary btn-sm auth-btn auth-signin-btn dropdown-toggle" type="button" aria-expanded="false" id="adminAuthDropdown" aria-label="Admin Account Menu">
+          <i class="bi bi-shield-lock-fill"></i>
+          <span class="auth-btn-text">${escapeHtml(adminDisplayName)}</span>
         </button>
-        <ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg user-auth-dropdown-menu" aria-labelledby="userAuthDropdown">
+        <ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg user-auth-dropdown-menu" aria-labelledby="adminAuthDropdown">
           <li class="dropdown-header-profile">
-            <span class="user-avatar-badge">${initials}</span>
+            <span class="user-avatar-badge"><i class="bi bi-shield-check"></i></span>
             <div class="overflow-hidden">
-              <div class="fw-bold text-heading small text-truncate" style="max-width: 140px;">${escapeHtml(adminName)}</div>
-              <span class="badge bg-primary font-monospace" style="font-size: 0.625rem;">ADMINISTRATOR</span>
+              <div class="fw-bold text-heading small text-truncate" style="max-width: 140px;">Administrator</div>
+              <span class="badge bg-primary font-monospace" style="font-size: 0.625rem;">ADMIN</span>
             </div>
           </li>
           <li>
@@ -2616,7 +2609,7 @@ function updateNavbarAuth() {
           </li>
           <li><hr class="dropdown-divider my-1 border-subtle"></li>
           <li>
-            <button class="dropdown-item user-logout-btn auth-logout-action" type="button" onclick="logoutUser()">
+            <button class="dropdown-item user-logout-btn auth-logout-action text-danger" type="button">
               <i class="bi bi-box-arrow-right"></i>
               <span>Logout</span>
             </button>
@@ -2624,22 +2617,21 @@ function updateNavbarAuth() {
         </ul>
       `;
 
-      // Native toggle listener
-      const userBtn = userMenu.querySelector('.user-auth-btn');
+      // Attach dropdown toggle and logout handlers
+      const btn = userMenu.querySelector('.auth-signin-btn');
       const dropdownMenu = userMenu.querySelector('.user-auth-dropdown-menu');
-
-      if (userBtn && dropdownMenu) {
-        userBtn.addEventListener('click', (e) => {
+      if (btn && dropdownMenu) {
+        btn.addEventListener('click', (e) => {
           e.preventDefault();
           e.stopPropagation();
-          const isOpen = dropdownMenu.classList.contains('show') || userMenu.classList.contains('show');
+          const isOpen = userMenu.classList.contains('show') || dropdownMenu.classList.contains('show');
           document.querySelectorAll('.user-auth-dropdown-menu.show').forEach(el => el.classList.remove('show'));
           document.querySelectorAll('.user-auth-menu.show').forEach(el => el.classList.remove('show'));
-          document.querySelectorAll('.user-auth-btn[aria-expanded="true"]').forEach(el => el.setAttribute('aria-expanded', 'false'));
+          document.querySelectorAll('.auth-signin-btn[aria-expanded="true"]').forEach(el => el.setAttribute('aria-expanded', 'false'));
           if (!isOpen) {
             userMenu.classList.add('show');
             dropdownMenu.classList.add('show');
-            userBtn.setAttribute('aria-expanded', 'true');
+            btn.setAttribute('aria-expanded', 'true');
           }
         });
       }
@@ -2666,8 +2658,8 @@ function updateNavbarAuth() {
       const logoutLi = document.createElement('li');
       logoutLi.className = 'nav-item d-lg-none admin-nav-item';
       logoutLi.innerHTML = `
-        <a class="nav-link text-danger fw-semibold" href="#" onclick="logoutUser()">
-          <i class="bi bi-box-arrow-right me-1"></i> Logout (${escapeHtml(adminName)})
+        <a class="nav-link text-danger fw-semibold" href="#" onclick="logoutUser(); return false;">
+          <i class="bi bi-box-arrow-right me-1"></i> Logout (Admin)
         </a>
       `;
       nav.appendChild(adminLi);
@@ -2678,50 +2670,47 @@ function updateNavbarAuth() {
   }
 
   // =========================================================================
-  // STATE 2: NORMAL REGISTERED CUSTOMER LOGGED IN (Not Admin)
-  // Navbar shows: [ 👤 User Name ▾ ] (No standalone Admin Dashboard)
-  // Dropdown shows: [ 👤 User Name / Client Portal ]
-  //                 [ ⇥ Logout ]
+  // STATE 2: NORMAL REGISTERED USER LOGGED IN -> Header button displays user's name (e.g. "Chandru")
   // =========================================================================
-  if (user && user.name) {
+  if (isNormalUser) {
     const displayName = sanitizeDisplayName(user.name);
     const initials = (displayName.split(' ').map(n => n[0]).join('') || displayName.slice(0, 2)).toUpperCase();
 
     headerActionsList.forEach(actions => {
-      // 1. Hide generic Sign In & Sign Up buttons
-      actions.querySelectorAll('a[href*="signin"], a[href*="login.html"], .auth-btn, .auth-signin-btn, a[href*="register.html"], .auth-signup-btn').forEach(link => {
-        link.style.display = 'none';
-        link.classList.add('d-none');
-      });
-
-      // 2. Remove standalone Admin Dashboard button if present
-      const adminNavBtn = actions.querySelector('#navAdminDashboardBtn');
-      if (adminNavBtn) adminNavBtn.remove();
-      const oldControls = actions.querySelector('.admin-auth-controls');
-      if (oldControls) oldControls.remove();
+      // Remove any duplicate or legacy elements
+      actions.querySelectorAll('#navAdminDashboardBtn, .admin-auth-controls, .auth-signup-btn, a[href*="register.html"]').forEach(el => el.remove());
 
       let userMenu = actions.querySelector('.user-auth-menu');
       if (!userMenu) {
         userMenu = document.createElement('div');
-        userMenu.className = 'user-auth-menu dropdown ms-2';
-        actions.appendChild(userMenu);
+        userMenu.className = 'user-auth-menu dropdown';
+
+        const existingSignIn = actions.querySelector('.auth-signin-btn, .auth-btn, a[href*="signin"], a[href*="login.html"]');
+        if (existingSignIn) {
+          actions.insertBefore(userMenu, existingSignIn);
+          existingSignIn.remove();
+        } else {
+          actions.appendChild(userMenu);
+        }
+      } else {
+        actions.querySelectorAll('.auth-signin-btn:not(.user-auth-menu .auth-signin-btn), .auth-btn:not(.user-auth-menu .auth-btn)').forEach(el => el.remove());
       }
 
       userMenu.innerHTML = `
-        <button class="user-auth-btn dropdown-toggle border-0" type="button" aria-expanded="false" id="userAuthDropdown" aria-label="User Account Menu">
-          <span class="user-avatar-badge">${initials}</span>
-          <span class="user-display-name fw-semibold">${escapeHtml(displayName)}</span>
+        <button class="btn btn-primary btn-sm auth-btn auth-signin-btn dropdown-toggle" type="button" aria-expanded="false" id="userAuthDropdown" aria-label="User Account Menu">
+          <i class="bi bi-person-fill"></i>
+          <span class="auth-btn-text">${escapeHtml(displayName)}</span>
         </button>
         <ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg user-auth-dropdown-menu" aria-labelledby="userAuthDropdown">
           <li class="dropdown-header-profile">
-            <span class="user-avatar-badge">${initials}</span>
+            <span class="user-avatar-badge">${escapeHtml(initials)}</span>
             <div class="overflow-hidden">
               <div class="fw-bold text-heading small text-truncate" style="max-width: 140px;">${escapeHtml(displayName)}</div>
               <span class="badge bg-secondary font-monospace" style="font-size: 0.625rem;">CLIENT PORTAL</span>
             </div>
           </li>
           <li>
-            <button class="dropdown-item user-logout-btn auth-logout-action" type="button" onclick="logoutUser()">
+            <button class="dropdown-item user-logout-btn auth-logout-action text-danger" type="button">
               <i class="bi bi-box-arrow-right"></i>
               <span>Logout</span>
             </button>
@@ -2729,21 +2718,21 @@ function updateNavbarAuth() {
         </ul>
       `;
 
-      const userBtn = userMenu.querySelector('.user-auth-btn');
+      // Attach dropdown toggle and logout handlers
+      const btn = userMenu.querySelector('.auth-signin-btn');
       const dropdownMenu = userMenu.querySelector('.user-auth-dropdown-menu');
-
-      if (userBtn && dropdownMenu) {
-        userBtn.addEventListener('click', (e) => {
+      if (btn && dropdownMenu) {
+        btn.addEventListener('click', (e) => {
           e.preventDefault();
           e.stopPropagation();
-          const isOpen = dropdownMenu.classList.contains('show') || userMenu.classList.contains('show');
+          const isOpen = userMenu.classList.contains('show') || dropdownMenu.classList.contains('show');
           document.querySelectorAll('.user-auth-dropdown-menu.show').forEach(el => el.classList.remove('show'));
           document.querySelectorAll('.user-auth-menu.show').forEach(el => el.classList.remove('show'));
-          document.querySelectorAll('.user-auth-btn[aria-expanded="true"]').forEach(el => el.setAttribute('aria-expanded', 'false'));
+          document.querySelectorAll('.auth-signin-btn[aria-expanded="true"]').forEach(el => el.setAttribute('aria-expanded', 'false'));
           if (!isOpen) {
             userMenu.classList.add('show');
             dropdownMenu.classList.add('show');
-            userBtn.setAttribute('aria-expanded', 'true');
+            btn.setAttribute('aria-expanded', 'true');
           }
         });
       }
@@ -2763,8 +2752,8 @@ function updateNavbarAuth() {
       const logoutLi = document.createElement('li');
       logoutLi.className = 'nav-item d-lg-none admin-nav-item border-top border-subtle mt-2 pt-2';
       logoutLi.innerHTML = `
-        <a class="nav-link text-danger fw-semibold" href="#" onclick="logoutUser()">
-          <i class="bi bi-box-arrow-right me-1"></i> Logout (${escapeHtml(user.name)})
+        <a class="nav-link text-danger fw-semibold" href="#" onclick="logoutUser(); return false;">
+          <i class="bi bi-box-arrow-right me-1"></i> Logout (${escapeHtml(displayName)})
         </a>
       `;
       nav.appendChild(logoutLi);
@@ -2774,35 +2763,27 @@ function updateNavbarAuth() {
   }
 
   // =========================================================================
-  // STATE 3: USER LOGGED OUT
-  // Navbar shows: [ Sign In ] (Primary button). Remove profile dropdown & Admin button.
+  // STATE 3: USER LOGGED OUT -> Header button displays "Sign In"
   // =========================================================================
   headerActionsList.forEach(actions => {
-    // 1. Remove user menu and standalone admin button completely
+    // 1. Remove user dropdown menu and legacy elements
     const userMenu = actions.querySelector('.user-auth-menu');
     if (userMenu) userMenu.remove();
-    const adminNavBtn = actions.querySelector('#navAdminDashboardBtn');
-    if (adminNavBtn) adminNavBtn.remove();
-    const adminControls = actions.querySelector('.admin-auth-controls');
-    if (adminControls) adminControls.remove();
+    actions.querySelectorAll('#navAdminDashboardBtn, .admin-auth-controls, a[href*="register.html"], .auth-signup-btn').forEach(el => el.remove());
 
-    // 2. Remove any old Sign Up buttons completely
-    actions.querySelectorAll('a[href*="register.html"], .auth-signup-btn').forEach(link => link.remove());
-
-    // 3. Ensure Sign In button is visible and restored in primary style
-    const signInLinks = actions.querySelectorAll('a[href*="signin"], a[href*="login.html"], .auth-btn, .auth-signin-btn');
-    if (signInLinks && signInLinks.length > 0) {
-      signInLinks.forEach(link => {
-        link.style.display = '';
-        link.classList.remove('d-none');
-        link.href = 'signin.html';
-      });
+    // 2. Ensure Sign In button exists with "Sign In" text and primary styling
+    let signInLink = actions.querySelector('.auth-signin-btn, .auth-btn, a[href*="signin"], a[href*="login.html"]');
+    if (signInLink) {
+      signInLink.style.display = '';
+      signInLink.classList.remove('d-none', 'dropdown-toggle');
+      signInLink.href = 'signin.html';
+      signInLink.innerHTML = '<i class="bi bi-person"></i> <span class="auth-btn-text">Sign In</span>';
     } else {
-      const newSignIn = document.createElement('a');
-      newSignIn.href = 'signin.html';
-      newSignIn.className = 'btn btn-primary btn-sm ms-2 auth-btn auth-signin-btn';
-      newSignIn.innerHTML = '<i class="bi bi-person me-1"></i> Sign In';
-      actions.appendChild(newSignIn);
+      signInLink = document.createElement('a');
+      signInLink.href = 'signin.html';
+      signInLink.className = 'btn btn-primary btn-sm auth-btn auth-signin-btn';
+      signInLink.innerHTML = '<i class="bi bi-person"></i> <span class="auth-btn-text">Sign In</span>';
+      actions.appendChild(signInLink);
     }
   });
 }
@@ -2815,7 +2796,7 @@ function initNavbarAuth() {
     if (!e.target.closest('.user-auth-menu')) {
       document.querySelectorAll('.user-auth-dropdown-menu.show').forEach(el => el.classList.remove('show'));
       document.querySelectorAll('.user-auth-menu.show').forEach(el => el.classList.remove('show'));
-      document.querySelectorAll('.user-auth-btn[aria-expanded="true"]').forEach(el => el.setAttribute('aria-expanded', 'false'));
+      document.querySelectorAll('.auth-signin-btn[aria-expanded="true"]').forEach(el => el.setAttribute('aria-expanded', 'false'));
     }
   });
 }
@@ -2923,7 +2904,7 @@ function initFormValidationAndToasts() {
           if ((enteredVal.toLowerCase() === 'admin@aurafinishes.com' || enteredVal.toLowerCase() === 'admin') && enteredPass === 'admin123') {
             const adminUser = {
               id: 'usr-admin',
-              name: 'Master Admin',
+              name: 'Admin',
               email: 'admin@aurafinishes.com',
               role: 'admin',
               loginTime: new Date().toISOString()
@@ -2969,7 +2950,7 @@ function initFormValidationAndToasts() {
           if (user.role === 'admin') {
             const adminUser = {
               id: user.id || 'usr-admin',
-              name: user.name || 'Master Admin',
+              name: user.name || 'Admin',
               email: user.email || 'admin@aurafinishes.com',
               role: 'admin',
               loginTime: new Date().toISOString()

@@ -471,6 +471,30 @@ img {
   border: 1.5px solid transparent;
   cursor: pointer;
   text-decoration: none;
+  line-height: 1.2;
+  vertical-align: middle;
+}
+
+.btn i,
+.btn [class^="bi-"],
+.btn [class*=" bi-"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  vertical-align: 0 !important;
+  font-size: 1rem;
+  margin: 0 !important;
+  position: relative;
+  top: -0.5px;
+}
+
+.btn i::before,
+.btn [class^="bi-"]::before,
+.btn [class*=" bi-"]::before {
+  vertical-align: 0 !important;
+  line-height: 1 !important;
+  display: inline-block;
 }
 
 .btn-primary {
@@ -595,9 +619,14 @@ img {
 }
 
 .btn-sm {
-  padding: 0.55rem 1.15rem;
+  padding: 0.45rem 1.15rem;
   font-size: 0.875rem;
+  line-height: 1.2;
   border-radius: var(--radius-md);
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-lg {
@@ -805,7 +834,8 @@ img {
   font-weight: 600 !important;
   font-size: 0.875rem !important;
   letter-spacing: 0.01em !important;
-  padding: 0.48rem 1.15rem !important;
+  line-height: 1 !important;
+  padding: 0 1.15rem !important;
   border-radius: var(--radius-md) !important;
   border: 1.5px solid var(--primary) !important;
   background-color: var(--primary) !important;
@@ -813,8 +843,16 @@ img {
   text-decoration: none !important;
   box-shadow: var(--shadow-primary) !important;
   cursor: pointer !important;
-  transition: all var(--transition-fast) !important;
-  line-height: 1.35 !important;
+  transition: all var(--transition-normal) !important;
+  width: auto !important;
+  min-width: auto !important;
+  height: 38px !important;
+  min-height: 38px !important;
+  max-height: 38px !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+  text-align: center !important;
+  vertical-align: middle !important;
 }
 
 .auth-btn:hover,
@@ -848,11 +886,52 @@ img {
 .auth-signin-btn i,
 .header-actions .auth-signin-btn i,
 .header-actions .btn.auth-signin-btn i {
-  font-size: 1rem;
+  font-size: 1rem !important;
   color: #FFFFFF !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  vertical-align: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative !important;
+  top: -0.5px !important;
+}
+
+.auth-btn i::before,
+.auth-signin-btn i::before,
+.header-actions .auth-signin-btn i::before,
+.header-actions .btn.auth-signin-btn i::before {
+  vertical-align: 0 !important;
+  line-height: 1 !important;
+  display: inline-block !important;
+}
+
+.auth-btn span,
+.auth-signin-btn span,
+.auth-btn-text {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   line-height: 1;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.auth-signin-btn.dropdown-toggle::after,
+.auth-btn.dropdown-toggle::after {
+  display: inline-block !important;
+  margin-left: 0.35rem !important;
+  vertical-align: 0.12em !important;
+  content: "" !important;
+  border-top: 0.32em solid !important;
+  border-right: 0.32em solid transparent !important;
+  border-bottom: 0 !important;
+  border-left: 0.32em solid transparent !important;
+  color: #FFFFFF !important;
 }
 
 /* User Authentication Navbar Menu */
@@ -860,14 +939,18 @@ img {
   position: relative !important;
   display: inline-flex !important;
   align-items: center !important;
-  margin-left: 0.5rem !important;
+  margin: 0 !important;
 }
 
 .user-auth-btn {
   display: inline-flex !important;
   align-items: center !important;
+  justify-content: center !important;
   gap: 0.45rem !important;
-  padding: 0.38rem 0.85rem !important;
+  padding: 0 0.85rem !important;
+  height: 38px !important;
+  min-height: 38px !important;
+  max-height: 38px !important;
   font-size: 0.875rem !important;
   font-weight: 600 !important;
   font-family: var(--font-heading) !important;
@@ -877,8 +960,9 @@ img {
   border-radius: var(--radius-md) !important;
   transition: all var(--transition-fast) !important;
   cursor: pointer !important;
-  line-height: 1.2 !important;
+  line-height: 1 !important;
   text-decoration: none !important;
+  box-sizing: border-box !important;
 }
 
 .user-auth-btn:hover,
