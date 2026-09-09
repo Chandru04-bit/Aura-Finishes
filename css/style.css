@@ -2077,6 +2077,89 @@ section.py-5.bg-surface-soft.border-bottom.border-subtle .lead {
   background-color: var(--bg-surface-hover);
 }
 
+/* --- FAQ Accordion Component --- */
+.accordion {
+  --bs-accordion-bg: transparent;
+  --bs-accordion-border-width: 0;
+}
+
+.accordion-item {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: var(--radius-md) !important;
+  margin-bottom: 0.85rem !important;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.accordion-item:hover {
+  border-color: rgba(195, 90, 56, 0.35) !important;
+  box-shadow: var(--shadow-md);
+}
+
+.accordion-button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  padding: 1.25rem 1.5rem !important;
+  font-family: var(--font-heading) !important;
+  font-size: 1.05rem !important;
+  font-weight: 600 !important;
+  color: var(--text-heading) !important;
+  background-color: var(--bg-surface) !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  transition: all var(--transition-fast) !important;
+  cursor: pointer;
+}
+
+.accordion-button:hover {
+  color: var(--primary) !important;
+  background-color: var(--bg-surface-soft) !important;
+}
+
+.accordion-button:not(.collapsed) {
+  color: var(--primary) !important;
+  background-color: var(--bg-surface-soft) !important;
+  box-shadow: inset 0 -1px 0 var(--border-subtle) !important;
+}
+
+.accordion-button:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 3px var(--primary-glow) !important;
+}
+
+/* Accordion Chevron Icon with High Contrast & Smooth Rotate Animation */
+.accordion-button::after {
+  flex-shrink: 0 !important;
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+  margin-left: auto !important;
+  content: "" !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23C35A38'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 1.15rem 1.15rem !important;
+  transform: rotate(0deg) !important;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), filter var(--transition-fast) !important;
+}
+
+.accordion-button:not(.collapsed)::after {
+  transform: rotate(-180deg) !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23C35A38'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
+}
+
+.accordion-body {
+  padding: 1.35rem 1.5rem 1.5rem !important;
+  font-size: 0.95rem !important;
+  line-height: 1.7 !important;
+  color: var(--text-muted) !important;
+  background-color: var(--bg-surface) !important;
+}
+
 /* --- Testimonials Carousel --- */
 .testimonial-card {
   background: var(--bg-surface);
@@ -2957,4 +3040,55 @@ img[loading="lazy"] {
 .comparison-image-wrapper {
   background-color: var(--bg-surface-soft);
   position: relative;
+}
+
+
+/* --- Standalone Authentication Experience --- */
+.auth-standalone-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-body);
+  color: var(--text-main);
+}
+
+.auth-topbar {
+  padding: 1.25rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.auth-brand {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.auth-brand .brand-main {
+  font-size: 1.35rem;
+  font-weight: 600 !important;
+  color: var(--text-heading);
+}
+
+.auth-brand .brand-sub {
+  font-size: 1.35rem;
+  font-weight: 600 !important;
+  color: var(--primary) !important;
+}
+
+.auth-standalone-footer {
+  padding: 1.5rem 0;
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface);
+}
+
+@media (max-width: 576px) {
+  .auth-topbar {
+    padding: 1rem;
+  }
 }

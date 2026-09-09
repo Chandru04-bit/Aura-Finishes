@@ -2832,14 +2832,50 @@ function initFormValidationAndToasts() {
           return;
         }
 
-        // 3. Password Reset Request -> Redirect to Sign In (/signin)
+                // 3. Password Reset Request -> Redirect to Reset Password Page
         if (formType === 'Password Reset Request') {
-          showToast('Password reset link dispatched to your email! Redirecting...', 'success');
+          const emailInput = form.querySelector('input[type="email"]');
+          const emailVal = emailInput ? emailInput.value : '';
+          showToast('Verification link generated! Directing to password reset...', 'success');
           form.reset();
           form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
           setTimeout(() => {
+            window.location.href = 'reset-password.html?email=' + encodeURIComponent(emailVal);
+          }, 800);
+          return;
+        }
+
+        // 3b. Password Reset Submission (New Password Entry)
+        if (formType === 'Password Reset Submission') {
+          const newPass = form.querySelector('input[name="new_password"]')?.value;
+          const confirmPass = form.querySelector('input[name="confirm_new_password"]')?.value;
+
+          if (newPass !== confirmPass) {
+            showToast('Passwords do not match. Please verify.', 'error');
+            const confirmInput = form.querySelector('input[name="confirm_new_password"]');
+            if (confirmInput) confirmInput.classList.add('is-invalid');
+            return;
+          }
+
+          // Update in stored users
+          try {
+            const urlParams = new URLSearchParams(window.location.search);
+            const resetEmail = urlParams.get('email') || 'client@example.com';
+            const users = getRegisteredUsers();
+            const userIndex = users.findIndex(u => u.email.toLowerCase() === resetEmail.toLowerCase());
+            if (userIndex !== -1) {
+              users[userIndex].password = newPass;
+              localStorage.setItem('aura_registered_users', JSON.stringify(users));
+            }
+          } catch (e) {}
+
+          const successAlert = document.getElementById('resetPasswordSuccess');
+          if (successAlert) successAlert.classList.remove('d-none');
+          showToast('Password updated successfully! Redirecting to sign in...', 'success');
+          form.reset();
+          setTimeout(() => {
             window.location.href = 'signin.html';
-          }, 1100);
+          }, 1000);
           return;
         }
 
