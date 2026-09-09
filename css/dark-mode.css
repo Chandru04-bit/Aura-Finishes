@@ -197,15 +197,38 @@
   color: #FFFFFF;
 }
 
-/* Color Swatches */
+/* Color Swatches Dark Mode */
 [data-theme="dark"] .color-swatch-btn {
-  background-color: var(--bg-surface-soft);
+  background-color: var(--bg-surface-alt);
+  border-color: var(--border-subtle);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .color-swatch-btn .color-swatch-name {
   color: #FFFFFF;
 }
 
-[data-theme="dark"] .color-swatch-btn:hover,
+[data-theme="dark"] .color-swatch-btn .color-swatch-type {
+  color: #A0AEC0;
+}
+
+[data-theme="dark"] .color-swatch-btn .color-swatch-code {
+  color: var(--secondary);
+}
+
+[data-theme="dark"] .color-swatch-btn:hover {
+  background-color: var(--bg-surface-elevated);
+  border-color: var(--primary);
+}
+
 [data-theme="dark"] .color-swatch-btn.active {
-  background-color: var(--bg-surface-alt);
+  border-color: var(--primary);
+  background-color: var(--bg-surface-elevated);
+  box-shadow: 0 4px 16px rgba(195, 90, 56, 0.25);
+}
+
+[data-theme="dark"] .color-dot {
+  border-color: #2D3748;
 }
 
 /* Accordion Dark Mode & High-Contrast Icons */

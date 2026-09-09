@@ -457,10 +457,18 @@
   right: 1.25rem !important;
 }
 
-/* Room Color Visualizer Overlay */
+/* Room Color Visualizer Overlay & Swatches */
 [dir="rtl"] .visualizer-overlay-info {
   left: auto !important;
   right: 1.25rem !important;
+  text-align: right !important;
+}
+
+[dir="rtl"] .color-swatch-btn {
+  text-align: right !important;
+}
+
+[dir="rtl"] .color-swatch-info {
   text-align: right !important;
 }
 
