@@ -24,9 +24,9 @@
   <link rel="stylesheet" href="css/dark-mode.css">
   <link rel="stylesheet" href="css/rtl.css">
 </head>
-<body class="d-flex flex-column min-vh-100 bg-surface-soft">
+<body class="page-full-flex bg-surface-soft">
 
-    <!-- Main Sticky Header & Navigation -->
+  <!-- Main Sticky Header & Navigation -->
   <header class="main-header">
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light p-0">
@@ -111,25 +111,27 @@
     </div>
   </header>
 
-  <!-- 404 Hero -->
-  <main class="flex-grow-1 d-flex align-items-center py-6">
-    <div class="container text-center max-w-700">
-      <div class="display-1 fw-bold text-primary font-editorial mb-0" style="font-size: clamp(5rem, 12vw, 9rem); line-height: 1;">
+  <!-- 404 Hero / Main Content -->
+  <main class="error-404-section">
+    <div class="error-404-container">
+      <div class="error-404-number font-editorial">
         404
       </div>
-      <div class="fs-1 text-secondary mb-3"><i class="bi bi-paint-bucket"></i></div>
-      <h1 class="display-5 fw-bold mb-3">"Looks like this wall needs a fresh coat of direction."</h1>
-      <p class="text-muted fs-5 mb-5">
+      <div class="error-404-icon">
+        <i class="bi bi-paint-bucket"></i>
+      </div>
+      <h1 class="error-404-heading">"Looks like this wall needs a fresh coat of direction."</h1>
+      <p class="error-404-desc">
         The page you are looking for has been moved, primed, or doesn't exist in our current blueprints.
       </p>
-      <div class="d-flex justify-content-center flex-wrap gap-3">
-        <a href="index.html" class="btn btn-primary btn-lg">
+      <div class="error-404-btn-group">
+        <a href="index.html" class="btn btn-primary">
           <i class="bi bi-house-door-fill me-1"></i> Return to Homepage
         </a>
-        <a href="services.html" class="btn btn-outline-dark btn-lg">
+        <a href="services.html" class="btn btn-outline-dark">
           <i class="bi bi-palette-fill me-1"></i> Explore Services
         </a>
-        <a href="contact.html" class="btn btn-outline-dark btn-lg">
+        <a href="contact.html" class="btn btn-outline-dark">
           <i class="bi bi-envelope-fill me-1"></i> Contact Atelier
         </a>
       </div>

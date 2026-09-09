@@ -641,6 +641,22 @@ pre, code, kbd, samp {
     justify-content: center;
   }
 
+  /* 404 Error Page */
+  .error-404-section {
+    padding: 2.5rem 1rem;
+  }
+
+  .error-404-btn-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.65rem;
+  }
+
+  .error-404-btn-group .btn {
+    width: 100%;
+    min-height: 46px;
+  }
+
   /* Footer */
   .main-footer {
     padding-top: 3rem;
