@@ -365,7 +365,9 @@ pre, code, kbd, samp {
 
   /* Interactive Tools & Stages */
   .room-visualizer-stage {
-    height: 300px;
+    aspect-ratio: 16 / 10;
+    min-height: 280px;
+    height: auto;
   }
 
   .color-studio-container {
@@ -562,7 +564,9 @@ pre, code, kbd, samp {
 
   /* Room Visualizer & Interactive Studio */
   .room-visualizer-stage {
-    height: 220px;
+    aspect-ratio: 16 / 10;
+    min-height: 240px;
+    height: auto;
     border-radius: var(--radius-md);
   }
 
@@ -570,11 +574,11 @@ pre, code, kbd, samp {
     gap: 0.4rem;
   }
 
+  /* Swatch button maintains vertical layout on mobile */
   .color-swatch-btn {
-    width: 40px;
-    height: 40px;
-    min-width: 40px;
-    min-height: 40px;
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    min-height: 52px;
   }
 
   /* Cards */
@@ -749,15 +753,17 @@ pre, code, kbd, samp {
     justify-content: center;
   }
 
+  /* Swatch button maintains fluid vertical card on micro screens */
   .color-swatch-btn {
-    width: 34px;
-    height: 34px;
-    min-width: 34px;
-    min-height: 34px;
+    width: 100%;
+    padding: 0.55rem 0.75rem;
+    min-height: 48px;
   }
 
   .room-visualizer-stage {
-    height: 180px;
+    aspect-ratio: 16 / 10;
+    min-height: 210px;
+    height: auto;
   }
 }
 

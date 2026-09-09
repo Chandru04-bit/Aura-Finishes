@@ -1576,7 +1576,8 @@ section.py-5.bg-surface-soft.border-bottom.border-subtle .lead {
 .room-visualizer-stage {
   position: relative;
   width: 100%;
-  height: 400px;
+  aspect-ratio: 16 / 10;
+  min-height: 320px;
   background-color: #E2DBD0;
   overflow: hidden;
   border-radius: var(--radius-lg);
@@ -1611,17 +1612,20 @@ section.py-5.bg-surface-soft.border-bottom.border-subtle .lead {
   position: absolute;
   bottom: 1rem;
   left: 1rem;
-  background: rgba(20, 23, 26, 0.85);
+  right: auto;
+  max-width: calc(100% - 2rem);
+  background: rgba(20, 23, 26, 0.88);
   color: #FFFFFF;
   padding: 0.75rem 1.25rem;
   border-radius: var(--radius-md);
   backdrop-filter: blur(8px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
   z-index: 10;
 }
 
 .color-swatch-btn {
   width: 100%;
-  padding: 0.75rem;
+  padding: 0.85rem 1rem;
   border-radius: var(--radius-md);
   border: 2px solid transparent;
   background: var(--bg-surface-soft);
@@ -1630,7 +1634,25 @@ section.py-5.bg-surface-soft.border-bottom.border-subtle .lead {
   transition: all var(--transition-fast);
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.85rem;
+}
+
+.color-swatch-btn > div {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.color-swatch-btn .fw-bold {
+  font-size: 0.95rem;
+  line-height: 1.3;
+  margin-bottom: 0.2rem;
+  color: var(--text-main);
+}
+
+.color-swatch-btn .text-muted.small {
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  color: var(--text-muted);
 }
 
 .color-swatch-btn:hover, .color-swatch-btn.active {

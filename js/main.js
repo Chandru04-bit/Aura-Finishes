@@ -31,27 +31,27 @@ const SERVICE_IMAGE_URLS = Object.freeze({
 
 const PROJECT_IMAGE_URLS = Object.freeze({
   'modern-residence': 'images/projects/modern-residence.jpg',
-  'tribeca-penthouse-suite': 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=75',
-  'tribeca-penthouse': 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=75',
-  'tribeca-monolith-penthouse': 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=75',
-  'hudson-yards-tech-hq': 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=75',
+  'tribeca-penthouse-suite': 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=75',
+  'tribeca-penthouse': 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=75',
+  'tribeca-monolith-penthouse': 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=75',
+  'hudson-yards-tech-hq': 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=75',
   'greenwich-modern-estate': 'images/projects/greenwich-estate.jpg',
   'modern-estate': 'images/projects/greenwich-estate.jpg',
-  'soho-designer-loft': 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=900&q=75',
-  'soho-art-loft': 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=900&q=75',
-  'soho-art-loft-residence': 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=900&q=75',
-  'laura-restaurant-lounge': 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=75',
-  'laura-restaurant': 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=75',
-  'hamptons-coastal-villa': 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=75',
-  'luxury-villa': 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=75',
-  'upper-east-side-classic': 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=75',
-  'interior-finish': 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=75',
+  'soho-designer-loft': 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=75',
+  'soho-art-loft': 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=75',
+  'soho-art-loft-residence': 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=75',
+  'laura-restaurant-lounge': 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=75',
+  'laura-restaurant': 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=75',
+  'hamptons-coastal-villa': 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=75',
+  'luxury-villa': 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=75',
+  'upper-east-side-classic': 'https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=800&q=75',
+  'interior-finish': 'https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=800&q=75',
   'standard-atrium-lounge': 'images/projects/commercial-atrium.jpg',
   'the-standard-atrium': 'images/projects/commercial-atrium.jpg',
   'commercial-atrium': 'images/projects/commercial-atrium.jpg',
-  'westchester-stone-manor': 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=900&h=800&q=75',
+  'westchester-stone-manor': 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&h=600&q=75',
   'madison-avenue-flagship': 'images/projects/madison-flagship.jpg',
-  'bel-air-modernist-villa': 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=900&q=75',
+  'bel-air-modernist-villa': 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&h=600&q=75',
   'tribeca-master-suite': 'images/hero/hero-bedroom.jpg'
 });
 
@@ -74,7 +74,7 @@ const PORTFOLIO_PROJECTS_LIST = Object.freeze([
     categoryPill: 'Residential &bull; Venetian Plaster',
     filterCategory: 'residential interior texture-plaster',
     location: 'Manhattan, New York',
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600&q=75',
+    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=75',
     area: '4,500 sq.ft.',
     duration: '4 Weeks Execution'
   },
@@ -85,7 +85,7 @@ const PORTFOLIO_PROJECTS_LIST = Object.freeze([
     categoryPill: 'Commercial &bull; Acoustic Finish',
     filterCategory: 'commercial interior',
     location: 'New York, NY',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=75',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=75',
     area: '12,000 sq.ft.',
     duration: '6 Weeks Execution'
   },
@@ -107,7 +107,7 @@ const PORTFOLIO_PROJECTS_LIST = Object.freeze([
     categoryPill: 'Interior &bull; Limewash Texture',
     filterCategory: 'residential interior texture-plaster',
     location: 'SoHo, New York',
-    image: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=600&q=75',
+    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=75',
     area: '3,800 sq.ft.',
     duration: '3 Weeks Execution'
   },
@@ -118,7 +118,7 @@ const PORTFOLIO_PROJECTS_LIST = Object.freeze([
     categoryPill: 'Commercial &bull; Marmorino Finish',
     filterCategory: 'commercial interior texture-plaster',
     location: 'Brooklyn, NY',
-    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=75',
+    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=75',
     area: '5,400 sq.ft.',
     duration: '4 Weeks Execution'
   },
@@ -129,7 +129,7 @@ const PORTFOLIO_PROJECTS_LIST = Object.freeze([
     categoryPill: 'Exterior &bull; Salt-Shield Finish',
     filterCategory: 'residential exterior',
     location: 'East Hampton, NY',
-    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=75',
+    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=75',
     area: '9,600 sq.ft.',
     duration: '5 Weeks Execution'
   },
@@ -140,7 +140,7 @@ const PORTFOLIO_PROJECTS_LIST = Object.freeze([
     categoryPill: 'Interior &bull; Mineral Velvet',
     filterCategory: 'residential interior',
     location: 'New York, NY',
-    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=75',
+    image: 'https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=800&q=75',
     area: '4,100 sq.ft.',
     duration: '4 Weeks Execution'
   },
@@ -162,7 +162,7 @@ const PORTFOLIO_PROJECTS_LIST = Object.freeze([
     categoryPill: 'Exterior &bull; Hydro-Barrier Facade',
     filterCategory: 'residential exterior',
     location: 'Bedford, NY',
-    image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=600&h=600&q=75',
+    image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&h=600&q=75',
     area: '11,000 sq.ft.',
     duration: '6 Weeks Execution'
   },
@@ -184,7 +184,7 @@ const PORTFOLIO_PROJECTS_LIST = Object.freeze([
     categoryPill: 'Exterior &bull; Mineral Micro-Coat',
     filterCategory: 'residential exterior',
     location: 'Bel Air, California',
-    image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=600&q=75',
+    image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&h=600&q=75',
     area: '10,500 sq.ft.',
     duration: '5 Weeks Execution'
   }
@@ -693,12 +693,11 @@ const PROJECTS_DATA = Object.freeze({
    ========================================================================== */
 const ARTICLES_DATA = Object.freeze({
   'color-trends-2026': {
-    slug: 'color-trends-2026',
+    title: '7 Best Interior Paint Colors 2026: Architect-Approved Hues',
     category: 'Color Trends',
-    title: '7 Architectural Paint Colors Defining Modern Luxury in 2026',
-    date: 'Feb 12, 2026',
-    readTime: '6 Min Read',
-    heroImage: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=75',
+    date: 'February 18, 2026',
+    readTime: '6 min read',
+    heroImage: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=75',
     alt: 'Modern Luxury Living Room in Earth Tones',
     author: {
       name: 'Elena Rostova',
@@ -742,12 +741,11 @@ const ARTICLES_DATA = Object.freeze({
   },
 
   'venetian-plaster-vs-limewash': {
-    slug: 'venetian-plaster-vs-limewash',
-    category: 'Finishing Techniques',
     title: 'Venetian Plaster vs. Limewash: Choosing the Right Texture',
-    date: 'Jan 28, 2026',
-    readTime: '5 Min Read',
-    heroImage: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=900&q=75',
+    category: 'Finishing Techniques',
+    date: 'January 29, 2026',
+    readTime: '8 min read',
+    heroImage: 'https://images.unsplash.com/photo-1502005229762-ee1b2da97ba0?auto=format&fit=crop&w=800&q=75',
     alt: 'Hand-troweled Venetian Plaster Texture Detail',
     author: {
       name: 'Mateo Rossi',
@@ -786,12 +784,11 @@ const ARTICLES_DATA = Object.freeze({
   },
 
   'exterior-facade-moisture': {
-    slug: 'exterior-facade-moisture',
+    title: 'Exterior Facade Weathering: Preventing Moisture Infiltration',
     category: 'Maintenance & Care',
-    title: 'How to Protect Your Exterior Facade from Coastal Moisture',
-    date: 'Jan 15, 2026',
-    readTime: '7 Min Read',
-    heroImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=75',
+    date: 'January 14, 2026',
+    readTime: '5 min read',
+    heroImage: 'https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=800&q=75',
     alt: 'Coastal Estate Exterior Painting and Moisture Barrier',
     author: {
       name: 'Julian Vance',
@@ -830,12 +827,11 @@ const ARTICLES_DATA = Object.freeze({
   },
 
   'level-5-skim-coating': {
-    slug: 'level-5-skim-coating',
+    title: 'The Contractor\'s Guide to Level 5 Drywall Skim Coating',
     category: 'Surface Preparation',
-    title: 'Why Level-5 Skim Coating is Essential for Dark Saturated Hues',
-    date: 'Dec 20, 2025',
-    readTime: '4 Min Read',
-    heroImage: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=900&q=75',
+    date: 'December 20, 2025',
+    readTime: '7 min read',
+    heroImage: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=75',
     alt: 'Master Level 5 Drywall Preparation and Skim Coating',
     author: {
       name: 'Henrik Lindqvist',
@@ -874,12 +870,11 @@ const ARTICLES_DATA = Object.freeze({
   },
 
   'zero-voc-mineral-finishes': {
-    slug: 'zero-voc-mineral-finishes',
+    title: 'Why Zero-VOC Mineral Wall Finishes Protect Indoor Air Quality',
     category: 'Wellness & Materials',
-    title: 'The Health Impact of Zero-VOC Mineral Wall Finishes',
-    date: 'Dec 05, 2025',
-    readTime: '5 Min Read',
-    heroImage: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=900&q=75',
+    date: 'November 15, 2025',
+    readTime: '5 min read',
+    heroImage: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=75',
     alt: 'Zero VOC Eco Mineral Paint Application for Living Spaces',
     author: {
       name: 'Claire Montgomery',
@@ -918,12 +913,11 @@ const ARTICLES_DATA = Object.freeze({
   },
 
   'acoustic-mineral-wall-coatings': {
-    slug: 'acoustic-mineral-wall-coatings',
+    title: 'Acoustic Mineral Plaster in Commercial Office Design',
     category: 'Commercial Architecture',
-    title: 'Acoustic Mineral Wall Coatings in Modern Open Offices',
-    date: 'Nov 18, 2025',
-    readTime: '6 Min Read',
-    heroImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=75',
+    date: 'October 28, 2025',
+    readTime: '6 min read',
+    heroImage: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=75',
     alt: 'Modern Open Office with Acoustic Wall Coatings',
     author: {
       name: 'Liam O\'Connor',
@@ -1386,7 +1380,7 @@ function initServiceDetailsPage() {
       title: 'Texture Finishing',
       description: 'Custom texture finishing including limewash, travertine effects, suede finishes, and metallic accents.',
       hero: 'Tactile decorative textures designed for feature walls, ceilings, niches, and statement rooms.',
-      image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=900&q=75',
+      image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=600&q=75',
       alt: 'Texture Finishing Showcase',
       introTitle: 'Custom Texture Effects with Depth and Movement',
       lead: 'Texture finishing turns flat surfaces into expressive architectural features with subtle movement, shadow, and hand-applied detail.',
@@ -1415,7 +1409,7 @@ function initServiceDetailsPage() {
       title: 'Waterproofing',
       description: 'Waterproofing systems for basements, balconies, facades, wet areas, terraces, and masonry surfaces.',
       hero: 'Hydro-barrier membranes and protective coatings that stop moisture before it damages finished spaces.',
-      image: 'images/before-after/waterproofing-after.jpg',
+      image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=75',
       alt: 'Waterproofing Showcase',
       introTitle: 'Moisture Protection for Vulnerable Building Surfaces',
       lead: 'Waterproofing protects structural surfaces and interior finishes from seepage, dampness, and coating failure.',
