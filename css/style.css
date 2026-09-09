@@ -237,7 +237,7 @@
 
 .mission-vision-card h3 {
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text-heading);
   margin-bottom: 0.875rem;
   line-height: 1.3;
@@ -257,7 +257,7 @@
   justify-content: center;
   font-family: var(--font-primary);
   font-size: 0.85rem;
-  font-weight: 700;
+  font-weight: 550;
   letter-spacing: 0.04em;
   padding: 0.35rem 0.95rem;
   border-radius: 50rem;
@@ -298,7 +298,7 @@
   background-color: var(--bg-surface-soft) !important;
   color: var(--text-heading) !important;
   border: 1px solid var(--border-subtle);
-  font-weight: 700;
+  font-weight: 550;
 }
 
 /* --- Base & Reset --- */
@@ -323,54 +323,104 @@ body {
   transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
-/* --- Headings & Typography --- */
+
+/* ==========================================================================
+   MASTER TYPOGRAPHY & WEIGHT GOVERNANCE
+   - Headings (h1-h6, display, titles): font-weight: 600 (Semi-Bold)
+   - Body & Paragraphs: font-weight: 400 (Normal)
+   - Emphasis, Badges, Labels, Controls: font-weight: 500-550 (never > headings)
+   - Zero 700 / 800 / 900 anywhere on the website
+   ========================================================================== */
+
+/* All Headings strictly at 600 weight */
 h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
+.h1, .h2, .h3, .h4, .h5, .h6,
+.hero-title,
+.section-title,
+.page-title,
+.page-banner-title,
+.display-1, .display-2, .display-3, .display-4, .display-5, .display-6,
+.card-title,
+.service-card-title,
+.blog-card-title,
+.project-title,
+.project-details-title,
+.pricing-tier-name,
+.footer-title,
+.modal-title,
+.accordion-button,
+.calc-result-title,
+.auth-card-title,
+.brand-main,
+.brand-sub {
   font-family: var(--font-heading);
   color: var(--text-heading);
-  font-weight: 700;
+  font-weight: 600 !important;
   line-height: 1.25;
   letter-spacing: -0.02em;
 }
 
-.font-editorial {
-  font-family: var(--font-editorial) !important;
+/* Headings with utility classes */
+h1.fw-bold, h2.fw-bold, h3.fw-bold, h4.fw-bold, h5.fw-bold, h6.fw-bold,
+.h1.fw-bold, .h2.fw-bold, .h3.fw-bold, .h4.fw-bold, .h5.fw-bold, .h6.fw-bold,
+.hero-title.fw-bold, .section-title.fw-bold, .page-title.fw-bold, .page-banner-title.fw-bold,
+.display-1.fw-bold, .display-2.fw-bold, .display-3.fw-bold, .display-4.fw-bold, .display-5.fw-bold, .display-6.fw-bold,
+h1.fw-bolder, h2.fw-bolder, h3.fw-bolder, h4.fw-bolder, h5.fw-bolder, h6.fw-bolder,
+.card-title.fw-bold, .service-card-title.fw-bold, .blog-card-title.fw-bold, .project-title.fw-bold {
+  font-weight: 600 !important;
+}
+
+/* Paragraphs, Leads & Body Copy: font-weight: 400 */
+body, p, .hero-description, .section-subtitle, .card-text,
+.blog-card-desc, .testimonial-quote, .form-text, .text-muted,
+.mission-vision-card p, .process-step-card p, .pricing-features li {
+  font-weight: 400;
+}
+
+p.lead, .lead {
+  font-weight: 450;
+}
+
+/* Strong, Bold and Semibold body text strictly governed to 550 (never exceeds headings) */
+.fw-bold, .fw-bolder, strong, b {
+  font-weight: 550 !important;
+}
+
+.fw-semibold {
+  font-weight: 550 !important;
+}
+
+.fw-medium {
+  font-weight: 500 !important;
+}
+
+/* UI Controls, Badges, Labels & Stats */
+.form-label,
+.auth-card-compact .form-label,
+.btn,
+.nav-link,
+.dropdown-item,
+.eyebrow,
+.badge,
+.milestone-badge,
+.project-category-pill,
+.project-details-category,
+.pricing-popular-badge,
+.comparison-label,
+.blog-date-badge,
+.team-badge-exp,
+.share-article-label,
+.stat-label {
+  font-weight: 550;
+}
+
+.stat-number,
+.process-number,
+.pricing-price,
+.calc-total-amount {
   font-weight: 600;
 }
 
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--primary);
-  margin-bottom: 0.75rem;
-}
-
-.eyebrow::before {
-  content: '';
-  display: inline-block;
-  width: 14px;
-  height: 2px;
-  background-color: var(--primary);
-  border-radius: var(--radius-full);
-}
-
-.section-title {
-  font-size: clamp(2rem, 3.8vw, 3rem);
-  font-weight: 800;
-  margin-bottom: 1rem;
-}
-
-.section-subtitle {
-  font-size: clamp(1rem, 1.3vw, 1.125rem);
-  color: var(--text-muted);
-  max-width: 680px;
-  line-height: 1.7;
-}
 
 a {
   color: var(--primary);
@@ -717,14 +767,14 @@ img {
 }
 
 .brand-main {
-  font-weight: 800;
+  font-weight: 600;
   font-size: 1.4rem;
   color: var(--text-heading);
   letter-spacing: -0.01em;
 }
 
 .brand-sub {
-  font-weight: 800;
+  font-weight: 600;
   font-size: 1.4rem;
   color: var(--primary) !important;
   letter-spacing: -0.01em;
@@ -987,7 +1037,7 @@ img {
   align-items: center;
   justify-content: center;
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 600;
   flex-shrink: 0;
 }
 
@@ -1153,16 +1203,66 @@ img {
 /* --- Hero Section (Home 1) --- */
 .hero-section {
   position: relative;
-  padding: 5rem 0 4rem;
+  min-height: clamp(560px, 75vh, 760px);
+  padding: clamp(3.5rem, 5vw, 5rem) 0;
+  display: flex;
+  align-items: center;
   background: radial-gradient(circle at 80% 20%, rgba(212, 163, 89, 0.12) 0%, transparent 50%),
               radial-gradient(circle at 10% 80%, rgba(195, 90, 56, 0.08) 0%, transparent 40%),
               var(--bg-body);
   overflow: hidden;
 }
 
+/* --- Standardized Page Banner / Hero System (Inner Pages) --- */
+.page-hero,
+.page-banner,
+section.py-5.bg-surface-soft.border-bottom.border-subtle {
+  position: relative;
+  padding: clamp(3.75rem, 6vw, 5.25rem) 0 !important;
+  min-height: clamp(250px, 32vh, 320px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: var(--bg-surface-soft) !important;
+  border-bottom: 1px solid var(--border-subtle) !important;
+  text-align: center !important;
+}
+
+.page-hero .container,
+.page-banner .container,
+section.py-5.bg-surface-soft.border-bottom.border-subtle .container {
+  width: 100%;
+}
+
+.page-hero h1,
+.page-banner h1,
+section.py-5.bg-surface-soft.border-bottom.border-subtle h1 {
+  font-size: clamp(2rem, 3.8vw, 3rem) !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  margin-bottom: 0.85rem !important;
+}
+
+.page-hero p.lead,
+.page-hero .lead,
+.page-banner p.lead,
+.page-banner .lead,
+section.py-5.bg-surface-soft.border-bottom.border-subtle p.lead,
+section.py-5.bg-surface-soft.border-bottom.border-subtle .lead {
+  font-size: clamp(1.05rem, 1.3vw, 1.2rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.65 !important;
+  color: var(--text-muted) !important;
+  max-width: 680px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 0 !important;
+}
+
+
 .hero-title {
   font-size: clamp(2.5rem, 5vw, 4.25rem);
-  font-weight: 800;
+  font-weight: 600 !important;
   line-height: 1.12;
   letter-spacing: -0.03em;
   margin-bottom: 1.5rem;
@@ -1255,7 +1355,7 @@ img {
   bottom: 1.25rem;
   padding: 0.35rem 0.85rem;
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 550;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   border-radius: var(--radius-sm);
@@ -1320,7 +1420,7 @@ img {
 .stat-number {
   font-family: var(--font-heading);
   font-size: clamp(2.25rem, 3.5vw, 3.25rem);
-  font-weight: 800;
+  font-weight: 600;
   color: var(--primary);
   line-height: 1;
   margin-bottom: 0.35rem;
@@ -1425,7 +1525,7 @@ img {
 
 .service-card-title {
   font-size: 1.22rem;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 0.65rem;
   transition: color 0.25s ease;
 }
@@ -1634,7 +1734,7 @@ img {
 .project-category-pill {
   display: inline-block;
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 550;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--secondary);
@@ -1644,7 +1744,7 @@ img {
 .project-card .project-title {
   color: #FFFFFF;
   font-size: 1.25rem;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 0.35rem;
 }
 
@@ -1662,7 +1762,7 @@ img {
 .project-details-category {
   display: inline-block;
   font-size: 0.9375rem; /* 15-16px */
-  font-weight: 700;
+  font-weight: 550;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--secondary);
@@ -1672,7 +1772,7 @@ img {
 .project-details-title {
   color: var(--text-heading);
   font-size: clamp(1.75rem, 3.5vw, 2rem); /* 28-32px */
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.25;
   margin-bottom: 0.5rem;
 }
@@ -1753,7 +1853,7 @@ img {
 .process-number {
   font-family: var(--font-heading);
   font-size: 2.25rem;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--primary);
   letter-spacing: -0.02em;
   margin-bottom: 0.75rem;
@@ -1819,7 +1919,7 @@ img {
   background: var(--primary);
   color: #FFFFFF;
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 550;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   padding: 0.3rem 1rem;
@@ -1829,7 +1929,7 @@ img {
 
 .pricing-price {
   font-size: 2.75rem;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--text-heading);
   line-height: 1;
   margin: 1.25rem 0 0.5rem;
@@ -1914,7 +2014,7 @@ img {
   color: var(--accent);
   font-family: var(--font-heading);
   font-size: 0.8125rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 0.25rem;
@@ -1923,7 +2023,7 @@ img {
 
 .calc-total-amount {
   font-size: 2.75rem;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--secondary);
   line-height: 1.15;
   margin: 0.35rem 0;
@@ -1960,7 +2060,7 @@ img {
   background-color: var(--bg-surface-soft) !important;
   color: var(--text-heading) !important;
   border-color: var(--border-subtle) !important;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .table tbody th {
@@ -2094,7 +2194,7 @@ img {
 
 .blog-card-title {
   font-size: 1.1875rem;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 0.75rem;
   line-height: 1.4;
 }
@@ -2146,7 +2246,7 @@ img {
 
 .footer-title {
   font-size: 1.125rem;
-  font-weight: 700;
+  font-weight: 600;
   color: #FFFFFF;
   margin-bottom: 1.5rem;
   letter-spacing: -0.01em;
@@ -2261,7 +2361,7 @@ img {
 
 .share-article-label {
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text-heading, #101418);
   line-height: 1;
   letter-spacing: -0.01em;
@@ -2386,13 +2486,13 @@ html:not([data-theme="dark"]) .main-footer .text-white {
 .main-footer .navbar-brand .text-secondary,
 .main-footer .navbar-brand .brand-sub {
   color: var(--primary) !important;
-  font-weight: 800 !important;
+  font-weight: 600 !important;
 }
 
 [data-theme="dark"] .main-footer .navbar-brand .text-secondary,
 [data-theme="dark"] .main-footer .navbar-brand .brand-sub {
   color: var(--secondary) !important;
-  font-weight: 800 !important;
+  font-weight: 600 !important;
 }
 
 html:not([data-theme="dark"]) .main-footer .footer-title {
@@ -2766,7 +2866,7 @@ input[type="file"]::-webkit-file-upload-button {
   width: 100%;
   padding: 0.65rem 1.25rem;
   font-size: 0.9375rem;
-  font-weight: 700;
+  font-weight: 600;
   border-radius: 8px;
   line-height: 1.4;
   box-shadow: 0 4px 12px rgba(195, 90, 56, 0.25);

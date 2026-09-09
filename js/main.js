@@ -1125,23 +1125,32 @@ function initRtlSwitcher() {
   });
 
   function applyDirection(dir) {
-    if (dir === 'rtl') {
+    const isRtl = dir === 'rtl';
+    const toggles = document.querySelectorAll('.rtl-toggle');
+
+    if (isRtl) {
       document.documentElement.setAttribute('dir', 'rtl');
       localStorage.setItem('aura_dir', 'rtl');
-      const toggles = document.querySelectorAll('.rtl-toggle');
       toggles.forEach(t => {
         t.classList.add('active');
         t.setAttribute('title', 'Switch to LTR (Left-to-Right)');
         t.setAttribute('aria-label', 'Switch to LTR (Left-to-Right)');
+        const icon = t.querySelector('i');
+        if (icon) {
+          icon.className = 'bi bi-text-left';
+        }
       });
     } else {
       document.documentElement.removeAttribute('dir');
       localStorage.setItem('aura_dir', 'ltr');
-      const toggles = document.querySelectorAll('.rtl-toggle');
       toggles.forEach(t => {
         t.classList.remove('active');
         t.setAttribute('title', 'Switch to RTL (Right-to-Left)');
         t.setAttribute('aria-label', 'Switch to RTL (Right-to-Left)');
+        const icon = t.querySelector('i');
+        if (icon) {
+          icon.className = 'bi bi-text-right';
+        }
       });
     }
   }
