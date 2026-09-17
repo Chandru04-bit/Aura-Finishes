@@ -19,28 +19,18 @@
   <link rel="stylesheet" href="../css/rtl.css">
 </head>
 <body class="auth-standalone-page">
-  <!-- Standalone Header Topbar -->
-  <header class="auth-topbar">
-    <a href="../index.html" class="auth-brand" aria-label="Aura Finishes Home">
-      <div class="brand-icon-wrapper me-2"><i class="bi bi-brush-fill"></i></div>
-      <div class="brand-text-group"><span class="brand-main">Aura</span><span class="brand-sub">Finishes</span></div>
-    </a>
-
-    <div class="d-flex align-items-center gap-2">
-      <button class="mode-toggle" type="button" title="Toggle Dark/Light Mode" aria-label="Toggle Dark Theme">
-        <i class="bi bi-moon-stars-fill"></i>
-      </button>
-      <button class="rtl-toggle" type="button" title="Toggle RTL Text Direction" aria-label="Toggle RTL Direction">
-        <i class="bi bi-text-right"></i>
-      </button>
-      <a href="../index.html" class="btn btn-outline-dark btn-sm d-none d-sm-inline-flex align-items-center">
-        <i class="bi bi-arrow-left me-1"></i> Back to Website
-      </a>
-    </div>
-  </header>
+  <!-- Floating Dark/Light & Direction Controls -->
+  <div class="auth-theme-controls">
+    <button class="mode-toggle" type="button" title="Toggle Dark/Light Mode" aria-label="Toggle Dark Theme">
+      <i class="bi bi-moon-stars-fill"></i>
+    </button>
+    <button class="rtl-toggle" type="button" title="Toggle RTL Text Direction" aria-label="Toggle RTL Direction">
+      <i class="bi bi-text-right"></i>
+    </button>
+  </div>
 
   <!-- Auth Main Content (Centered Form Card) -->
-  <main class="flex-grow-1 d-flex align-items-center justify-content-center py-4 px-3">
+  <main class="auth-main-wrapper flex-grow-1 d-flex align-items-center justify-content-center py-4 px-3">
     <div class="auth-container">
       <div class="auth-card-compact">
         <div class="text-center mb-3">
