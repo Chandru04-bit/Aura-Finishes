@@ -2666,15 +2666,26 @@ function logoutUser() {
 window.logoutUser = logoutUser;
 
 function updateNavbarAuth() {
-  const user = getAuthUser();
-  const isAuthenticated = user && user.name;
+  const isAuthPage = document.body.classList.contains('page-full-flex') ||
+                     document.body.classList.contains('auth-standalone-page') ||
+                     ['login.html', 'register.html', 'signin.html', 'signin'].some(p => window.location.pathname.includes(p));
+
+  const headerActionsList = document.querySelectorAll('.header-actions');
+  const navbars = document.querySelectorAll('.navbar-nav');
 
   // Clean up any old mobile nav items or legacy elements
   document.querySelectorAll('.admin-nav-item').forEach(el => el.remove());
   document.querySelectorAll('.admin-public-dock, #navAdminDashboardBtn, .admin-auth-controls').forEach(el => el.remove());
 
-  const headerActionsList = document.querySelectorAll('.header-actions');
-  const navbars = document.querySelectorAll('.navbar-nav');
+  if (isAuthPage) {
+    headerActionsList.forEach(actions => {
+      actions.querySelectorAll('.user-auth-menu, .auth-signin-btn, .auth-btn, a[href*="signin"], a[href*="login.html"], a[href*="register.html"]').forEach(el => el.remove());
+    });
+    return;
+  }
+
+  const user = getAuthUser();
+  const isAuthenticated = user && user.name;
 
   if (isAuthenticated) {
     const displayName = sanitizeDisplayName(user.name);

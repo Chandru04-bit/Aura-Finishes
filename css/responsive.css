@@ -311,7 +311,7 @@ select, .form-select, input, .form-control, textarea {
   }
 
   /* Header Actions inside Mobile Navigation Drawer */
-  .header-actions {
+  .navbar-collapse .header-actions {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -322,8 +322,20 @@ select, .form-select, input, .form-control, textarea {
     width: 100%;
   }
 
-  .header-actions .auth-btn,
-  .header-actions .auth-signin-btn {
+  .navbar > .header-actions {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 0.5rem !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+    border-top: none !important;
+    width: auto !important;
+    margin-left: auto !important;
+  }
+
+  .navbar-collapse .header-actions .auth-btn,
+  .navbar-collapse .header-actions .auth-signin-btn {
     flex: 1;
     display: inline-flex !important;
     align-items: center !important;
@@ -332,6 +344,19 @@ select, .form-select, input, .form-control, textarea {
     padding: 0 1rem !important;
     height: 44px !important;
     min-height: 44px !important;
+    font-size: 0.875rem !important;
+  }
+
+  .navbar > .header-actions .auth-btn,
+  .navbar > .header-actions .auth-signin-btn {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    padding: 0.4rem 1rem !important;
     font-size: 0.875rem !important;
   }
 
